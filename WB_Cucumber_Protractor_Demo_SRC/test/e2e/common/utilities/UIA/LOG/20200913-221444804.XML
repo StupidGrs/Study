@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><log space="preserve"><logline level="5" timestamp="20200913-221444808"> <information> Information _UIA_VersionInfo version: T0.6-6; Release date: 20181104; OS Version: WIN_10</information></logline>
+<logline level="0" timestamp="20200913-221444810"> </logline>
+<logline level="0" timestamp="20200913-221448481"> _UIA_action: No RTI.SEARCHCONTEXT used for oUIElement
+_UIA_action: try for RTI.MAINWINDOW
+_UIA_action: Finding object oUIElement object a:=0 under RTI.MAINWINDOW object b:=1
+  looking for Title:=;controltype:=UIA_GroupControlTypeId;class:=
+_UIA_normalizeExpression Title:=;controltype:=UIA_GroupControlTypeId;class:=;elements 1-3in properties array
+  _UIA_getObjectByFindAll property 1 Title:=
+ name:[Title] value:[] having index 3
+  _UIA_getObjectByFindAll property 2 controltype:=UIA_GroupControlTypeId
+ name:[controltype] value:[50026] having index 15
+  _UIA_getObjectByFindAll property 3 class:=
+ name:[class] value:[] having index 6
+*** Try to get a list of elements *** treescopetype:=2
+_UIA_getObjectByFindAll walk thru the tree with n elements where n equals 14&lt;propertymatching&gt;&lt;/propertymatching&gt;  deep find in subtree Title:=;controltype:=UIA_GroupControlTypeId;class:=
+_UIA_normalizeExpression Title:=;controltype:=UIA_GroupControlTypeId;class:=;elements 1-3in properties array
+  _UIA_getObjectByFindAll property 1 Title:=
+ name:[Title] value:[] having index 3
+  _UIA_getObjectByFindAll property 2 controltype:=UIA_GroupControlTypeId
+ name:[controltype] value:[50026] having index 15
+  _UIA_getObjectByFindAll property 3 class:=
+ name:[class] value:[] having index 6
+*** Try to get a list of elements *** treescopetype:=7
+_UIA_getObjectByFindAll walk thru the tree with n elements where n equals 1050Found match with element: 133 the Name is: &lt;Title is: &lt;&gt;	Class   := &lt;LandmarkTarget&gt;	controltype:= &lt;UIA_GroupControlTypeId&gt;	,&lt;50026&gt;	, (0000C36A)	rect := &lt; 0;73;1366;665&gt;	hwnd := &lt; 0&gt;	acceleratorkey := &lt; &gt;	automationid := &lt;m_webpageContent&gt;
+
+&lt;propertymatching&gt;&lt;/propertymatching&gt;Storing parent for found object in RTI as RTI.PARENT Microsoft Edge
+&lt;action&gt;Action 1 highlight on oUIElement _UIA_IsElement:=1 Parameters 1:=0 2:=0 3:=0 4:=0&lt;/action&gt;</logline>
+<logline level="0" timestamp="20200913-221448702"> </logline>
+<logline level="0" timestamp="20200913-221451941"> _UIA_action: No RTI.SEARCHCONTEXT used for oUIElement
+_UIA_action: try for RTI.MAINWINDOW
+_UIA_action: Finding object oUIElement object a:=0 under RTI.MAINWINDOW object b:=1
+  looking for Title:=;controltype:=UIA_GroupControlTypeId;class:=
+_UIA_normalizeExpression Title:=;controltype:=UIA_GroupControlTypeId;class:=;elements 1-3in properties array
+  _UIA_getObjectByFindAll property 1 Title:=
+ name:[Title] value:[] having index 3
+  _UIA_getObjectByFindAll property 2 controltype:=UIA_GroupControlTypeId
+ name:[controltype] value:[50026] having index 15
+  _UIA_getObjectByFindAll property 3 class:=
+ name:[class] value:[] having index 6
+*** Try to get a list of elements *** treescopetype:=2
+_UIA_getObjectByFindAll walk thru the tree with n elements where n equals 14&lt;propertymatching&gt;&lt;/propertymatching&gt;  deep find in subtree Title:=;controltype:=UIA_GroupControlTypeId;class:=
+_UIA_normalizeExpression Title:=;controltype:=UIA_GroupControlTypeId;class:=;elements 1-3in properties array
+  _UIA_getObjectByFindAll property 1 Title:=
+ name:[Title] value:[] having index 3
+  _UIA_getObjectByFindAll property 2 controltype:=UIA_GroupControlTypeId
+ name:[controltype] value:[50026] having index 15
+  _UIA_getObjectByFindAll property 3 class:=
+ name:[class] value:[] having index 6
+*** Try to get a list of elements *** treescopetype:=7
+_UIA_getObjectByFindAll walk thru the tree with n elements where n equals 1056Found match with element: 139 the Name is: &lt;Title is: &lt;&gt;	Class   := &lt;LandmarkTarget&gt;	controltype:= &lt;UIA_GroupControlTypeId&gt;	,&lt;50026&gt;	, (0000C36A)	rect := &lt; 0;73;1366;665&gt;	hwnd := &lt; 0&gt;	acceleratorkey := &lt; &gt;	automationid := &lt;m_webpageContent&gt;
+
+&lt;propertymatching&gt;&lt;/propertymatching&gt;Storing parent for found object in RTI as RTI.PARENT Microsoft Edge
+&lt;action&gt;Action 2 click on oUIElement _UIA_IsElement:=1 Parameters 1:=0 2:=0 3:=0 4:=0&lt;/action&gt;</logline>
+</log>

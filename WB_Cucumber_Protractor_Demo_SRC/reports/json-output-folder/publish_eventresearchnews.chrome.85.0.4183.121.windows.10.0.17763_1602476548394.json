@@ -1,0 +1,216 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Publish Event/Research/News",
+    "line": 1,
+    "id": "publish-event/research/news",
+    "tags": [],
+    "uri": "test\\e2e\\features\\Publish.feature",
+    "elements": [
+      {
+        "id": "publish-event/research/news;user-publish-event",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "User publish Event",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "test\\support\\hooks.js:17"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "test\\support\\hooks.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "test\\support\\hooks.js:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "User logs in as 'glob.admin@src.mercer.com'",
+            "match": {
+              "location": "test\\e2e\\step_definitions\\bz_step_definitions.js:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2713000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "User clicks publish -> 'Event'",
+            "match": {
+              "location": "test\\e2e\\step_definitions\\bz_step_definitions.js:78"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 896000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "User fills in the basic info '0_Event', '0_excerpt', 'https://test.com', '0_content'",
+            "match": {
+              "location": "test\\e2e\\step_definitions\\bz_step_definitions.js:94"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2113000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "User fills in the Company, EventType, Location info 'CompAuto', 'Webinar', 'Shanghai, Chin'",
+            "match": {
+              "location": "test\\e2e\\step_definitions\\bz_step_definitions.js:100"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2763000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "User fills in Start Date and Start Time '', '11:00 AM'",
+            "match": {
+              "location": "test\\e2e\\step_definitions\\bz_step_definitions.js:105"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2160000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "User fills in End Date and End Time '', '10:00 PM'",
+            "match": {
+              "location": "test\\e2e\\step_definitions\\bz_step_definitions.js:112"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2901000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "User fills in Taxonomy and Tags 'Real Estate', 'Team'",
+            "match": {
+              "location": "test\\e2e\\step_definitions\\bz_step_definitions.js:120"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1031000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "User uploads featured image '../data/in/Test_Image.jpg'",
+            "match": {
+              "location": "test\\e2e\\step_definitions\\bz_step_definitions.js:126"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8410000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "User selects regions 'Asia'",
+            "match": {
+              "location": "test\\e2e\\step_definitions\\bz_step_definitions.js:132"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 314000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "User sleeps 5 seconds",
+            "match": {
+              "location": "test\\e2e\\step_definitions\\bz_step_definitions.js:139"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5000000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "test\\support\\hooks.js:48"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules\\protractor-cucumber-framework\\lib\\resultsCapturer.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "browser": {
+        "name": "chrome",
+        "version": "85.0.4183.121"
+      },
+      "device": "My Testing PC",
+      "platform": {
+        "name": "windows",
+        "version": "10.0.17763"
+      }
+    }
+  }
+]

@@ -1,0 +1,1267 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><log space="preserve"><logline level="5" timestamp="20200913-221229529"> <information> Information _UIA_VersionInfo version: T0.6-6; Release date: 20181104; OS Version: WIN_10</information></logline>
+<logline level="5" timestamp="20200913-221229530"> _UIA_normalizeExpression Title:=SRC - Publish ?- Microsoft Edge;controltype:=UIA_WindowControlTypeId;class:=ApplicationFrameWindow;elements 1-3in properties array</logline>
+<logline level="5" timestamp="20200913-221229530">   _UIA_getObjectByFindAll property 1 Title:=SRC - Publish ?- Microsoft Edge</logline>
+<logline level="5" timestamp="20200913-221229531">  name:[Title] value:[SRC - Publish ?- Microsoft Edge] having index 3</logline>
+<logline level="5" timestamp="20200913-221229531">   _UIA_getObjectByFindAll property 2 controltype:=UIA_WindowControlTypeId</logline>
+<logline level="5" timestamp="20200913-221229532">  name:[controltype] value:[50032] having index 15</logline>
+<logline level="5" timestamp="20200913-221229532">   _UIA_getObjectByFindAll property 3 class:=ApplicationFrameWindow</logline>
+<logline level="5" timestamp="20200913-221229533">  name:[class] value:[ApplicationFrameWindow] having index 6</logline>
+<logline level="5" timestamp="20200913-221229533"> *** Try to get a list of elements *** treescopetype:=2</logline>
+<logline level="0" timestamp="20200913-221229964"> _UIA_getObjectByFindAll walk thru the tree with n elements where n equals 14</logline>
+<logline level="5" timestamp="20200913-221230022"> <propertymatching></propertymatching></logline>
+<logline level="0" timestamp="20200913-221230027"> </logline>
+<logline level="0" timestamp="20200913-221230421"> _UIA_action: No RTI.SEARCHCONTEXT used for 
+_UIA_action: try for RTI.MAINWINDOW
+_UIA_action: Finding object  object a:=0 under RTI.MAINWINDOW object b:=1
+  looking for 
+_UIA_normalizeExpression ;elements 1-1in properties array
+  _UIA_getObjectByFindAll property 1 
+*** Try to get a list of elements *** treescopetype:=2
+_UIA_getObjectByFindAll walk thru the tree with n elements where n equals 14Found match with element: 0 the Name is: &lt;Title is: &lt;Taskbar&gt;	Class   := &lt;Shell_TrayWnd&gt;	controltype:= &lt;UIA_PaneControlTypeId&gt;	,&lt;50033&gt;	, (0000C371)	rect := &lt; 0;738;1366;30&gt;	hwnd := &lt; 196860&gt;	acceleratorkey := &lt; &gt;	automationid := &lt;&gt;
+
+&lt;propertymatching&gt;&lt;/propertymatching&gt;Storing parent for found object in RTI as RTI.PARENT Desktop 1
+&lt;action&gt;Action 1 setfocus on  _UIA_IsElement:=1 Parameters 1:=0 2:=0 3:=0 4:=0&lt;/action&gt;</logline>
+<logline level="5" timestamp="20200913-221230674"> _UIA_normalizeExpression Title:=Microsoft Edge;controltype:=UIA_WindowControlTypeId;class:=Windows.UI.Core.CoreWindow;elements 1-3in properties array</logline>
+<logline level="5" timestamp="20200913-221230674">   _UIA_getObjectByFindAll property 1 Title:=Microsoft Edge</logline>
+<logline level="5" timestamp="20200913-221230675">  name:[Title] value:[Microsoft Edge] having index 3</logline>
+<logline level="5" timestamp="20200913-221230675">   _UIA_getObjectByFindAll property 2 controltype:=UIA_WindowControlTypeId</logline>
+<logline level="5" timestamp="20200913-221230676">  name:[controltype] value:[50032] having index 15</logline>
+<logline level="5" timestamp="20200913-221230676">   _UIA_getObjectByFindAll property 3 class:=Windows.UI.Core.CoreWindow</logline>
+<logline level="5" timestamp="20200913-221230677">  name:[class] value:[Windows.UI.Core.CoreWindow] having index 6</logline>
+<logline level="5" timestamp="20200913-221230677"> ***** FATAL:???? _UIA_getObjectByFindAll no childarray found for object with following details *****</logline>
+<logline level="5" timestamp="20200913-221230687"> UIA_title:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_text:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexptitle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_class:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexpclass:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblevalue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblechildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_id:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_handle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RuntimeId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_BoundingRectangle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProcessId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LocalizedControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Name:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AcceleratorKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AccessKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HasKeyboardFocus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsKeyboardFocusable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsEnabled:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AutomationId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClassName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HelpText:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClickablePoint:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Culture:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsControlElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsContentElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LabeledBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsPassword:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_NativeWindowHandle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsOffscreen:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Orientation:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FrameworkId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRequiredForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemStatus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDockPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsExpandCollapsePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsInvokePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsMultipleViewPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRangeValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTablePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTableItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTextPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTogglePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTransformPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsWindowPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMinimum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMaximum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueLargeChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueSmallChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionCanSelectMultiple:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionIsSelectionRequired:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridRowCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridColumnCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRow:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumn:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRowSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumnSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemContainingGrid:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DockDockPosition:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ExpandCollapseExpandCollapseState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewCurrentView:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewSupportedViews:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMaximize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMinimize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowVisualState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowInteractionState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsModal:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsTopmost:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemIsSelected:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemSelectionContainer:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableColumnHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowOrColumnMajor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemRowHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemColumnHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ToggleToggleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanMove:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanResize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanRotate:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsLegacyIAccessiblePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleChildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleHelp:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleKeyboardShortcut:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDefaultAction:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaProperties:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDataValidForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControllerFor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DescribedBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FlowsTo:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProviderDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsItemContainerPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsVirtualizedItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSynchronizedInputPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+</logline>
+<logline level="0" timestamp="20200913-221230688"> _UIA_getObjectByFindAll walk thru the tree with n elements where n equals 0</logline>
+<logline level="5" timestamp="20200913-221230688"> <propertymatching></propertymatching></logline>
+<logline level="0" timestamp="20200913-221230688"> </logline>
+<logline level="0" timestamp="20200913-221230948"> _UIA_action: Finding object  object a:=0 under RTI.SEARCHCONTEXT object b:=1
+  looking for 
+_UIA_normalizeExpression ;elements 1-1in properties array
+  _UIA_getObjectByFindAll property 1 
+*** Try to get a list of elements *** treescopetype:=2
+_UIA_getObjectByFindAll walk thru the tree with n elements where n equals 6Found match with element: 0 the Name is: &lt;Title is: &lt;Start&gt;	Class   := &lt;Start&gt;	controltype:= &lt;UIA_ButtonControlTypeId&gt;	,&lt;50000&gt;	, (0000C350)	rect := &lt; 0;738;36;30&gt;	hwnd := &lt; 196862&gt;	acceleratorkey := &lt; &gt;	automationid := &lt;&gt;
+
+&lt;propertymatching&gt;&lt;/propertymatching&gt;Storing parent for found object in RTI as RTI.PARENT Taskbar
+&lt;action&gt;Action 2 setfocus on  _UIA_IsElement:=1 Parameters 1:=0 2:=0 3:=0 4:=0&lt;/action&gt;</logline>
+<logline level="5" timestamp="20200913-221231202"> _UIA_normalizeExpression Title:=;controltype:=UIA_GroupControlTypeId;class:=LandmarkTarget;elements 1-3in properties array</logline>
+<logline level="5" timestamp="20200913-221231203">   _UIA_getObjectByFindAll property 1 Title:=</logline>
+<logline level="5" timestamp="20200913-221231203">  name:[Title] value:[] having index 3</logline>
+<logline level="5" timestamp="20200913-221231203">   _UIA_getObjectByFindAll property 2 controltype:=UIA_GroupControlTypeId</logline>
+<logline level="5" timestamp="20200913-221231204">  name:[controltype] value:[50026] having index 15</logline>
+<logline level="5" timestamp="20200913-221231204">   _UIA_getObjectByFindAll property 3 class:=LandmarkTarget</logline>
+<logline level="5" timestamp="20200913-221231205">  name:[class] value:[LandmarkTarget] having index 6</logline>
+<logline level="5" timestamp="20200913-221231205"> ***** FATAL:???? _UIA_getObjectByFindAll no childarray found for object with following details *****</logline>
+<logline level="5" timestamp="20200913-221231215"> UIA_title:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_text:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexptitle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_class:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexpclass:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblevalue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblechildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_id:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_handle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RuntimeId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_BoundingRectangle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProcessId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LocalizedControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Name:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AcceleratorKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AccessKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HasKeyboardFocus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsKeyboardFocusable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsEnabled:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AutomationId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClassName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HelpText:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClickablePoint:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Culture:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsControlElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsContentElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LabeledBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsPassword:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_NativeWindowHandle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsOffscreen:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Orientation:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FrameworkId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRequiredForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemStatus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDockPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsExpandCollapsePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsInvokePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsMultipleViewPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRangeValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTablePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTableItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTextPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTogglePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTransformPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsWindowPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMinimum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMaximum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueLargeChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueSmallChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionCanSelectMultiple:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionIsSelectionRequired:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridRowCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridColumnCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRow:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumn:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRowSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumnSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemContainingGrid:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DockDockPosition:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ExpandCollapseExpandCollapseState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewCurrentView:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewSupportedViews:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMaximize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMinimize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowVisualState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowInteractionState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsModal:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsTopmost:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemIsSelected:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemSelectionContainer:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableColumnHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowOrColumnMajor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemRowHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemColumnHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ToggleToggleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanMove:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanResize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanRotate:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsLegacyIAccessiblePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleChildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleHelp:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleKeyboardShortcut:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDefaultAction:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaProperties:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDataValidForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControllerFor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DescribedBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FlowsTo:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProviderDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsItemContainerPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsVirtualizedItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSynchronizedInputPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+</logline>
+<logline level="0" timestamp="20200913-221231215"> _UIA_getObjectByFindAll walk thru the tree with n elements where n equals 0</logline>
+<logline level="5" timestamp="20200913-221231216"> <propertymatching></propertymatching></logline>
+<logline level="5" timestamp="20200913-221231216"> _UIA_normalizeExpression Title:=;controltype:=UIA_PaneControlTypeId;class:=ScrollViewer;elements 1-3in properties array</logline>
+<logline level="5" timestamp="20200913-221231217">   _UIA_getObjectByFindAll property 1 Title:=</logline>
+<logline level="5" timestamp="20200913-221231217">  name:[Title] value:[] having index 3</logline>
+<logline level="5" timestamp="20200913-221231217">   _UIA_getObjectByFindAll property 2 controltype:=UIA_PaneControlTypeId</logline>
+<logline level="5" timestamp="20200913-221231218">  name:[controltype] value:[50033] having index 15</logline>
+<logline level="5" timestamp="20200913-221231218">   _UIA_getObjectByFindAll property 3 class:=ScrollViewer</logline>
+<logline level="5" timestamp="20200913-221231219">  name:[class] value:[ScrollViewer] having index 6</logline>
+<logline level="5" timestamp="20200913-221231219"> ***** FATAL:???? _UIA_getObjectByFindAll no childarray found for object with following details *****</logline>
+<logline level="5" timestamp="20200913-221231229"> UIA_title:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_text:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexptitle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_class:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexpclass:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblevalue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblechildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_id:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_handle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RuntimeId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_BoundingRectangle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProcessId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LocalizedControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Name:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AcceleratorKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AccessKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HasKeyboardFocus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsKeyboardFocusable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsEnabled:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AutomationId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClassName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HelpText:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClickablePoint:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Culture:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsControlElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsContentElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LabeledBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsPassword:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_NativeWindowHandle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsOffscreen:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Orientation:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FrameworkId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRequiredForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemStatus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDockPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsExpandCollapsePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsInvokePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsMultipleViewPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRangeValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTablePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTableItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTextPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTogglePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTransformPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsWindowPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMinimum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMaximum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueLargeChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueSmallChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionCanSelectMultiple:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionIsSelectionRequired:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridRowCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridColumnCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRow:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumn:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRowSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumnSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemContainingGrid:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DockDockPosition:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ExpandCollapseExpandCollapseState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewCurrentView:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewSupportedViews:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMaximize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMinimize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowVisualState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowInteractionState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsModal:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsTopmost:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemIsSelected:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemSelectionContainer:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableColumnHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowOrColumnMajor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemRowHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemColumnHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ToggleToggleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanMove:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanResize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanRotate:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsLegacyIAccessiblePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleChildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleHelp:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleKeyboardShortcut:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDefaultAction:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaProperties:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDataValidForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControllerFor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DescribedBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FlowsTo:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProviderDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsItemContainerPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsVirtualizedItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSynchronizedInputPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+</logline>
+<logline level="0" timestamp="20200913-221231229"> _UIA_getObjectByFindAll walk thru the tree with n elements where n equals 0</logline>
+<logline level="5" timestamp="20200913-221231229"> <propertymatching></propertymatching></logline>
+<logline level="5" timestamp="20200913-221231230"> _UIA_normalizeExpression Title:=;controltype:=UIA_CustomControlTypeId;class:=;elements 1-3in properties array</logline>
+<logline level="5" timestamp="20200913-221231230">   _UIA_getObjectByFindAll property 1 Title:=</logline>
+<logline level="5" timestamp="20200913-221231231">  name:[Title] value:[] having index 3</logline>
+<logline level="5" timestamp="20200913-221231231">   _UIA_getObjectByFindAll property 2 controltype:=UIA_CustomControlTypeId</logline>
+<logline level="5" timestamp="20200913-221231232">  name:[controltype] value:[50025] having index 15</logline>
+<logline level="5" timestamp="20200913-221231232">   _UIA_getObjectByFindAll property 3 class:=</logline>
+<logline level="5" timestamp="20200913-221231232">  name:[class] value:[] having index 6</logline>
+<logline level="5" timestamp="20200913-221231233"> ***** FATAL:???? _UIA_getObjectByFindAll no childarray found for object with following details *****</logline>
+<logline level="5" timestamp="20200913-221231242"> UIA_title:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_text:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexptitle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_class:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexpclass:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblevalue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblechildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_id:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_handle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RuntimeId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_BoundingRectangle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProcessId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LocalizedControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Name:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AcceleratorKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AccessKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HasKeyboardFocus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsKeyboardFocusable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsEnabled:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AutomationId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClassName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HelpText:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClickablePoint:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Culture:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsControlElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsContentElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LabeledBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsPassword:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_NativeWindowHandle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsOffscreen:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Orientation:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FrameworkId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRequiredForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemStatus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDockPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsExpandCollapsePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsInvokePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsMultipleViewPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRangeValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTablePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTableItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTextPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTogglePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTransformPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsWindowPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMinimum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMaximum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueLargeChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueSmallChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionCanSelectMultiple:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionIsSelectionRequired:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridRowCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridColumnCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRow:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumn:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRowSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumnSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemContainingGrid:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DockDockPosition:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ExpandCollapseExpandCollapseState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewCurrentView:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewSupportedViews:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMaximize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMinimize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowVisualState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowInteractionState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsModal:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsTopmost:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemIsSelected:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemSelectionContainer:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableColumnHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowOrColumnMajor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemRowHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemColumnHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ToggleToggleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanMove:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanResize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanRotate:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsLegacyIAccessiblePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleChildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleHelp:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleKeyboardShortcut:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDefaultAction:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaProperties:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDataValidForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControllerFor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DescribedBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FlowsTo:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProviderDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsItemContainerPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsVirtualizedItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSynchronizedInputPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+</logline>
+<logline level="0" timestamp="20200913-221231243"> _UIA_getObjectByFindAll walk thru the tree with n elements where n equals 0</logline>
+<logline level="5" timestamp="20200913-221231243"> <propertymatching></propertymatching></logline>
+<logline level="5" timestamp="20200913-221231244"> _UIA_normalizeExpression Title:=WebRuntime Component View;controltype:=UIA_GroupControlTypeId;class:=Windows.UI.Core.CoreWindow;elements 1-3in properties array</logline>
+<logline level="5" timestamp="20200913-221231244">   _UIA_getObjectByFindAll property 1 Title:=WebRuntime Component View</logline>
+<logline level="5" timestamp="20200913-221231245">  name:[Title] value:[WebRuntime Component View] having index 3</logline>
+<logline level="5" timestamp="20200913-221231245">   _UIA_getObjectByFindAll property 2 controltype:=UIA_GroupControlTypeId</logline>
+<logline level="5" timestamp="20200913-221231246">  name:[controltype] value:[50026] having index 15</logline>
+<logline level="5" timestamp="20200913-221231246">   _UIA_getObjectByFindAll property 3 class:=Windows.UI.Core.CoreWindow</logline>
+<logline level="5" timestamp="20200913-221231247">  name:[class] value:[Windows.UI.Core.CoreWindow] having index 6</logline>
+<logline level="5" timestamp="20200913-221231247"> ***** FATAL:???? _UIA_getObjectByFindAll no childarray found for object with following details *****</logline>
+<logline level="5" timestamp="20200913-221231257"> UIA_title:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_text:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexptitle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_class:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexpclass:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblevalue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblechildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_id:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_handle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RuntimeId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_BoundingRectangle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProcessId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LocalizedControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Name:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AcceleratorKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AccessKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HasKeyboardFocus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsKeyboardFocusable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsEnabled:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AutomationId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClassName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HelpText:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClickablePoint:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Culture:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsControlElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsContentElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LabeledBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsPassword:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_NativeWindowHandle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsOffscreen:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Orientation:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FrameworkId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRequiredForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemStatus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDockPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsExpandCollapsePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsInvokePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsMultipleViewPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRangeValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTablePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTableItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTextPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTogglePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTransformPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsWindowPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMinimum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMaximum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueLargeChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueSmallChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionCanSelectMultiple:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionIsSelectionRequired:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridRowCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridColumnCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRow:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumn:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRowSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumnSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemContainingGrid:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DockDockPosition:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ExpandCollapseExpandCollapseState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewCurrentView:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewSupportedViews:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMaximize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMinimize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowVisualState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowInteractionState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsModal:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsTopmost:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemIsSelected:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemSelectionContainer:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableColumnHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowOrColumnMajor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemRowHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemColumnHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ToggleToggleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanMove:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanResize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanRotate:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsLegacyIAccessiblePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleChildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleHelp:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleKeyboardShortcut:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDefaultAction:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaProperties:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDataValidForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControllerFor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DescribedBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FlowsTo:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProviderDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsItemContainerPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsVirtualizedItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSynchronizedInputPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+</logline>
+<logline level="0" timestamp="20200913-221231257"> _UIA_getObjectByFindAll walk thru the tree with n elements where n equals 0</logline>
+<logline level="5" timestamp="20200913-221231257"> <propertymatching></propertymatching></logline>
+<logline level="0" timestamp="20200913-221231258"> </logline>
+<logline level="0" timestamp="20200913-221231503"> _UIA_action: Finding object  object a:=0 under RTI.SEARCHCONTEXT object b:=1
+  looking for 
+_UIA_normalizeExpression ;elements 1-1in properties array
+  _UIA_getObjectByFindAll property 1 
+*** Try to get a list of elements *** treescopetype:=2
+_UIA_getObjectByFindAll walk thru the tree with n elements where n equals 0&lt;propertymatching&gt;&lt;/propertymatching&gt;  deep find in subtree 
+_UIA_normalizeExpression ;elements 1-1in properties array
+  _UIA_getObjectByFindAll property 1 
+*** Try to get a list of elements *** treescopetype:=7
+_UIA_getObjectByFindAll walk thru the tree with n elements where n equals 1Found match with element: 0 the Name is: &lt;Title is: &lt;Start&gt;	Class   := &lt;Start&gt;	controltype:= &lt;UIA_ButtonControlTypeId&gt;	,&lt;50000&gt;	, (0000C350)	rect := &lt; 0;738;36;30&gt;	hwnd := &lt; 196862&gt;	acceleratorkey := &lt; &gt;	automationid := &lt;&gt;
+
+&lt;propertymatching&gt;&lt;/propertymatching&gt;Storing parent for found object in RTI as RTI.PARENT Taskbar
+&lt;action&gt;Action 3 setfocus on  _UIA_IsElement:=1 Parameters 1:=0 2:=0 3:=0 4:=0&lt;/action&gt;</logline>
+<logline level="5" timestamp="20200913-221231758"> _UIA_normalizeExpression Title:=https://src.us-east-1.dev.awsapp.mercer.com/dashboard;controltype:=UIA_PaneControlTypeId;class:=Internet Explorer_Server;elements 1-3in properties array</logline>
+<logline level="5" timestamp="20200913-221231759">   _UIA_getObjectByFindAll property 1 Title:=https://src.us-east-1.dev.awsapp.mercer.com/dashboard</logline>
+<logline level="5" timestamp="20200913-221231759">  name:[Title] value:[https://src.us-east-1.dev.awsapp.mercer.com/dashboard] having index 3</logline>
+<logline level="5" timestamp="20200913-221231759">   _UIA_getObjectByFindAll property 2 controltype:=UIA_PaneControlTypeId</logline>
+<logline level="5" timestamp="20200913-221231760">  name:[controltype] value:[50033] having index 15</logline>
+<logline level="5" timestamp="20200913-221231760">   _UIA_getObjectByFindAll property 3 class:=Internet Explorer_Server</logline>
+<logline level="5" timestamp="20200913-221231761">  name:[class] value:[Internet Explorer_Server] having index 6</logline>
+<logline level="5" timestamp="20200913-221231761"> ***** FATAL:???? _UIA_getObjectByFindAll no childarray found for object with following details *****</logline>
+<logline level="5" timestamp="20200913-221231771"> UIA_title:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_text:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexptitle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_class:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexpclass:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblevalue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblechildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_id:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_handle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RuntimeId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_BoundingRectangle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProcessId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LocalizedControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Name:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AcceleratorKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AccessKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HasKeyboardFocus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsKeyboardFocusable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsEnabled:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AutomationId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClassName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HelpText:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClickablePoint:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Culture:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsControlElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsContentElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LabeledBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsPassword:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_NativeWindowHandle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsOffscreen:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Orientation:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FrameworkId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRequiredForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemStatus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDockPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsExpandCollapsePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsInvokePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsMultipleViewPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRangeValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTablePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTableItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTextPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTogglePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTransformPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsWindowPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMinimum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMaximum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueLargeChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueSmallChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionCanSelectMultiple:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionIsSelectionRequired:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridRowCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridColumnCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRow:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumn:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRowSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumnSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemContainingGrid:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DockDockPosition:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ExpandCollapseExpandCollapseState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewCurrentView:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewSupportedViews:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMaximize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMinimize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowVisualState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowInteractionState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsModal:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsTopmost:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemIsSelected:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemSelectionContainer:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableColumnHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowOrColumnMajor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemRowHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemColumnHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ToggleToggleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanMove:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanResize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanRotate:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsLegacyIAccessiblePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleChildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleHelp:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleKeyboardShortcut:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDefaultAction:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaProperties:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDataValidForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControllerFor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DescribedBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FlowsTo:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProviderDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsItemContainerPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsVirtualizedItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSynchronizedInputPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+</logline>
+<logline level="0" timestamp="20200913-221231771"> _UIA_getObjectByFindAll walk thru the tree with n elements where n equals 0</logline>
+<logline level="5" timestamp="20200913-221231772"> <propertymatching></propertymatching></logline>
+<logline level="0" timestamp="20200913-221231772"> </logline>
+<logline level="0" timestamp="20200913-221232028"> _UIA_action: Finding object  object a:=0 under RTI.SEARCHCONTEXT object b:=1
+  looking for 
+_UIA_normalizeExpression ;elements 1-1in properties array
+  _UIA_getObjectByFindAll property 1 
+*** Try to get a list of elements *** treescopetype:=2
+_UIA_getObjectByFindAll walk thru the tree with n elements where n equals 0&lt;propertymatching&gt;&lt;/propertymatching&gt;  deep find in subtree 
+_UIA_normalizeExpression ;elements 1-1in properties array
+  _UIA_getObjectByFindAll property 1 
+*** Try to get a list of elements *** treescopetype:=7
+_UIA_getObjectByFindAll walk thru the tree with n elements where n equals 1Found match with element: 0 the Name is: &lt;Title is: &lt;Start&gt;	Class   := &lt;Start&gt;	controltype:= &lt;UIA_ButtonControlTypeId&gt;	,&lt;50000&gt;	, (0000C350)	rect := &lt; 0;738;36;30&gt;	hwnd := &lt; 196862&gt;	acceleratorkey := &lt; &gt;	automationid := &lt;&gt;
+
+&lt;propertymatching&gt;&lt;/propertymatching&gt;Storing parent for found object in RTI as RTI.PARENT Taskbar
+&lt;action&gt;Action 4 setfocus on  _UIA_IsElement:=1 Parameters 1:=0 2:=0 3:=0 4:=0&lt;/action&gt;</logline>
+<logline level="5" timestamp="20200913-221232281"> _UIA_normalizeExpression Title:=SRC - Publish;controltype:=UIA_PaneControlTypeId;class:=;elements 1-3in properties array</logline>
+<logline level="5" timestamp="20200913-221232281">   _UIA_getObjectByFindAll property 1 Title:=SRC - Publish</logline>
+<logline level="5" timestamp="20200913-221232282">  name:[Title] value:[SRC - Publish] having index 3</logline>
+<logline level="5" timestamp="20200913-221232282">   _UIA_getObjectByFindAll property 2 controltype:=UIA_PaneControlTypeId</logline>
+<logline level="5" timestamp="20200913-221232283">  name:[controltype] value:[50033] having index 15</logline>
+<logline level="5" timestamp="20200913-221232283">   _UIA_getObjectByFindAll property 3 class:=</logline>
+<logline level="5" timestamp="20200913-221232284">  name:[class] value:[] having index 6</logline>
+<logline level="5" timestamp="20200913-221232284"> ***** FATAL:???? _UIA_getObjectByFindAll no childarray found for object with following details *****</logline>
+<logline level="5" timestamp="20200913-221232293"> UIA_title:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_text:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexptitle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_class:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexpclass:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblevalue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblechildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_id:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_handle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RuntimeId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_BoundingRectangle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProcessId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LocalizedControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Name:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AcceleratorKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AccessKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HasKeyboardFocus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsKeyboardFocusable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsEnabled:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AutomationId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClassName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HelpText:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClickablePoint:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Culture:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsControlElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsContentElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LabeledBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsPassword:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_NativeWindowHandle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsOffscreen:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Orientation:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FrameworkId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRequiredForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemStatus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDockPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsExpandCollapsePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsInvokePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsMultipleViewPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRangeValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTablePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTableItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTextPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTogglePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTransformPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsWindowPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMinimum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMaximum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueLargeChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueSmallChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionCanSelectMultiple:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionIsSelectionRequired:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridRowCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridColumnCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRow:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumn:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRowSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumnSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemContainingGrid:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DockDockPosition:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ExpandCollapseExpandCollapseState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewCurrentView:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewSupportedViews:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMaximize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMinimize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowVisualState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowInteractionState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsModal:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsTopmost:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemIsSelected:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemSelectionContainer:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableColumnHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowOrColumnMajor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemRowHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemColumnHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ToggleToggleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanMove:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanResize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanRotate:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsLegacyIAccessiblePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleChildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleHelp:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleKeyboardShortcut:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDefaultAction:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaProperties:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDataValidForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControllerFor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DescribedBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FlowsTo:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProviderDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsItemContainerPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsVirtualizedItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSynchronizedInputPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+</logline>
+<logline level="0" timestamp="20200913-221232294"> _UIA_getObjectByFindAll walk thru the tree with n elements where n equals 0</logline>
+<logline level="5" timestamp="20200913-221232294"> <propertymatching></propertymatching></logline>
+<logline level="5" timestamp="20200913-221232295"> _UIA_normalizeExpression Title:=;controltype:=UIA_GroupControlTypeId;class:=;elements 1-3in properties array</logline>
+<logline level="5" timestamp="20200913-221232295">   _UIA_getObjectByFindAll property 1 Title:=</logline>
+<logline level="5" timestamp="20200913-221232296">  name:[Title] value:[] having index 3</logline>
+<logline level="5" timestamp="20200913-221232296">   _UIA_getObjectByFindAll property 2 controltype:=UIA_GroupControlTypeId</logline>
+<logline level="5" timestamp="20200913-221232297">  name:[controltype] value:[50026] having index 15</logline>
+<logline level="5" timestamp="20200913-221232297">   _UIA_getObjectByFindAll property 3 class:=</logline>
+<logline level="5" timestamp="20200913-221232298">  name:[class] value:[] having index 6</logline>
+<logline level="5" timestamp="20200913-221232298"> ***** FATAL:???? _UIA_getObjectByFindAll no childarray found for object with following details *****</logline>
+<logline level="5" timestamp="20200913-221232307"> UIA_title:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_text:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexptitle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_class:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexpclass:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblevalue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblechildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_id:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_handle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RuntimeId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_BoundingRectangle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProcessId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LocalizedControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Name:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AcceleratorKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AccessKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HasKeyboardFocus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsKeyboardFocusable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsEnabled:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AutomationId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClassName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HelpText:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClickablePoint:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Culture:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsControlElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsContentElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LabeledBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsPassword:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_NativeWindowHandle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsOffscreen:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Orientation:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FrameworkId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRequiredForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemStatus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDockPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsExpandCollapsePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsInvokePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsMultipleViewPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRangeValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTablePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTableItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTextPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTogglePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTransformPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsWindowPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMinimum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMaximum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueLargeChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueSmallChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionCanSelectMultiple:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionIsSelectionRequired:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridRowCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridColumnCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRow:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumn:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRowSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumnSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemContainingGrid:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DockDockPosition:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ExpandCollapseExpandCollapseState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewCurrentView:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewSupportedViews:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMaximize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMinimize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowVisualState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowInteractionState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsModal:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsTopmost:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemIsSelected:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemSelectionContainer:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableColumnHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowOrColumnMajor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemRowHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemColumnHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ToggleToggleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanMove:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanResize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanRotate:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsLegacyIAccessiblePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleChildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleHelp:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleKeyboardShortcut:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDefaultAction:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaProperties:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDataValidForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControllerFor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DescribedBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FlowsTo:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProviderDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsItemContainerPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsVirtualizedItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSynchronizedInputPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+</logline>
+<logline level="0" timestamp="20200913-221232307"> _UIA_getObjectByFindAll walk thru the tree with n elements where n equals 0</logline>
+<logline level="5" timestamp="20200913-221232307"> <propertymatching></propertymatching></logline>
+<logline level="5" timestamp="20200913-221232308"> _UIA_normalizeExpression title:=;ControlType:=UIA_GroupControlTypeId;elements 1-2in properties array</logline>
+<logline level="5" timestamp="20200913-221232308">   _UIA_getObjectByFindAll property 1 title:=</logline>
+<logline level="5" timestamp="20200913-221232309">  name:[title] value:[] having index 3</logline>
+<logline level="5" timestamp="20200913-221232309">   _UIA_getObjectByFindAll property 2 ControlType:=UIA_GroupControlTypeId</logline>
+<logline level="5" timestamp="20200913-221232310">  name:[ControlType] value:[50026] having index 15</logline>
+<logline level="5" timestamp="20200913-221232310"> ***** FATAL:???? _UIA_getObjectByFindAll no childarray found for object with following details *****</logline>
+<logline level="5" timestamp="20200913-221232319"> UIA_title:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_text:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexptitle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_class:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_regexpclass:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblevalue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_iaccessiblechildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_id:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_handle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RuntimeId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_BoundingRectangle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProcessId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LocalizedControlType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Name:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AcceleratorKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AccessKey:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HasKeyboardFocus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsKeyboardFocusable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsEnabled:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AutomationId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClassName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_HelpText:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ClickablePoint:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Culture:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsControlElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsContentElement:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LabeledBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsPassword:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_NativeWindowHandle:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemType:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsOffscreen:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_Orientation:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FrameworkId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRequiredForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ItemStatus:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDockPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsExpandCollapsePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsGridPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsInvokePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsMultipleViewPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsRangeValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsScrollItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSelectionPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTablePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTableItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTextPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTogglePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsTransformPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsValuePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsWindowPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueIsReadOnly:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMinimum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueMaximum:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueLargeChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_RangeValueSmallChange:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalScrollPercent:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticalViewSize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollHorizontallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ScrollVerticallyScrollable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionCanSelectMultiple:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionIsSelectionRequired:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridRowCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridColumnCount:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRow:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumn:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemRowSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemColumnSpan:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_GridItemContainingGrid:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DockDockPosition:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ExpandCollapseExpandCollapseState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewCurrentView:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_MultipleViewSupportedViews:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMaximize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowCanMinimize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowVisualState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowWindowInteractionState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsModal:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_WindowIsTopmost:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemIsSelected:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_SelectionItemSelectionContainer:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableColumnHeaders:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableRowOrColumnMajor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemRowHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TableItemColumnHeaderItems:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ToggleToggleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanMove:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanResize:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_TransformCanRotate:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsLegacyIAccessiblePatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleChildId:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleName:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleValue:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleState:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleHelp:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleKeyboardShortcut:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleSelection:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_LegacyIAccessibleDefaultAction:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaRole:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_AriaProperties:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsDataValidForForm:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ControllerFor:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_DescribedBy:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_FlowsTo:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_ProviderDescription:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsItemContainerPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsVirtualizedItemPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+UIA_IsSynchronizedInputPatternAvailable:= &lt;** NO PROPERTYVALUE DUE TO NONEXISTING OBJECT **&gt;
+</logline>
+<logline level="0" timestamp="20200913-221232320"> _UIA_getObjectByFindAll walk thru the tree with n elements where n equals 0</logline>
+<logline level="5" timestamp="20200913-221232320"> <propertymatching></propertymatching></logline>
+<logline level="0" timestamp="20200913-221232321"> </logline>
+<logline level="0" timestamp="20200913-221232585"> _UIA_action: Finding object  object a:=0 under RTI.SEARCHCONTEXT object b:=1
+  looking for 
+_UIA_normalizeExpression ;elements 1-1in properties array
+  _UIA_getObjectByFindAll property 1 
+*** Try to get a list of elements *** treescopetype:=2
+_UIA_getObjectByFindAll walk thru the tree with n elements where n equals 0&lt;propertymatching&gt;&lt;/propertymatching&gt;  deep find in subtree 
+_UIA_normalizeExpression ;elements 1-1in properties array
+  _UIA_getObjectByFindAll property 1 
+*** Try to get a list of elements *** treescopetype:=7
+_UIA_getObjectByFindAll walk thru the tree with n elements where n equals 1Found match with element: 0 the Name is: &lt;Title is: &lt;Start&gt;	Class   := &lt;Start&gt;	controltype:= &lt;UIA_ButtonControlTypeId&gt;	,&lt;50000&gt;	, (0000C350)	rect := &lt; 0;738;36;30&gt;	hwnd := &lt; 196862&gt;	acceleratorkey := &lt; &gt;	automationid := &lt;&gt;
+
+&lt;propertymatching&gt;&lt;/propertymatching&gt;Storing parent for found object in RTI as RTI.PARENT Taskbar
+&lt;action&gt;Action 5 highlight on  _UIA_IsElement:=1 Parameters 1:=0 2:=0 3:=0 4:=0&lt;/action&gt;</logline>
+<logline level="0" timestamp="20200913-221232831"> </logline>
+<logline level="0" timestamp="20200913-221233081"> _UIA_action: Finding object  object a:=0 under RTI.SEARCHCONTEXT object b:=1
+  looking for 
+_UIA_normalizeExpression ;elements 1-1in properties array
+  _UIA_getObjectByFindAll property 1 
+*** Try to get a list of elements *** treescopetype:=2
+_UIA_getObjectByFindAll walk thru the tree with n elements where n equals 0&lt;propertymatching&gt;&lt;/propertymatching&gt;  deep find in subtree 
+_UIA_normalizeExpression ;elements 1-1in properties array
+  _UIA_getObjectByFindAll property 1 
+*** Try to get a list of elements *** treescopetype:=7
+_UIA_getObjectByFindAll walk thru the tree with n elements where n equals 1Found match with element: 0 the Name is: &lt;Title is: &lt;Start&gt;	Class   := &lt;Start&gt;	controltype:= &lt;UIA_ButtonControlTypeId&gt;	,&lt;50000&gt;	, (0000C350)	rect := &lt; 0;738;36;30&gt;	hwnd := &lt; 196862&gt;	acceleratorkey := &lt; &gt;	automationid := &lt;&gt;
+
+&lt;propertymatching&gt;&lt;/propertymatching&gt;Storing parent for found object in RTI as RTI.PARENT Taskbar
+&lt;action&gt;Action 6 click on  _UIA_IsElement:=1 Parameters 1:=0 2:=0 3:=0 4:=0&lt;/action&gt;</logline>
+</log>

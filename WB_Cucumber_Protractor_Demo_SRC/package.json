@@ -1,0 +1,48 @@
+{
+  "name": "auto_protractor_cucumber",
+  "version": "1.0.0",
+  "description": "Template of MercerOS automation Protractor/Cucumber framework",
+  "repository": {
+    "type": "git",
+    "url": "TODO"
+  },
+  "author": "Webber.ling@mercer.com",
+  "license": "MIT",
+  "devDependencies": {
+    "dateformat": "^2.0.0",
+    "geckodriver": "^1.6.1",
+    "iedriver": "^3.3.1-rc.1",
+    "chai": "4.1.2",
+    "chai-as-promised": "7.1.1",
+    "chai-string": "1.4.0",
+    "exceljs": "^1.0.2",
+    "fs-plus": "3.0.2",
+    "moment": "2.20.0",
+    "pixelmatch": "4.0.2",
+    "pngjs": "3.3.3",
+    "yargs": "^11.0.0",
+    "request": "2.88.0",
+    "xlsx": "0.13.4",
+    "jasmine": "^2.6.0",
+    "cucumber": "4.1.0",
+    "protractor": "^5.4.2",
+    "protractor-cucumber-framework": "5.0.0",
+    "protractor-multiple-cucumber-html-reporter-plugin": "1.7.0",
+    "protractor-helpers": "^1.1.0",
+    "protractor-jasmine2-screenshot-reporter": "^0.3.5",
+    "protractor-stop-describe-on-failure": "^1.0.4",
+    "protractor-take-screenshots-on-demand": "^1.2.0",
+    "shelljs": "^0.7.8"
+  },
+  "dependencies": {
+    "superspawn": "^0.1.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-webdriver": "webdriver-manager start",
+    "start-webdriver-ie": "webdriver-manager start --ie",
+    "wb-debug-dev": "set TEST_ENV=DEV&&set BROWSER_NAME=chrome&&set BROWSER_VERSION=latest&&set PLATFORM=Windows 10&&protractor conf.js",
+    "wb-debug-stage": "set TEST_ENV=STAGE&&set BROWSER_NAME=chrome&&set BROWSER_VERSION=latest&&set PLATFORM=Windows 10&&protractor conf.js"
+  }
+}
