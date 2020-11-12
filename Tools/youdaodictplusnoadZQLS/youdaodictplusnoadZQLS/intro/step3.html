@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link rel="stylesheet" type="text/css"  href="style.css" />
+<script src="Scripts/swfobject_modified.js" type="text/javascript"></script>
+</head>
+<script type="text/javascript">
+document.focus();
+function ctlog(keyfrom,type){
+	var dateTime = new Date();
+	var rnd = "&rnd=" + dateTime.getTime();
+	var i=new Image();
+	i.src="http://dict.youdao.com/ctlog?q=null&url=null&id="+window.external.getAppID()+"&keyfrom="+keyfrom+"&action=GUIDE&ctype="+type+rnd;
+	return true;
+}
+function showPage(){
+	var bShowPageOnce = window.external.loadString("OPENFEATHERPAGE");
+	if (bShowPageOnce == "1"){
+		document.getElementById("getmore").checked = false;
+	}
+}
+function update_done(){
+	ctlog("deskdict_guide","done");
+	var param1 = window.external.loadString("TEMPVALUE_SCREENTRANS");
+	var param2 = window.external.loadString("TEMPVALUE_WORDSTROKE");
+	var param3 = window.external.loadString("TEMPVALUE_LANGTYPE");
+	var param4 = window.external.loadString("TEMPVALUE_OCR");
+	var isMore = document.getElementById("getmore").checked;
+	if(true==isMore){
+		window.open("http://cidian.youdao.com/features/");
+	}
+	location.href="app:done" + ":" + param1 +":" + param2 +":" + param3 + ":" + param4;d
+}
+function onhotkey()
+{
+	if(event.keyCode==13 || event.keyCode==70)
+		update_done();
+	if(event.keyCode==66)
+		location.href="step2.html";
+}
+</script>
+<body onkeydown="onhotkey()" onload="showPage();">
+<form>
+  <div id="container">
+    <div id="bar" class="bar2">
+      <table class="bar_table" >
+        <tr>
+          <td><strong>个性向导设置完成！</strong></td>
+        </tr>
+      </table>
+      <div id="help">
+        <div class="icon"></div>
+        <a href="http://cidian.youdao.com/help4.html" target="_blank">更多帮助</a></div>
+    </div>
+    <div id="content">
+      <div class="inner">
+       <div class="menu"></div>
+       <p class="menu1">设置界面皮肤</p>
+       <p class="menu2">进入软件设置相关页面</p>
+       <p class="info"><input class="option" id="getmore" name="more" type="checkbox" value="" checked/>了解有道词典更多特色功能</p>
+      </div>
+    </div>
+    <div id="btns">
+      <div class="hr"></div>
+      <table  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="col01"><input class="btn01" name="" type="button" onmouseover="this.className='btn01-over'" onmouseout="this.className='btn01'" onmousedown="this.className='btn01-down'" onclick="location.href='step2.html'"/></td>
+          <td class="col02"><input class="btn04" name="" type="button" onmouseover="this.className='btn04-over'" onmouseout="this.className='btn04'" onmousedown="this.className='btn04-down'" onClick="update_done()"/></td>
+          <td class="col03"><!--input class="btn03" name="" type="button"  onmouseover="this.className='btn03-over'" onmouseout="this.className='btn03'" onmousedown="this.className='btn03-down'" onClick="location.href='app:closewindow'"/--></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</form>
+</body>
+</html>

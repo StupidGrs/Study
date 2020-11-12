@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>有道词典单词本</title>
+    <link href="css/base.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body scroll = "no">
+
+<!--最外层包裹容器-->
+<div id="wrapper">
+    <!--单词-->
+    <h1 ><span id="word"></span><span id="phonetic-voice-icon"><a href="app:sound" id="phonetic-voice"></a></span></h1>
+     <span style="position:absolute; top:6px; right:9px;">
+	
+	<span id="progress">1/100</span>  
+       
+        </span>
+
+    <!--音标区-->
+    <div id="pronounce"><span class="phonetic" id="voice"></span></div>
+    
+    <!--释义区-->
+    <div id="description" style="display:none;">
+        
+    </div>
+
+    
+    <!--遮罩区-->
+    <div id="mask" >
+        <span id="toggle-description" href="#" title="按空格键也可以哦"><img src="images/mask.png"></span>
+    </div>
+
+    <!--动作区-->
+    <div id="action" style="display:none;">
+        <a id="remember" href="app:know" title="按左键也可以哦" ></a>
+        <a id="forget" href="app:dontknow" title="按右键也可以哦"></a>
+        <div style="clear:both;"></div>
+    </div>
+    <div id="disable-action">
+    <img src="images/remember-disable.png" style="margin-right:80px;"/><img src="images/forget-disable.png" />
+    </div>
+</div>
+
+<script src="scripts/main.js" type="text/javascript"></script>
+</body>
+</html>

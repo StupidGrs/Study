@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link rel="stylesheet" type="text/css"  href="style.css" />
+</head>
+<script type="text/javascript">
+document.focus();
+ctlog("deskdict_guide","welcome_page");
+function ctlog(keyfrom,type){
+	var dateTime = new Date();
+	var rnd = "&rnd=" + dateTime.getTime();
+	var i=new Image();
+	i.src="http://dict.youdao.com/ctlog?q=null&url=null&id="+window.external.getAppID()+"&appVer="+window.external.getAppVersionString()+"&keyfrom="+keyfrom+"&action=GUIDE&ctype="+type+rnd;
+	return true;
+}
+function update_pre(){
+	ctlog("deskdict_guide","next_welcome");
+	location.href="step1.html";
+}
+function onhotkey()
+{
+	if(event.keyCode==13 || event.keyCode==78)
+		update_pre();
+}
+</script>
+<body onkeydown="onhotkey()">
+<form>
+  <div id="container">
+    <div id="welcome">
+      <div class="inner">
+        <p class="title1">特色功能：</p>
+        <ul class="feature">
+          <li>运行速度快 </li>
+          <li>收录词汇新</li>
+          <li>屏幕取词全</li>
+          <li>词条例句多</li>
+          <li>中英日韩法都能翻</li>
+        </ul>
+      </div>
+      <p class="yellow">完成以下两步设置，让您的使用更加得心应手。</p>
+    </div>
+    <div id="btns">
+      <div class="hr"></div>
+      <table  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="col01"><input  class="btn01-grey" name="" type="button" /></td>
+          <td class="col02"><input  class="btn02" name="input" type="button" onmouseover="this.className='btn02-over'" onmouseout="this.className='btn02'" onmousedown="this.className='btn02-down'" onclick="update_pre();"/></td>
+          <td class="col03"><input class="btn03" name="" type="button"  onmouseover="this.className='btn03-over'" onmouseout="this.className='btn03'" onmousedown="this.className='btn03-down'" onClick="location.href='app:closewindow';ctlog('deskdict_guide','close_page')"/></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</form>
+</body>
+</html>

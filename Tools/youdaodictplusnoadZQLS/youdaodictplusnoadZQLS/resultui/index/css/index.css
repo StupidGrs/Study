@@ -1,0 +1,297 @@
+/*@group Global
+----------------------------------------------------------------------*/
+html, body {
+    overflow: hidden;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color: #313131;
+    background: #fff;
+}
+
+/*背景色渐变*/
+body {
+    filter: progid:DXImageTransform.Microsoft.Gradient(enabled = true, startColorStr = #eaf4fa, endColorStr = #ffffff);
+    background: -moz-linear-gradient(top, #eaf4fa, #ffffff);
+    background: -webkit-gradient(linear, left top, left bottom, from(#eaf4fa), to(#ffffff));
+}
+
+/*默认12号字体*/
+h2, h3, h4, h5, p, ul, form, li {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+
+}
+
+/*去除默认margin的影响*/
+img {
+    border: none;
+}
+
+a {
+    color: #6292b5;
+    text-decoration: none;
+}
+
+.innerSpread a, .outerSpread a {
+    text-decoration: underline;
+}
+
+/*@group 全局设置
+----------------------------------------------------------------------------*/
+.index {
+    width: 465px;
+    height: 235px;
+    left: 50%;
+    top: 50%;
+    margin-top: -116px;
+    margin-left: -233px;
+    position: absolute;
+}
+
+.index .background {
+    width: 465px;
+    height: 235px;
+    position: absolute;
+    _visibility: hidden;
+}
+
+.index .notebook {
+    position: absolute;
+    top: 15px;
+    left: 356px;
+}
+
+.index .feedback {
+    position: absolute;
+    top: 15px;
+    left: 408px;
+}
+
+.index .version {
+    position: absolute;
+    font-size: 11px;
+    top: 14px;
+    left: 91px;
+    color: #626262;
+}
+
+/*@group 内部推广
+------------------------------------------------------------------------------*/
+.index .innerSpread {
+    top: 163px;
+    position: absolute;
+    left: 18px;
+    width: 430px;
+    line-height: 20px;
+}
+
+.index .innerSpread a {
+    line-height: 16px;
+    float: left;
+    vertical-align: middle;
+}
+
+.index .innerSpread .new {
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+/*@group 外部推广
+------------------------------------------------------------------------------*/
+.index .outerSpread {
+    top: 196px;
+    position: absolute;
+    left: 18px;
+    width: 430px;
+    display: none;
+}
+
+.outerSpread .describe {
+    width: 12px;
+    height: 40px;
+    line-height: 18px;
+    float: left;
+    margin-right: 5px;
+}
+
+.outerSpread .business {
+    float: left;
+    width: 206px;
+    line-height: 18px;
+}
+
+.business .additional {
+    color: #959595;
+}
+
+/*@group 每日英语总体设置
+------------------------------------------------------------------------------*/
+.everydayEnglish {
+    position: relative;
+    width: 430px;
+    height: 86px;
+    top: 50px;
+    left: 20px;
+    z-index: 1;
+}
+
+/*@group TEST 每日英语测试模块
+------------------------------------------------------------------------------*/
+.testing h3 {
+    font-weight: normal;
+    font-size: 13px;
+    cursor: default;
+    line-height: 16px;
+}
+
+.testing table {
+    margin: 6px;
+}
+
+.testing td {
+    width: 188px;
+    line-height: 24px;
+    cursor: pointer;
+    padding-left: 20px;
+}
+
+.testing td a {
+    padding-left: 5px;
+    width: 188px;
+    line-height: 24px;
+    display: inline-block;
+    text-decoration: none;
+    color: #626262;
+    outline: none;
+}
+
+.testing td a:hover {
+    background: url("index/index_split.png") no-repeat 0 -116px;
+    _background: none;
+}
+
+.testing td a:active {
+    background: url("index/index_split.png") no-repeat 0 -156px;
+    _background: none;
+}
+
+/*查看对照翻译部分*/
+.viewComparesTranslation {
+    cursor: pointer;
+    position: absolute;
+    overflow: hidden;
+    width: 91px;
+    height: 31px;
+    top: -1000px;
+    z-index: 3;
+}
+
+/*空白下划线及答案显示*/
+.testing .space {
+    width: 20px;
+    display: inline-block;
+    text-align: center;
+    color: #54903f;
+    font-weight: bold;
+    border-bottom: 1px solid #b9b9b9;
+}
+
+.testing .right-answer {
+    display: none;
+}
+
+.check h3 .right-answer {
+    display: inline;
+    color: #54903f;
+}
+
+.check td.wrong {
+    background: url("index/index_split.png") no-repeat 0 -53px;
+    _background: none;
+}
+
+.check td.wrong a, .check td.right a {
+    color: #313131;
+}
+
+.check td.right {
+    background: url("index/index_split.png") no-repeat 0 -82px;
+    _background: none;
+}
+
+.check td {
+    cursor: default;
+}
+
+.check td a {
+    color: #d0d0d0;
+    cursor: default;
+}
+
+.check td a:hover {
+    background: none;
+}
+
+.check td a:active {
+    background: none;
+}
+
+/*@group WORD 每日英语单词模块
+-----------------------------------------------------------------------------------------*/
+.word {
+    padding-left: 6px;
+}
+
+.word .title {
+    font-size: 19px;
+    font-weight: normal;
+    margin-bottom: 11px;
+}
+
+.word .title a {
+/*color:black;*/
+}
+
+.word .des, .word .detail {
+    font-size: 13px;
+    line-height: 16px;
+    margin: 7px 0;
+    color: gray;
+}
+
+/*@group EXAMPLE 每日英语例句模块
+-----------------------------------------------------------------------------------------*/
+.example p {
+    font-size: 13px;
+    line-height: 18px;
+    margin-bottom: 9px;
+}
+
+.example .sen {
+    color: #626262;
+}
+
+.example .rel {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.example img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/*IE6 使用pngfix后，图片会变成span，所以增加一条规则*/
+.example span {
+    margin-right: 5px;
+}

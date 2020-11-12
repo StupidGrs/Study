@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<skin>
+<version>16</version>
+<name>默认皮肤</name>
+<image-path>xp-default.bmp</image-path>
+<css-path>default.css</css-path>
+<element name="logo" type="bmp" left="119" right="199" top="0" bottom="25" /><!--图标及其后文字-->
+<element name="conner_topleft" type="bmp" left="13" right="18" top="0" bottom="58" />
+<element name="conner_topright" type="bmp" left="22" right="27" top="0" bottom="58" />
+<element name="conner_bottomleft" type="bmp" left="38" right="43" top="22" bottom="55" />
+<element name="conner_bottomright" type="bmp" left="52" right="57" top="22" bottom="55" />
+<element name="titlebar" type="bmp" left="3" right="7" top="0" bottom="25" />
+<element name="bottombar" type="bmp" left="31" right="35" top="50" bottom="55" />
+<element name="margin_left" type="bmp" left="3" right="8" top="61" bottom="62" />
+<element name="margin_right" type="bmp" left="3" right="8" top="64" bottom="65" />
+<element name="wnd_min" type="button" left="244" right="272" top="0" bottom="63" num="3"/><!--最小化-->
+<element name="wnd_max" type="button" left="272" right="300" top="63" bottom="126" num="3"/><!--最大化-->
+<element name="wnd_restore" type="button" left="272" right="300" top="0" bottom="63" num="3"/><!--还原-->
+<element name="wnd_close" type="button" left="230" right="272" top="63" bottom="126" num="3"/><!--关闭-->
+<element name="tabbar" type="bmp" left="3" right="8" top="25" bottom="60" />
+<element name="dict_tab" type="button" left="14" right="89" top="138" bottom="231" num="3"/>
+<element name="bk_tab" type="button" left="89" right="159" top="138" bottom="231" num="3"/>
+<element name="fy_tab" type="button" left="159" right="228" top="138" bottom="231" num="3"/>
+<element name="lj_tab" type="button" left="229" right="299" top="138" bottom="231" num="3"/>
+<element name="more_tab" type="button" left="199" right="214" top="0" bottom="48" num="3"/>
+<element name="inputbar" type="bmp" left="58" right="61" top="22" bottom="58" />
+<element name="inputbar_left" type="bmp" left="0" right="0" top="0" bottom="0" />
+<element name="inputbar_right" type="bmp" left="0" right="0" top="0" bottom="0" />
+<element name="dict_query" type="button" left="34" right="104" top="60" bottom="138" num="3"/>
+<element name="web_search" type="button" left="104" right="141" top="60" bottom="138" num="3"/>
+<element name="network_off" type="button" left="505" right="535" top="104" bottom="124" num="1"/>
+<element name="network_on" type="button" left="505" right="535" top="124" bottom="144" num="1"/>
+<element name="screen_trans_off" type="button" left="301" right="352" top="78" bottom="138" num="3"/>
+<element name="screen_trans_on" type="button" left="352" right="403" top="78" bottom="138" num="3"/>
+<element name="huayi_off" type="button" left="403" right="454" top="78" bottom="138" num="3"/>
+<element name="huayi_on" type="button" left="454" right="505" top="78" bottom="138" num="3"/>
+<element name="dropdown" type="button" left="488" right="505" top="0" bottom="72" num="3"/>
+<element name="back" type="button" left="505" right="532" top="0" bottom="104" num="4"/>
+<element name="forward" type="button" left="532" right="560" top="0" bottom="104" num="4"/>
+<element name="edit_bg" type="bmp" left="61" right="62" top="22" bottom="48" />
+<element name="edit_bg_fanyi" type="bmp" left="61" right="62" top="22" bottom="47" />
+<element name="edit_bg_left" type="bmp" left="70" right="72" top="22" bottom="48"/>
+<element name="edit_border" type="color" r="140" g="159" b="168"/>
+<element name="statebar" type="bmp" left="31" right="35" top="21" bottom="50" />
+<element name="menu_button" type="button" left="214" right="244" top="0" bottom="63" num="3"/><!--菜单-->
+<element name="feedback_button" type="button" left="207" right="230" top="63" bottom="120" num="3"/><!--意见反馈-->
+<element name="tab_border" type="color" r="140" g="159" b="168"/>
+<element name="tab_border_inside" type="color" r="255" g="255" b="255"/>
+<element name="lang_btn_eng" type="button" left="300" right="336" top="0" bottom="78" num="3"/>
+<element name="lang_btn_jap" type="button" left="336" right="372" top="0" bottom="78" num="3"/>
+<element name="lang_btn_kor" type="button" left="372" right="408" top="0" bottom="78" num="3"/>
+<element name="lang_btn_fra" type="button" left="408" right="444" top="0" bottom="78" num="3"/>
+<element name="lang_btn_chn" type="button" left="444" right="480" top="0" bottom="78" num="3"/>
+<element name="suggest_break_on" type="button" left="0" right="8" top="234" bottom="345" num="3"/>
+<element name="suggest_break_off" type="button" left="8" right="16" top="234" bottom="345" num="3"/>
+<element name="fy_gradient_color_start" type="color" r="231" g="239" b="247"/>
+<element name="fy_gradient_color_end" type="color" r="255" g="255" b="255"/>
+<element name="fy_button" type="button" left="444" right="537" top="274" bottom="349" num="3"/>
+<!--element name="fy_clean_button" type="button" left="234" right="300" top="60" bottom="138" num="3"/-->
+<element name="fy_clean_button" type="button" left="132" right="193" top="232" bottom="332" num="4"/>
+<element name="scr_clr_border" type="color" r="115" g="172" b="229"/><!-- 取词框2px、工具条1px边框色 -->
+<element name="scr_clr_background" type="color" r="255" g="255" b="255"/><!-- 取词框默认色 -->
+<element name="scr_clr_title_word" type="color" r="42" g="42" b="42"/><!-- 取词颜色 -->
+<element name="scr_clr_word_gray" type="color" r="125" g="125" b="125"/><!-- 全部灰色 -->
+<element name="scr_clr_text" type="color" r="42" g="42" b="42"/>
+<element name="scr_clr_hyperlink" type="color" r="76" g="110" b="144"/>
+<element name="scr_clr_split_border" type="color" r="185" g="213" b="242"/><!-- 网络释义 分割边色 -->
+<element name="scr_clr_tab_background" type="color" r="241" g="247" b="252"/><!-- tab背景色 -->
+<element name="scr_clr_tab_border" type="color" r="185" g="213" b="242"/><!-- tab底边色 -->
+<element name="scr_clr_tab_text" type="color" r="125" g="125" b="125"/><!-- tab默认文字色 -->
+<element name="scr_clr_tab_selected_background" type="color" r="255" g="255" b="255"/><!-- 当前tab背景色 -->
+<element name="scr_clr_tab_selected_text" type="color" r="125" g="125" b="125"/><!-- 当前tab文字色 -->
+<element name="scr_clr_optiontab_over_text" type="color" r="125" g="125" b="125"/><!-- 未选中tab hover状态文字颜色 -->
+<element name="scr_clr_language_border" type="color" r="207" g="220" b="229"/><!-- 翻译语言选择1px边色 -->
+<element name="scr_clr_language_over_border" type="color" r="175" g="198" b="215"/><!-- 翻译语言滑过边色 -->
+<element name="scr_bmp_background" type="bmp" left="437" right="438" top="144" bottom="174"/><!-- 取词框顶部背景渐变 -->
+<element name="scr_bmp_title_mid" type="bmp" left="434" right="435" top="144" bottom="165"/><!-- 工具条背景平铺 -->
+<element name="scr_bmp_title_split" type="bmp" left="435" right="436" top="144" bottom="165"/><!-- 工具条分隔符 -->
+<element name="scr_bmp_related_bar" type="bmp" left="436" right="437" top="144" bottom="169"/><!-- 相关取词背景条 -->
+<element name="scr_btn_pronounce" type="button" left="438" right="454" top="144" bottom="176" num="2"/>
+<element name="scr_btn_title_logo" type="button" left="301" right="320" top="144" bottom="182" num="2"/>
+<element name="scr_btn_websearch" type="button" left="320" right="339" top="144" bottom="182" num="2"/>
+<element name="scr_btn_wordbook_normal" type="button" left="454" right="470" top="144" bottom="176" num="2"/>
+<element name="scr_btn_wordbook_clicked" type="button" left="470" right="486" top="144" bottom="176" num="2"/>
+<element name="scr_btn_copy" type="button" left="339" right="358" top="144" bottom="182" num="2"/>
+<element name="scr_btn_sprig_up" type="button" left="377" right="396" top="144" bottom="182" num="2"/>
+<element name="scr_btn_sprig_down" type="button" left="396" right="415" top="144" bottom="182" num="2"/>
+<element name="scr_btn_close" type="button" left="415" right="434" top="144" bottom="182" num="2"/>
+<element name="scr_btn_config" type="button" left="358" right="377" top="144" bottom="182" num="2"/>
+<element name="scr_btn_arrowdown" type="button" left="486" right="502" top="144" bottom="176" num="2"/><!--划词翻译窗口选择语种的下拉箭头 -->
+<element name="scr_btn_icon" type="button" left="502" right="532" top="144" bottom="174" num="1"/><!-- 图标模式的icon -->
+<element name="control_selected_bgclr" type="color" r="224" g="239" b="246"/>
+<element name="fy_btn_hide_ver" type="button" left="301" right="338" top="183" bottom="213" num="3"/><!-- 翻译界面上下收起输入框按钮 -->
+<element name="fy_btn_show_ver" type="button" left="338" right="375" top="183" bottom="213" num="3"/><!-- 翻译界面上下展开输入框按钮 -->
+<element name="fy_btn_hide_hor" type="button" left="423" right="431" top="184" bottom="295" num="3"/><!-- 翻译界面左右收起输入框按钮 -->
+<element name="fy_btn_show_hor" type="button" left="431" right="439" top="184" bottom="295" num="3"/><!-- 翻译界面左右展开输入框按钮 -->
+<element name="fy_btn_showline" type="button" left="193" right="276" top="232" bottom="332" num="4"/><!-- 翻译界面查看逐行显示按钮 -->
+<element name="fy_btn_showline_cancel" type="button" left="276" right="359" top="232" bottom="332" num="4"/><!-- 翻译界面取消逐行显示按钮 -->
+<element name="fy_btn_copy" type="button" left="359" right="418" top="232" bottom="332" num="4"/><!-- 翻译界面复制译文按钮 -->
+<element name="fy_btn_copied" type="button" left="359" right="418" top="332" bottom="357" num="1"/><!-- 翻译界面复制译文按钮 -->
+<element name="fy_btn_ver" type="button" left="444" right="517" top="184" bottom="272" num="4"/><!-- 翻译界面上下对照译文按钮 -->
+<element name="fy_btn_hor" type="button" left="517" right="590" top="184" bottom="272" num="4"/><!-- 翻译界面左右对照译文按钮 -->
+<element name="fy_bmp_middle_bg" type="bmp" left="30" right="229" top="337" bottom="373" num="1"/><!-- 翻译界面曲线背景 -->
+<element name="fy_bmp_middleleft_bg" type="bmp" left="24" right="27" top="366" bottom="373" num="1"/><!-- 翻译界面中间重复背景 -->
+<element name="fy_bmp_top_bg" type="bmp" left="381" right="383" top="184" bottom="217" num="1"/><!-- 翻译界面上部重复背景 -->
+<element name="fy_bmp_patternshow" type="bmp" left="384" right="397" top="210" bottom="217" num="1"/><!-- 翻译显示模式指示箭头 -->
+<element name="fy_color_line" type="color" r="209" g="217" b="220"/><!-- 翻译编辑框边色 -->
+<element name="fy_color_helplink" type="color" r="232" g="240" b="247"/><!-- 翻译帮助链接底色 -->
+<element name="fy_color_highlight" type="color" r="214" g="235" b="249"/><!-- 翻译高亮底色 -->
+<element name="fy_btn_helplink" type="button" left="301" right="372" top="214" bottom="227" num="1"/>
+<element name="infobar_text_color" type="color" r="0" g="0" b="0"/>
+<element name="tabbar_right" type="bmp" left="0" right="0" top="0" bottom="0" />
+<element name="statebar_right" type="bmp" left="45" right="52" top="21" bottom="50" />
+<element name="titlebar_left" type="bmp" left="18" right="20" top="0" bottom="25" />
+<element name="titlebar_right" type="bmp" left="20" right="22" top="0" bottom="25" />
+<element name="bottombar_left" type="bmp" left="0" right="0" top="0" bottom="0" />
+<element name="bottombar_right" type="bmp" left="45" right="52" top="50" bottom="55" />
+
+<!--划词搜索mouse hover后工具条的形状，白色区域将变透明-->
+<element name="strk_srch_tlbr_shape" type="bmp" left="0" right="345" top="458" bottom="481" />
+<!--划词搜索mouse hover后工具条的背景-->
+<element name="strk_srch_tlbr_bgrd" type="bmp" left="0" right="345" top="377" bottom="400" />
+<!--划词搜索mouse hover后工具条中按键的位置-->
+<element name="strk_srch_tlbr_pos" type="bmp" left="279" right="337" top="381" bottom="397" />
+<!--划词搜索的设定按钮-->
+<element name="strk_srch_btn_setup" type="button" left="0" right="16" top="403" bottom="451" num="3" />
+<!--划词搜索的锁定按钮，未锁定状态-->
+<element name="strk_srch_btn_unlock" type="button" left="21" right="37" top="403" bottom="451" num="3" />
+<!--划词搜索锁定按钮，锁定状态-->
+<element name="strk_srch_btn_lock" type="button" left="82" right="98" top="403" bottom="451" num="3" />
+<!--划词搜索关闭按钮-->
+<element name="strk_srch_btn_close" type="button" left="42" right="58" top="403" bottom="451" num="3" />
+<!--划词搜索的输入框的背景，左半部分-->
+<element name="strk_srch_input_left" type="bmp" left="132" right="138" top="412" bottom="435" />
+<!--划词搜索的输入框的背景，中间部分，也是可伸缩的部分-->
+<element name="strk_srch_input_mid" type="bmp" left="150" right="153" top="412" bottom="435" />
+<!--划词搜索的输入框的背景，右半部分 按键部分-->
+<element name="strk_srch_input_btn" type="button" left="348" right="418" top="377" bottom="446" num="3"/>
+<!--划词搜索的左边框-->
+<element name="strk_srch_left_margin" type="bmp" left="161" right="164" top="412" bottom="415" />
+<!--划词搜索的右边框-->
+<element name="strk_srch_right_margin" type="bmp" left="171" right="174" top="412" bottom="415" />
+<!--划词搜索的窗口颜色-->
+<element name="strk_srch_bgrd_color" type="color" r="203" g="231" b="248"/>
+<!--划词搜索边框的颜色-->
+<element name="strk_srch_board_color" type="color" r="140" g="165" b="197"/>
+<!--划词搜索的上边栏的图像-->
+<element name="strk_srch_top_frame" type="bmp" left="0" right="345" top="482" bottom="485" />
+<!--划词搜索的上边栏的轮廓-->
+<element name="strk_srch_top_frame_contour" type="bmp" left="0" right="345" top="488" bottom="491" />
+<!--划词搜索的下边栏的图像-->
+<element name="strk_srch_btm_frame" type="bmp" left="0" right="345" top="495" bottom="498" />
+<!--划词搜索的下边栏的轮廓-->
+<element name="strk_srch_btm_frame_contour" type="bmp" left="0" right="345" top="501" bottom="504" />
+
+<!--迷你模式主窗口按钮图标-->
+<element name="mini_main_btn" type="button" left="183" right="207" top="63" bottom="120" num="3"/>
+<!--迷你模式顶部轮廓-->
+<element name="mini_top_frame_contour" type="bmp" left="0" right="272" top="506" bottom="529"/>
+<!--迷你模式顶部图像-->
+<element name="mini_top_frame" type="bmp" left="0" right="272" top="531" bottom="554"/>
+<!--迷你模式底部轮廓-->
+<element name="mini_btm_frame_contour" type="bmp" left="0" right="272" top="556" bottom="559"/>
+<!--迷你模式底部图像-->
+<element name="mini_btm_frame" type="bmp" left="0" right="272" top="561" bottom="564"/>
+<!--迷你模式按钮间隔right为距右边界距离,width为水平间隔,top为距顶边界距离,bottom未定义-->
+<element name="mini_btn_space" type="bmp" left="1" right="6" top="4" bottom="0"/>
+<!--迷你模式历史列表按钮-->
+<element name="mini_dropdown" type="button" left="561" right="578" top="2" bottom="74" num="3"/>
+<!--迷你模式的设定按钮-->
+<element name="mini_btn_setup" type="button" left="0" right="16" top="403" bottom="451" num="3" />
+<!--迷你模式的锁定按钮，未锁定状态-->
+<element name="mini_btn_unlock" type="button" left="21" right="37" top="403" bottom="451" num="3" />
+<!--迷你模式锁定按钮，锁定状态-->
+<element name="mini_btn_lock" type="button" left="82" right="98" top="403" bottom="451" num="3" />
+<!--迷你模式关闭按钮-->
+<element name="mini_btn_close" type="button" left="42" right="58" top="403" bottom="451" num="3" />
+
+<element name="wordbook_btn_normal" type="button" left="427" right="451" top="377" bottom="446" num="3" />
+<element name="wordbook_btn_notify" type="button" left="451" right="475" top="377" bottom="446" num="3" />
+
+<element name="deletebutton" type="button" left="347" right="355" top="458" bottom="474" num="2"/>
+
+</skin>

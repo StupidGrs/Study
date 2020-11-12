@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>分词</title>
+    <link href="CSS/stroke.css" rel="stylesheet" type="text/css"/>
+    <link href="" rel="stylesheet" type="text/css" id="skinStyleSheet"/>
+    <link href="" rel="stylesheet" type="text/css" id="strksrchskincss"/>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+
+<div id="html_size">
+    <!--获取html的size-->
+
+    <div id="dict_result">
+        <!--词典结果, 同时作为初始化的模块名称.-->
+    </div>
+
+    <div id="search_result">
+        <!--大搜索结果初始化的模块名称.-->
+        <h1 class="item-bar">
+            <div class="background"></div>
+            <div class="loading">正在加载<img src="CSS/loading.gif" alt=""></div>
+            搜索<a rel="#search" hidefocus=true class="toggle toggleOpen"></a>
+			<a class="strokeSpread"></a>
+        </h1>
+        <div id="search_result_content">
+            <!--插入大搜索结果-->
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script language="javascript" src="js/default.js"></script>
+<script type="text/javascript" src="js/ui.js"></script>
+<script type="text/javascript">
+	var isOpen=false;
+    /**
+     * 根据当前状态，打开或关闭类型选择框
+     */
+    function toggleTypes() {
+        if(!isOpen) return;
+        var types = $('#dict_result .options .types');
+        if (types.css('display') === 'block') {
+            types.hide();
+        } else {
+            var pos = $('#dict_result .language-type').position();
+            types.css({
+                top:pos.top + $('#dict_result .language-type').outerHeight(),
+                left:pos.left
+            });
+            types.show();
+        }
+		isOpen=false;
+    }
+    /**
+     * 初始化点击展开收起的log
+     */
+    var initLog = function(module,word) {
+        $('#dict_result .item-bar').unbind('click.dictRLog');
+        $('#dict_result .item-bar').bind('click.dictRLog', function() {
+            if ($(this).find('.toggle').hasClass('toggleOpen')) { //当前词典结果已展开，因此执行了open动作
+                ctlog4stroke('wordTabUnfold', '1', word); //打开词典结果
+            } else {
+                ctlog4stroke('wordTabFold', '1', word); //关闭词典结果
+            }
+        });
+        $('#search_result .item-bar').unbind('click.searchRLog');
+        $('#search_result .item-bar').bind('click.searchRLog', function() {
+            if ($(this).find('.toggle').hasClass('toggleOpen')) { //当前搜索结果已展开，因此执行了open动作
+                ctlog4stroke('searchTabUnfold', '1', word);  //打开搜索结果
+            } else {
+                ctlog4stroke('searchTabFold', '1', word); //关闭搜索结果
+            }
+        });
+        if (module === 'search_result') {
+            if ($('#search').css('display') === 'none') {
+                ctlog4stroke('searchUndisplay', '1', word);  //默认关闭的搜索结果
+            }
+            if ($('#search').css('display') === 'block') {
+                ctlog4stroke('searchDisplay', '1', word);  //默认打开的搜索结果
+            }
+        }
+    };
+    /**
+     * 初始化类型选择
+     */
+    var initSort = function() {
+        var deleteSort = function() {
+            $('.types li').unbind('click.selectType');
+            $(document).unbind('click.doclick');
+        };
+        deleteSort();
+		
+		$('#dict_result .language-type a').bind('click',function(e){
+			isOpen=true;
+			e.stopPropagation();
+		});
+		
+        $(document).bind('click.doclick', function() {
+            $('.types').hide();
+        });
+
+        $('.types li').bind('click.selectType', function() {
+            if ($(this).hasClass('normal')) {
+                $('.language-type .select').html('默认排序');
+            } else {
+                $('.language-type .select').html($(this).html());
+				$('#dict_result .language-type a').bind('click',function(e){
+					isOpen=true;
+					e.stopPropagation();
+				});
+            }
+            $('.types li').removeClass('selected');
+            $(this).addClass('selected');
+            $('.types').hide();
+        });
+        $('.types li').hover(function() {
+            $(this).addClass('onselect');
+        }, function() {
+            $(this).removeClass('onselect');
+        });
+    };
+
+    function initResult(module,word){
+        initSort();
+        UI.toggle_ss(module);
+        $('#' + module + ' .item-bar').unbind('click.itemClick');
+        $('#' + module + ' .item-bar').bind('click.itemClick', function() {
+            $(this).find(".toggle").click();
+            return false;
+        });
+        // 指定显示与否是在搜索结果的search标签的display属性是none还是block.
+        if ($('#search').css('display') === 'none') {
+            $('#search_result .toggle').removeClass('toggleOpen')
+                    .addClass('toggleClose');
+        }
+        if ($('#search').css('display') === 'block') {
+            $('#search_result .toggle').removeClass('toggleClose')
+                    .addClass('toggleOpen');
+        }
+        /**
+         屏蔽浏览器默认事件
+         */
+        $('.dictvoice').click(function() {
+            return false;
+        });
+        initLog(module,word);
+        window.scroll(0, 0);
+    }
+
+    function loading(flag, ctt) {
+		if (flag == 'hide') {
+			if (ctt.length != 0)
+				ctt = '<b>新!</b> ' + ctt;
+			$('.strokeSpread').html(ctt);
+			$('.strokeSpread').attr('href','app:promotion');
+			$('.strokeSpread').click(function(e){
+				e.stopPropagation();
+			});
+		}
+		
+        if (flag == 'show') {
+            $('.loading').show();
+			$('.strokeSpread').hide();
+        } else if (flag == 'hide') {
+            $('.loading').hide();
+			$('.strokeSpread').show();
+        }
+    }
+
+    // 改变单词本的图标.
+    function addFav() {
+        $('.add-fav').addClass('add-faved');
+    }
+    function delFav() {
+        $('.add-fav').removeClass('add-faved');
+    }
+
+    function wctlog(q, ctype, pos) {
+		var i = new Image();
+		
+		var appVer = "";
+		try {
+			appVer = window.external.getAppVersionString();
+		}
+		catch (e)
+		{
+			appVer = "";
+		}
+		var apdStr = "&deskdictid=" + window.external.getAppID() + "&appVer=" + appVer;
+		i.src="http://dict.youdao.com/ctlog?action=WAND&keyfrom=huaci&q="+q+"&pos="+pos+"&ctype="+ctype + apdStr;
+		return true;
+	}
+	var ctImagesCache=[];
+	
+	function ct(b,c,d,e,f,g,a){
+		var h=new Image;
+		var appVer = "";
+		try {
+			appVer = window.external.getAppVersionString();
+		}
+		catch (e)
+		{
+			appVer = "";
+		}
+		var apdStr = "&deskdictid=" + window.external.getAppID() + "&appVer=" + appVer;
+		
+		if(typeof a=="undefined")
+			a="";
+		else if(a.length>0&&a[0]!="&")
+			a="&"+a;
+		h.src="http://dict.youdao.com/ctlog?q="+c+"&url="+encodeURIComponent(b.href)+"&pos="+d+"&modifiers="+f+"&action="+e+"&hitSource="+g+a + apdStr;
+		ctImagesCache.push(h);
+		return true
+	};
+	
+	function hcnsl(eq, a, lp, srst, subtype){
+		if(subtype!=undefined){
+			var x=srst.indexOf('.');
+			if(x>=0){
+				srst=srst.substring(0,x)+"."+subtype+srst.substring(x);
+			}
+		}
+		var pos=lp;
+		if(lp.indexOf(srst)!=0){
+			pos=srst+"_"+lp;
+		}
+		var i=new Image();
+		
+		var appVer = "";
+		try {
+			appVer = window.external.getAppVersionString();
+		}
+		catch (e)
+		{
+			appVer = "";
+		}
+		var apdStr = "&deskdictid=" + window.external.getAppID() + "&appVer=" + appVer;
+		
+		i.src='http://www.youdao.com/smartresult/ctlog?keyfrom=huaci&q='+eq+'&url='+encodeURIComponent(a.href)+'&pos='+pos+'&srst='+srst+"&action=SMARTRESULTS_CLICK&ts="+((new Date()).getTime())+apdStr;
+		ct(a,eq,pos,'SMARTRESULT_CLICK');
+		return true;
+	};
+
+
+    /**
+     * ZH_CN2EN:汉->英
+     * ZH_CN2JA : 汉->日
+     * ZH_CN2KR : 汉->韩
+     * ZH_CN2FR:汉->法
+     * EN2ZH_CN:英->汉
+     * JP2ZH_CN:日->汉
+     * KR2ZH_CN:韩->汉
+     * FR2ZH_CN:法->汉
+     * @param type
+     */
+    function setTranslateType(type) {
+        if (!!!type) {
+            return;
+        }
+        $('.types .' + type).click();
+    }
+    function showSearchContent() {
+        $('#search_result_content').show();
+    }
+    function clearSearchContent() {
+        $('#search_result_content').html('').hide();
+    }
+
+
+</script>
+</body>
+</html>

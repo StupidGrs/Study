@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="CSS/index.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.pngfix.js"></script>
+    <script type="text/javascript" src="js/data.js"></script>
+    <script type="text/javascript" src="js/loadEveryDayEnglish.js"></script>
+    <script type="text/javascript">
+        $("body").ready(function() {
+            window.onresize = function() {
+                $("body").height($(window).height());
+            };
+            $("body").height($(window).height());
+            var everydayEnglish = (new Date().getDay() === 0) ? index.datas[6] : index.datas[new Date().getDay() - 1];
+            index.loader.init(everydayEnglish);
+            if ($.browser.msie) {
+                $('img').pngfix();
+            }
+        });
+    </script>
+</head>
+<body>
+<div id="everydayEnglish_1" class="index">
+    <div class="background"><img src="CSS/index/index.png" alt=""></div>
+    <span class="version">3.2.18.5044</span>
+    <a href="#" class="notebook">单词本</a>
+    <a href="#" class="feedback">意见反馈</a>
+
+    <div class="everydayEnglish"></div>
+    <div class="innerSpread"></div>
+    <div class="outerSpread">
+        <div class="describe">推广</div>
+    </div>
+</div>
+</body>
+</html>

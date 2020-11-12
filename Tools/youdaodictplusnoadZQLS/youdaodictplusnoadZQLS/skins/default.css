@@ -1,0 +1,66 @@
+﻿/* =======ONLY for IE 全局设置======= */
+body {
+    color: #313131; /*全局字体颜色*/
+}
+
+a:link, a:visited, /*全局链接颜色和访问后的颜色，包括有道翻译部分，*/
+p.via a, /*网络释义->搜索相关页面链接文字颜色*/
+p.additional a,/*速查--》按回车查看完整结果*/
+.more, /*网络释义->更多………文字颜色*/
+.wordGroup .contentTitle, /*词组短语->词组文字颜色*/
+.trans-container .more-example, /*双语例句*/
+#example_content .tabLink a, /* 例句-->查询词释义文字链接颜色*/
+.example_see_also .title, /*无结果推荐查看其他分类的类型名称文字颜色*/
+.error-typo .typo-rel .title /*查词-->错误处理，猜测单词*/
+{
+    color: #2779b6;
+}
+
+/* 高亮关键词 */
+b {
+    color: #54903f;
+}
+
+/*tab按钮未选中状态时文字的颜色*/
+.tabs a, .tab-current {
+    color: #6292B5;
+}
+
+/*例句-
+-------------------------------------------------------*/
+.example-via a {
+    color: #959595;
+    text-decoration: none
+}
+
+/*无结果推荐查看其他分类的类型边框默认颜色及悬停状态的颜色*/
+.example_see_also .info {
+    border: 1px solid #B8BDC1;
+}
+
+a.info:hover {
+    border: 1px solid #dbd1a2;
+}
+
+/*导航栏子标题字体颜色*/
+#example_navigator .sub-catalog li {
+    color: #1D84D0;
+}
+
+#example_navigator .main-catalog {
+    color: #6292B5;
+}
+
+/*所用图片*/
+.sp, .trans-wrapper h3, .trans-wrapper h3 .toggleOpen, .trans-wrapper h3 .toggleClose, .tabs a, .tab-current,
+.tabs a span, .tab-current span, .wordGroup .century21, .wordGroup a.century21:hover, #example_navigator .split,
+#example_navigator ul li.sub-catalog-selected, #example_navigator h3.main-catalog-selected-has-sub,
+#example_navigator h3.main-catalog-selected, #example_navigator .main-catalog, #example_navigator .hasSub, #example_content .allExplanation,
+#example_content a.allSelected,.trans-wrapper h3 .tail{
+    background-image: url("default.png");
+}
+
+/*双语例句对齐高亮*/
+.highLight {
+    background: #D6EBF9;
+}

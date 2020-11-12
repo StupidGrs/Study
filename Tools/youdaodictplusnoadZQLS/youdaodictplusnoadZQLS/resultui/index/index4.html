@@ -1,0 +1,116 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>有道词典 每日英语</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="" id="skinStyleSheet">
+</head>
+<body>
+<div id="everydayEnglish_1" class="index">
+    <div class="background"><img src="CSS/index/index.png"></div>
+    <span id="version" class="version"></span>
+    <a class="notebook" href="app:exec:wordbook" onclick="ctlog(this, 'wordbook' , 0, 'firstpage.wordbook' , 1, 'CLICK', '点击单词本');">单词本</a>
+    <a class="feedback">意见反馈</a>
+    <div class="everydayEnglish"></div>
+    <div class="innerSpread"></div>
+    <div class="outerSpread">
+        <div class="describe">推广</div>
+    </div>
+</div>
+<div id="ead_dict_1" style="display:none"></div>
+<!-- 以下代码防止首页弹出警告！-->
+<script type="text/javascript" language="javascript">
+//<!--
+window.onerror = function(){ return true; };
+//-->
+</script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.pngfix.js"></script>
+<script type="text/javascript" src='http://impservice.dict.youdao.com/imp/dict_req_4.0.js'></script>
+<script type="text/javascript" src="js/loadEveryDayEnglish.js"></script>
+<script type="text/javascript" language="javascript">
+function ChangeSkin(skinPath) {
+    var path=skinPath.replace(/.css$/, '-index/');
+    index.loader.refreshImg(path);
+    $('#skinStyleSheet').attr('href', path+'index.css');
+}
+index.datas = [
+{type:"EXAMPLE",
+sen:"Well assume that we're in a plurality election here, so the winner is the person who gets a plurality. ",
+trans:"假设我们在进行一个多数制选举,所以当选者是获得票数最多的人 ",
+rel:"winner",
+innerSpread:[{des:"新学期开学礼，有道词典手机版大更新",
+link:"http://i.youdao.com/?p=1677",
+isNew:false},
+{des:"立即关注有道词典人人公共主页！",
+link:"http://page.renren.com/600393837?checked=true",
+isNew:true}]},
+{type:"TEST",
+question:"Alan is a good football player and never breaks _.",
+A:"legal",
+B:"regulations",
+C:"limitation",
+D:"agreement",
+right:"B",
+innerSpread:[{des:"新学期开学礼，有道词典手机版大更新",
+link:"http://i.youdao.com/?p=1677",
+isNew:false},
+{des:"立即关注有道词典人人公共主页！",
+link:"http://page.renren.com/600393837?checked=true",
+isNew:true}]},
+{type:"EXAMPLE",
+sen:"You still have to hide the note from theft, but at least you don't have to hide a whole bunch of gold from theft. ",
+trans:"你仍然需要小心藏好票据防止被偷走,但是至少你不用,再藏一堆金子了",
+rel:"hide the note from theft",
+innerSpread:[{des:"新学期开学礼，有道词典手机版大更新",
+link:"http://i.youdao.com/?p=1677",
+isNew:false},
+{des:"立即关注有道词典人人公共主页！",
+link:"http://page.renren.com/600393837?checked=true",
+isNew:true}]},
+{type:"WORD",
+word:"graduation reserve room",
+des:"毕业储备房",
+detail:"指家长为未毕业的大学生所购买的楼房",
+innerSpread:[{des:"新学期开学礼，有道词典手机版大更新",
+link:"http://i.youdao.com/?p=1677",
+isNew:false},
+{des:"立即关注有道词典人人公共主页！",
+link:"http://page.renren.com/600393837?checked=true",
+isNew:true}]},
+{type:"EXAMPLE",
+sen:"I was just yesterday in London and people like to gossip about things like that. ",
+trans:"我昨天在伦敦,发现人们也喜欢八卦这样的事情",
+rel:"gossip",
+innerSpread:[{des:"新学期开学礼，有道词典手机版大更新",
+link:"http://i.youdao.com/?p=1677",
+isNew:false},
+{des:"立即关注有道词典人人公共主页！",
+link:"http://page.renren.com/600393837?checked=true",
+isNew:true}]},
+{type:"EXAMPLE",
+sen:"And Hobbes draws from this startling conclusion, in many ways the infamous conclusion that the sovereign can never act unjustly.",
+trans:"霍布斯从他自己的，这一声名狼藉的结论中得出另一观点,即君主不可能永远做到公正。",
+rel:"act",
+innerSpread:[{des:"新学期开学礼，有道词典手机版大更新",
+link:"http://i.youdao.com/?p=1677",
+isNew:false},
+{des:"立即关注有道词典人人公共主页！",
+link:"http://page.renren.com/600393837?checked=true",
+isNew:true}]},
+{type:"WORD",
+word:"Moonlight Group",
+des:"月光族",
+detail:"每月赚的钱都用光、花光的人",
+innerSpread:[{des:"新学期开学礼，有道词典手机版大更新",
+link:"http://i.youdao.com/?p=1677",
+isNew:false},
+{des:"立即关注有道词典人人公共主页！",
+link:"http://page.renren.com/600393837?checked=true",
+isNew:true}]}];
+</script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

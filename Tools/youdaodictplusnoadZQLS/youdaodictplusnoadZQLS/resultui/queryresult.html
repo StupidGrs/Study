@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<meta http-equiv="MSThemeCompatible" content="yes"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="css/default.css" rel="stylesheet" type="text/css" id="skinStyleSheetDefault"/>
+<link href="" rel="stylesheet" type="text/css" id="skinStyleSheet"/>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.pngfix.js"></script>
+<script language="javascript" src="js/default.js"></script>
+<script language="javascript" src="js/ui.js"></script>
+<script language="javascript" src="js/ugc.js"></script>
+
+<script type="text/javascript"> 
+	try
+	{
+		document.execCommand("BackgroundImageCache", false, true);  	
+	}
+	catch (err)
+	{}
+ 
+    function fixRapidSearchLink()
+    {
+          elem = document.getElementById("translationContent");
+          
+          if (elem != null)
+          {
+               
+               var str = elem.innerHTML;
+               s = str.lastIndexOf('[');
+               e = str.lastIndexOf(']');
+               typeStr = str.substring(s,e+1);
+               str = elem.innerHTML.replace(/\[(.*?)\]/g, " ");   
+               elem.innerHTML =typeStr+ str;
+			   
+			   str = elem.innerHTML;
+			   s = str.lastIndexOf('{');
+               e = str.lastIndexOf('}');
+               typeStr = str.substring(s,e+1);
+               str = elem.innerHTML.replace(/\{(.*?)\}/g, " ");   
+               elem.innerHTML =typeStr+ str;
+               
+          }
+    }
+
+    function main() {
+        try {
+            (function(jq_) {
+                jq_(function() {
+                    jq_('.wt-container').hasSubMenu('div a:not(.add-fav)', 'wt-collapse');
+                    jq_('#webPhrase').hasSubMenu('.more', 'more-collapse');
+                    jq_('#hhTrans').hasSubMenu('.more-hh', 'hh-collapse');
+                    jq_('#webTrans').hasTab('.tabs a', '.tab-content', 'tab-current', 0);
+                    jq_('#phrsListTab').hasTab('.tabs a', '.tab-content', 'tab-current', 0);
+                    jq_('#ecTrans_local').hasTab('.tabs a', '.tab-content', 'tab-current', 0);
+                    jq_('#examples').hasTab('.tabs a', '.tab-content', 'tab-current', 0);
+                    jq_('#word_phrs').hasSubMenu('.more', 'more-collapse');
+                    UI.toggle();
+
+                    var initAndSaveWebTransFirstSubStatus = function() {
+                        jq_('#tWebTrans div a:not(.add-fav)').click(function() {
+                            if (jq_('#tWebTrans .wt-container').eq(0).attr("class").indexOf("wt-collapse") < 0) {
+                                window.external.saveString(q_strWebTransFirstSubStatus, "dontCollapse");
+                            } else {
+                                window.external.saveString(q_strWebTransFirstSubStatus, "collapse");
+                            }
+                        });
+                        var status = window.external.loadString(q_strWebTransFirstSubStatus);
+                        if (status === "collapse" || status === "") {
+                            jq_('.wt-container').eq(0).addClass("wt-collapse");
+                        } else {
+                            jq_('.wt-container').eq(0).removeClass("wt-collapse");
+                        }
+                    };
+                    var initAllToggleStatus = function() {
+                        var allToggle = $(".toggle");
+                        allToggle.each(function() {
+                            var el = $(this);
+                            var status = window.external.loadString(q_strToggleStatus + el.attr("rel"));
+                            if (status === "close") {
+                                el.removeClass("toggleOpen").addClass("toggleClose");
+                                $(el.attr("rel")).hide();
+                            } else {
+                                el.removeClass("toggleClose").addClass("toggleOpen");
+                                $(el.attr("rel")).show();
+                            }
+                        });
+                        $(".toggle").click(function() {
+                            saveToggleStatus($(this));
+                        });
+                    };
+                    initAndSaveWebTransFirstSubStatus();
+                    initAllToggleStatus();
+                });
+            })(jQuery);
+
+            $(function() {
+                $('.video').isVideo();
+                $('.playicon img').pngfix();
+            });
+            
+            $("#examples .tabs a").click(function(){
+                stopVoice();
+                $.stopVideo();
+            });
+
+            GetAdsByTimer();
+            hideLoadMsg();
+            document.documentElement.scrollTop = 0;
+            //取消文本选中状态,fix bug #17990
+            document.selection.empty();
+
+            var wt_1_status = window.external.loadString(g_strCurWebTranStatus);
+            if (wt_1_status == "1") {
+                var wtItem = document.getElementById("wt_item_1");
+                if (wtItem) {
+                    $(wtItem).removeClass('wt-collapse');
+                }
+            }
+
+            InitLj(); // 初始化例句Tab
+            
+            fixRapidSearchLink(); //修复速查链接的bug
+
+			initUGC();
+        }
+        catch(e) {
+        }
+    }
+
+</script>
+
+<body>
+<div id="deskdict_main">
+  <div id="actionTips" style="display:none">
+	  <div class="at-container">正在查询……</div>
+  </div>
+</div>
+<div id="flashautoplay" style="display:none"></div>
+<div id="altContent"></div>
+<script type="text/javascript" language="javascript">
+    //<!--
+    window.onerror = function() {
+        return true;
+    };
+    //-->
+</script>
+</body>
+</html>

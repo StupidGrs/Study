@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript">
+
+		function imgLoad(obj){
+			obj.onload=null
+			var loadImg=document.getElementById("LoadingImg")
+			loadImg.style.display="none"
+			var Img=document.getElementById("myimg")
+			Img.style.display="block"
+			window.external.imgLoaded()
+		}
+
+	</script>
+</head>
+<body>
+	<div id="adv" style="position:absolute;left:0px;top:0px">Test</div>
+</body>
+</html>

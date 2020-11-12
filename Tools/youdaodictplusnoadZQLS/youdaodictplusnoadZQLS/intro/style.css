@@ -1,0 +1,295 @@
+@charset "utf-8";
+/* CSS Document */
+html {
+	overflow-x:hidden;
+	overflow-y:hidden
+}
+* {
+	padding:0;
+	margin:0;
+}
+h4 {
+	font-size:12px;
+}
+p {
+	margin:12px 0;
+	line-height:1.8em;
+}
+.item {
+	margin-left:42px;
+}	
+#container {
+	width:492px;
+	height:342px;
+	font-size:12px;
+	position:relative;
+	border:1px solid #8ca8c5;
+	background:#FFF;
+}
+#welcome {
+	height:296px;
+}
+#welcome .inner {
+	background:url(images/sprite.jpg) 0 -63px no-repeat;
+	padding:95px 95px 30px 95px;
+	height:140px;
+}
+.title1 {
+	margin-bottom:6px;
+	font-weight:bold;
+	position:absolute;
+	top:89px;
+	left:96px;
+}
+.feature {
+	margin:0;
+	position:absolute;
+	top:130px;
+	left:92px;
+}
+.feature li {
+	font-size:13px;
+	line-height:19px;
+	list-style:none;
+	background:url(images/dot.gif)  no-repeat;
+	padding:0 0 0 13px;
+}
+.yellow {
+	color:#df440e;
+	font-weight:bold;
+	position:absolute;
+	top:254px;
+	left:96px;
+}
+#step1_flash {
+	position:absolute;
+	right:0px;
+	bottom:55px;
+	z-index:1;
+}
+#step2_language {
+	position:absolute;
+	right:18px;
+	bottom:55px;
+	width:272px;
+	height:149px;
+	background:url(images/sprite.jpg) no-repeat 0 -343px;
+}
+#bar {
+	position:relative;
+	height:63px;
+	background:url(images/sprite.jpg) no-repeat;
+}
+.bar_table {
+	padding-top:6px;
+ *margin-top:6px;
+	margin-left:77px;
+	height:49px;
+	color:#9ec1da;
+	font-size:12px;
+	line-height:49px;
+}
+.step_focus {
+	width:97px;
+	background:url(images/topbar_step_bg.png) no-repeat;
+	_background:none;
+ _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/topbar_step_bg.png', sizingMethod='crop');
+}
+.arrow {
+	width:38px;
+	background:url(images/topbar_step_arrow.png) no-repeat;
+	_background:none;
+ _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/topbar_step_arrow.png', sizingMethod='crop');
+}
+.stepnember {
+	display:block;
+	float:left;
+	font-size:36px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bolder;
+	font-style:italic;
+	padding-right:5px;
+ +padding-right:0;
+	_padding-right:0;
+}
+.step_focus .stepnember {
+	padding-left:10px;
+}
+#help {
+	position:absolute;
+	right:10px;
+	bottom:3px;
+	width:64px;
+	height:16px;
+	text-align:right;
+}
+#help .icon {
+	width:12px;
+	height:12px;
+	background:url(images/sprite.jpg) no-repeat -492px 0;
+	font-size:5px;
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+#help a {
+	color:#000;
+	text-decoration:none;
+	display:block;
+	position:absolute;
+	top:0px;
+	right:0px;
+}
+#content {
+	position:relative;
+	height:233px;
+	z-index:2;
+}
+#content .inner {
+	padding:20px 20px 0 20px;
+}
+.option {
+	margin:0 5px 0 0px;
+}
+.menu {
+	background:url(images/sprite.jpg) 229px -14px;
+	width:229px;
+	height:250px;
+	position:absolute;
+	top:29px;
+	left:53px;
+}
+.menu1 {
+	position:absolute;
+	top:86px;
+	left:256px;
+}
+.menu2 {
+	position:absolute;
+	top:112px;
+	left:256px;
+}
+.info {
+	position:absolute;
+	top:165px;
+	left:256px;
+	width:220px;
+}
+#btns {
+	position:relative;
+	height:42px;
+	z-index:3;
+}
+.hr {
+	border:none;
+	overflow:hidden;
+	background:#e6ebed;
+	height:1px;
+	margin:0px 20px 10px;
+}
+#btns table {
+	position:absolute;
+	right:20px;
+	top:12px;
+}
+#btns .col01 {
+	text-align:right;
+	width:80px;
+}
+#btns .col02 {
+	padding-left:10px;
+	width:80px;
+}
+#btns .col03 {
+	text-align:right;
+	width:90px;
+}
+#btns input {
+	width:73px;
+	height:22px;
+	border:0;
+}
+.btn01 {
+	background:url(images/sprite.jpg) 449px -344px;
+}
+.btn01-over {
+	background:url(images/sprite.jpg) 449px -366px;
+}
+.btn01-down {
+	background:url(images/sprite.jpg) 449px -388px;
+}
+.btn01-grey {
+	background:url(images/sprite.jpg) 449px -410px;
+}
+.btn02 {
+	background:url(images/sprite.jpg) 376px -344px;
+}
+.btn02-over {
+	background:url(images/sprite.jpg) 376px -366px;
+}
+.btn02-down {
+	background:url(images/sprite.jpg) 376px -388px;
+}
+.btn03 {
+	background:url(images/sprite.jpg) 230px -344px;
+}
+.btn03-over {
+	background:url(images/sprite.jpg) 230px -366px;
+}
+.btn03-down {
+	background:url(images/sprite.jpg) 230px -388px;
+}
+.btn03-grey {
+	background:url(images/sprite.jpg) 230px -410px;
+}
+.btn04 {
+	background:url(images/sprite.jpg) 303px -344px;
+}
+.btn04-over {
+	background:url(images/sprite.jpg) 303px -366px;
+}
+.btn04-down {
+	background:url(images/sprite.jpg) 303px -388px;
+}
+.new {
+	position:absolute;
+	top:107px;
+	left:42px;
+	width:20px;
+	height:10px;
+	background:url(images/sprite.jpg) 0px -496px;
+}
+.huayi {
+	margin-top:20px;
+    margin-bottom:0;
+}
+
+#ocr {
+	position:relative;
+	zoom:1;
+}
+.underline{
+	text-decoration:underline;
+}
+#popup {
+	background:#fdf9c7;
+	border:1px solid #fdd389;
+	width:218px;
+	height:55px;
+	line-height:18px;
+	padding:8px;
+	position:absolute;
+	top:20px;
+	left:0;
+	display:none;
+	color:#000;
+	text-decoration: none
+}
+a{text-decoration: none}
+#ocr:hover #popup {
+	display:block;
+	text-decoration: none
+}
+.red {
+	color:#F00;
+}

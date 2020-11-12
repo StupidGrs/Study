@@ -1,0 +1,35 @@
+body {
+    color: #313131;
+}
+
+/*背景色渐变*/
+body {
+    filter: progid:DXImageTransform.Microsoft.Gradient(enabled = true, startColorStr = #ffebdf, endColorStr = #ffffff);
+    background: -moz-linear-gradient(top, #ffebdf, #ffffff);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffebdf), to(#ffffff));
+}
+
+a {
+    color: #ae5f55;
+}
+
+.testing td a, .index .version, .example .sen {
+    color: #626262;
+}
+
+.check td a {
+    color: #d0d0d0;
+}
+
+.testing .space {
+    color: #54903f;
+    border-bottom: 1px solid #b9b9b9;
+}
+
+.business .additional {
+    color: #959595;
+}
+.testing td a:hover,.testing td a:active,.check td.wrong ,.check td.right{
+    background-image: url("index_split.png");
+    _background: url("");
+}

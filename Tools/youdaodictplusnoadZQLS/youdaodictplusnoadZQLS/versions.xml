@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<versions>
+	<main>210</main>
+	<modules>
+		<module><name>Acrobat2Dict.dll</name><ver>2</ver></module>
+		<module><name>dictcn.db</name><ver>1</ver></module>
+		<module><name>dicten.db</name><ver>1</ver></module>
+		<module><name>intro</name><ver>45</ver></module>
+		<module><name>RunDict.exe</name><ver>50</ver></module>
+		<module><name>res</name><ver>70</ver></module>
+		<module><name>resultui</name><ver>150</ver></module>
+		<module><name>skins</name><ver>90</ver></module>
+		<module><name>tessdata</name><ver>1</ver></module>
+		<module><name>tessdll.dll</name><ver>2</ver></module>
+		<module><name>TextExtractor2.dll</name><ver>6</ver></module>
+		<module><name>TextExtractorImpl32.dll</name><ver>40</ver></module>
+		<module><name>TextExtractorImpl64.dll</name><ver>40</ver></module>
+		<module><name>YoudaoEH.exe</name><ver>1</ver></module>
+		<module><name>uninst.exe</name><ver>60</ver></module>
+		<module><name>WordBook.exe</name><ver>60</ver></module>
+		<module><name>YodaoDict.api</name><ver>3</ver></module>
+		<module><name>YodaoDict.exe</name><ver>210</ver></module>
+		<module><name>YodaoOcr.exe</name><ver>3</ver></module>
+		<module><name>YoudaoGetWord.dll</name><ver>1</ver></module>
+		<module><name>YoudaoGetWord32.dll</name><ver>30</ver></module>
+		<module><name>YoudaoGetWord64.dll</name><ver>30</ver></module>
+		<module><name>WordStrokeHelper32.dll</name><ver>1</ver></module>
+		<module><name>WordStrokeHelper64.dll</name><ver>1</ver></module>
+		<module><name>YDChromeTextExtractor.crx</name><ver>1</ver></module>
+		<module><name>YoudaoWSH.exe</name><ver>1</ver></module>
+		<module><name>CrashRpt.dll</name><ver>30</ver></module>
+		<module><name>Monitor.exe</name><ver>45</ver></module>
+		<module><name>XDLL.dll</name><ver>1</ver></module>
+		<module><name>install.exe</name><ver>2</ver></module>
+		<module><name>TBDownload.exe</name><ver>2</ver></module>
+	</modules>
+</versions>

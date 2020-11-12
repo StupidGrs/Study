@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link rel="stylesheet" type="text/css"  href="style.css" />
+</head>
+<script type="text/javascript">
+document.focus();
+function ctlog(keyfrom,type){
+	var dateTime = new Date();
+	var rnd = "&rnd=" + dateTime.getTime();
+	var i=new Image();
+	i.src="http://dict.youdao.com/ctlog?q=null&url=null&id="+window.external.getAppID()+"&keyfrom="+keyfrom+"&action=GUIDE&ctype="+type+rnd;
+	return true;
+}
+
+function update_s1(){
+	var st_break = document.getElementById("st_break").checked;
+	var ws_break = document.getElementById("ws_break").checked;
+	var ocr_break = document.getElementById("ocr_break").checked;
+	
+	var logString = "next_" + st_break?"1":"0" + "_" + ws_break?"1":"0";
+	ctlog("deskdict_guide",logString);
+	window.external.saveString("TEMPVALUE_SCREENTRANS", String(st_break));
+	window.external.saveString("TEMPVALUE_WORDSTROKE", String(ws_break));
+	window.external.saveString("TEMPVALUE_OCR", String(ocr_break));
+	
+	location.href='step2.html';
+}
+function onhotkey()
+{
+	if(event.keyCode==13 || event.keyCode==78)
+		update_s1();
+	if(event.keyCode==66)
+		location.href="pre.html";
+}
+</script>
+<body onkeydown="onhotkey()">
+<form>
+  <div id="container">
+    <div id="bar">
+    	<table class="bar_table" >
+  <tr>
+    <td class="step_focus"><span class="stepnember">1</span>第一步</td>
+    <td class="arrow"></td>
+    <td><span class="stepnember">2</span>第二步</td>
+    <td class="arrow"></td>
+    <td>完成</td>
+  </tr>
+</table>
+
+      <div id="help"><div class="icon"></div><a href="http://cidian.youdao.com/help4.html" target="_blank">更多帮助</a></div>
+    </div>
+    
+    <div id="content"><div class="inner">
+      <h4>第一步:取词功能设置</h4>
+      <p class="item">
+            <input class="option" name="st_break" type="checkbox" value="" checked/>打开屏幕取词（快捷键F8）<br/>您只需用鼠标指向单词即可显示屏幕取词结果。<br/>
+ 
+			<input class="option" name="ocr_break" type="checkbox" value="">安装OCR取词<br>
+<span class="red">增强版 </span><a href="#" id="ocr">OCR取词<span id="popup">OCR强力取词功能，可在多款浏览器、图片、PDF文档中轻松取词，全英文环境下识别率达88%，下载安装后即可使用。</span></a>适用于图片取词<br/>需要占用一定资源
+</p>
+ 
+      <p class="huayi item">
+           <input class="option" name="ws_break" type="checkbox" value="" checked/>打开划词释义<br>
+新增划词翻译功能，鼠标划选或<br/>双击文字即可显示查词或翻译结果<br/>
+      </p>
+      </div></div><div id="btns">   
+    
+      <table  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+           <td class="col01">
+           <input class="btn01" name="" type="button" onmouseover="this.className='btn01-over'" onmouseout="this.className='btn01'" onmousedown="this.className='btn01-down'" onclick="location.href='pre.html'"/>
+            </td>
+          <td class="col02">
+            <input  class="btn02" name="" type="button" onmouseover="this.className='btn02-over'" onmouseout="this.className='btn02'" onmousedown="this.className='btn02-down'" onclick="update_s1();"/>
+            </td>
+          <td class="col03">
+            <input class="btn03" name="" type="button"  onmouseover="this.className='btn03-over'" onmouseout="this.className='btn03'" onmousedown="this.className='btn03-down'" onClick="location.href='app:closewindow';ctlog('deskdict_guide','close_page')"/>
+            </td>
+        </tr>
+      </table>
+    </div>
+    <div id="step1_flash">
+      <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="510" height="320">
+        <param name="movie" value="page_01_1.swf" />
+        <param name="quality" value="high" />
+        <param name="wmode" value="transparent" />
+        <param name="swfversion" value="6.0.65.0" />
+      </object>
+    </div>
+  </div>
+</form>
+</body>
+</html>

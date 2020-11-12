@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link rel="stylesheet" type="text/css"  href="style.css" />
+</head>
+<script type="text/javascript">
+document.focus();
+function ctlog(keyfrom,type){
+	var dateTime = new Date();
+	var rnd = "&rnd=" + dateTime.getTime();
+	var i=new Image();
+	i.src="http://dict.youdao.com/ctlog?q=null&url=null&id="+window.external.getAppID()+"&keyfrom="+keyfrom+"&action=GUIDE&ctype="+type+rnd;
+	return true;
+}
+function update_s2(){
+    var lang_type = document.getElementsByName("lang_type");
+    var len = lang_type.length;   
+    for (var i=0;i<len ;i++ )
+    {
+	 if( lang_type[i].checked == true )
+     {
+		ctlog("deskdict_guide","next_lang_"+lang_type[i].value);
+		window.external.saveString("TEMPVALUE_LANGTYPE", lang_type[i].value);
+     }
+	}
+	location.href='step3.html';
+}
+function onhotkey()
+{
+	if(event.keyCode==13 || event.keyCode==78)
+		update_s2();
+	if(event.keyCode==66)
+		location.href="step1.html";
+}
+</script>
+<body onkeydown="onhotkey()">
+<form>
+  <div id="container">
+    <div id="bar" class="bar2">
+      <table class="bar_table" >
+        <tr>
+          <td><span class="stepnember">1</span>第一步</td>
+          <td class="arrow"></td>
+          <td class="step_focus"><span class="stepnember">2</span>第二步</td>
+          <td class="arrow"></td>
+          <td>完成</td>
+        </tr>
+      </table>
+      <div id="help">
+        <div class="icon"></div>
+        <a href="http://cidian.youdao.com/help4.html" target="_blank">更多帮助</a></div>
+    </div>
+    <div id="content">
+      <div class="inner">
+        <h4>第二步:语言环境设置</h4>
+        <p class="item">您可以通过下面的选项设置词典默认的互译环境，也可以点击词典标签下方的“语言”按钮进行设置。</p>
+        <p class="item"><input name="lang_type" class="option" type="radio" value="eng" checked />汉英翻译<br/>
+        <input name="lang_type" class="option" type="radio" value="fr" />汉法翻译<br/>
+        <input name="lang_type" class="option" type="radio" value="jap" />汉日翻译<br/>
+        <input name="lang_type" class="option" type="radio" value="ko" />汉韩翻译<br/></p>
+      </div>
+    </div>
+    <div id="btns">
+      <div class="hr"></div>
+      <table  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="col01"><input class="btn01" name="" type="button" onmouseover="this.className='btn01-over'" onmouseout="this.className='btn01'" onmousedown="this.className='btn01-down'" onclick="location.href='step1.html'"/></td>
+          <td class="col02"><input  class="btn02" name="" type="button" onmouseover="this.className='btn02-over'" onmouseout="this.className='btn02'" onmousedown="this.className='btn02-down'" onclick="update_s2();"/></td>
+          <td class="col03"><input class="btn03" name="" type="button"  onmouseover="this.className='btn03-over'" onmouseout="this.className='btn03'" onmousedown="this.className='btn03-down'" onClick="location.href='app:closewindow';ctlog('deskdict_guide','close_page')"/></td>
+        </tr>
+      </table>
+    </div>
+    <div id="step2_language"> </div>
+  </div>
+</form>
+</body>
+</html>
