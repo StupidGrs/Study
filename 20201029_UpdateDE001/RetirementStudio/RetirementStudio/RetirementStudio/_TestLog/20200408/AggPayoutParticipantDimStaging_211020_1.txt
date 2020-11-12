@@ -1,0 +1,7 @@
+385609 {"jobid":211020,"payoutparticipantdimidkey":null,"payoutparticipantcombinedkey":39,"countryliabilityid":1,"countrystatusid":3,"dimcustomgroupkey":1,"majorbreakkeyid":0,"datacenter":"FKL"}
+333088 {"jobid":211020,"payoutparticipantdimidkey":null,"payoutparticipantcombinedkey":935,"countryliabilityid":29,"countrystatusid":3,"dimcustomgroupkey":1,"majorbreakkeyid":0,"datacenter":"FKL"}
+959266 {"jobid":211020,"payoutparticipantdimidkey":null,"payoutparticipantcombinedkey":71,"countryliabilityid":2,"countrystatusid":3,"dimcustomgroupkey":1,"majorbreakkeyid":0,"datacenter":"FKL"}
+135411 {"jobid":211020,"payoutparticipantdimidkey":null,"payoutparticipantcombinedkey":231,"countryliabilityid":7,"countrystatusid":3,"dimcustomgroupkey":1,"majorbreakkeyid":0,"datacenter":"FKL"}
+146852 {"jobid":211020,"payoutparticipantdimidkey":null,"payoutparticipantcombinedkey":327,"countryliabilityid":10,"countrystatusid":3,"dimcustomgroupkey":1,"majorbreakkeyid":0,"datacenter":"FKL"}
+899852 {"jobid":211020,"payoutparticipantdimidkey":null,"payoutparticipantcombinedkey":263,"countryliabilityid":8,"countrystatusid":3,"dimcustomgroupkey":1,"majorbreakkeyid":0,"datacenter":"FKL"}
+434840 {"jobid":211020,"payoutparticipantdimidkey":null,"payoutparticipantcombinedkey":295,"countryliabilityid":9,"countrystatusid":3,"dimcustomgroupkey":1,"majorbreakkeyid":0,"datacenter":"FKL"}

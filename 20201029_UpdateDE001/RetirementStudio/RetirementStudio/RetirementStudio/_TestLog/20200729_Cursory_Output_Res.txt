@@ -1,0 +1,43 @@
+----------------->    Cursory_Output_US_Franklin    <-----------------
+
+
+PASS:   SnapshotExtract.xlsx
+\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\Prod_Cursory_Output\Inputs\Baseline_Reports\US_Franklin\SnapshotExtract.xlsx
+\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\Prod_Cursory_Output\Logs\US_Franklin\SnapshotExtract.xlsx
+
+
+PASS:   TestCaseOutput.xlsx
+\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\Prod_Cursory_Output\Inputs\Baseline_Reports\US_Franklin\TestCaseOutput.xlsx
+\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\Prod_Cursory_Output\Logs\US_Franklin\TestCaseOutput.xlsx
+
+
+PASS:   ValuationSummary.xlsx
+\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\Prod_Cursory_Output\Inputs\Baseline_Reports\US_Franklin\ValuationSummary.xlsx
+\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\Prod_Cursory_Output\Logs\US_Franklin\ValuationSummary.xlsx
+
+
+FAIL:   IOE.xlsx
+\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\Prod_Cursory_Output\Inputs\Baseline_Reports\US_Franklin\IOE.xlsx
+\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\Prod_Cursory_Output\Logs\US_Franklin\IOE.xlsx
+Not Match:    Sheet1 => Cell(8 ,2)    Baseline: 0,000 <=> Compare: ,0000
+Not Match:    Sheet1 => Cell(8 ,3)    Baseline: 6.745,000 <=> Compare: 6745,0000
+Not Match:    Sheet1 => Cell(8 ,4)    Baseline: 0,000 <=> Compare: ,0000
+Not Match:    Sheet1 => Cell(8 ,5)    Baseline: 6.745,000 <=> Compare: 6745,0000
+Not Match:    Sheet1 => Cell(8 ,6)    Baseline: 6.745,000 <=> Compare: 6745,0000
+Not Match:    Sheet1 => Cell(8 ,7)    Baseline: 0,000 <=> Compare: ,0000
+Not Match:    Sheet1 => Cell(8 ,8)    Baseline: 6.745,000 <=> Compare: 6745,0000
+Not Match:    Sheet1 => Cell(8 ,9)    Baseline: 0,000 <=> Compare: ,0000
+Not Match:    Sheet1 => Cell(8 ,10)    Baseline: 0,000 <=> Compare: ,0000
+Not Match:    Sheet1 => Cell(8 ,11)    Baseline: 6.745,000 <=> Compare: 6745,0000
+Not Match:    Sheet1 => Cell(8 ,12)    Baseline: 0,000 <=> Compare: ,0000
+Not Match:    Sheet1 => Cell(8 ,13)    Baseline: 0,000 <=> Compare: ,0000
+Not Match:    Sheet1 => Cell(8 ,14)    Baseline: 8.815,000 <=> Compare: 8815,0000
+Not Match:    Sheet1 => Cell(8 ,15)    Baseline: 0,000 <=> Compare: ,0000
+Not Match:    Sheet1 => Cell(8 ,16)    Baseline: 0,000 <=> Compare: ,0000
+Not Match:    Sheet1 => Cell(8 ,17)    Baseline: 3.248,000 <=> Compare: 3248,0000
+Not Match:    Sheet1 => Cell(8 ,18)    Baseline: 0,000 <=> Compare: ,0000
+Not Match:    Sheet1 => Cell(8 ,19)    Baseline: 0,000 <=> Compare: ,0000
+Not Match:    Sheet1 => Cell(8 ,20)    Baseline: 3.248,000 <=> Compare: 3248,0000
+**********    More error cells (exceeds  20 ) are NOT logged here, pleae refer to its Excel file!   ********** 
+
+

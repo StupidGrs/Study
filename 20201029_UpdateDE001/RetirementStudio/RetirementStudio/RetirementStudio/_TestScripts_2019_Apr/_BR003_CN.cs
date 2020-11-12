@@ -1,0 +1,8121 @@
+﻿using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Windows.Input;
+using System.Windows.Forms;
+using System.Drawing;
+using Microsoft.VisualStudio.TestTools.UITesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UITest.Extension;
+using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
+
+using RetirementStudio._Config;
+using RetirementStudio._Libraries;
+using RetirementStudio._ThridParty;
+using RetirementStudio._UIMaps;
+using RetirementStudio._UIMaps.FarPointClasses;
+using RetirementStudio._UIMaps.MainClasses;
+using RetirementStudio._UIMaps.DataClasses;
+using RetirementStudio._UIMaps.ParticipantDataSetClasses;
+using RetirementStudio._UIMaps.AssumptionsClasses;
+using RetirementStudio._UIMaps.InterestRateClasses;
+using RetirementStudio._UIMaps.PayIncreaseClasses;
+using RetirementStudio._UIMaps.OtherDemographicAssumptionsClasses;
+using RetirementStudio._UIMaps.MortalityDecrementClasses;
+using RetirementStudio._UIMaps.ServiceClasses;
+using RetirementStudio._UIMaps.EligibilitiesClasses;
+using RetirementStudio._UIMaps.PayoutProjectionClasses;
+using RetirementStudio._UIMaps.PayAverageClasses;
+using RetirementStudio._UIMaps.VestingClasses;
+using RetirementStudio._UIMaps.ActuarialEquivalenceClasses;
+using RetirementStudio._UIMaps.ConversionFactorsClasses;
+using RetirementStudio._UIMaps.FormOfPaymentClasses;
+using RetirementStudio._UIMaps.Item415LimitsClasses;
+using RetirementStudio._UIMaps.PlanDefinitionClasses;
+using RetirementStudio._UIMaps.MethodsClasses;
+using RetirementStudio._UIMaps.TestCaseLibraryClasses;
+using RetirementStudio._UIMaps.OutputManagerClasses;
+using RetirementStudio._UIMaps.AssetsClasses;
+using RetirementStudio._UIMaps.FundingInformationClasses;
+using RetirementStudio._UIMaps.FundingInformation_PYR_PreliminaryResultsClasses;
+using RetirementStudio._UIMaps.FundingInformation_FTAPsClasses;
+using RetirementStudio._UIMaps.FundingInformation_ShortfallClasses;
+using RetirementStudio._UIMaps.FundingInformation_ContributionSummaryClasses;
+using RetirementStudio._UIMaps.OtherEconomicAssumptionClasses;
+using RetirementStudio._UIMaps.DefinedBenefitLimitIncreaseClasses;
+using RetirementStudio._UIMaps.FromToAgeClasses;
+using RetirementStudio._UIMaps.AverageYMPEClasses;
+using RetirementStudio._UIMaps.FAEFormulaClasses;
+using RetirementStudio._UIMaps.EmployeeContributionsFormulaClasses;
+using RetirementStudio._UIMaps.CostOfLivingAdjustmentsClasses;
+using RetirementStudio._UIMaps.EarlyRetirementFactorClasses;
+using RetirementStudio._UIMaps.AdjustmentsClasses;
+using RetirementStudio._UIMaps.MaxPensionDefinitionClasses;
+using RetirementStudio._UIMaps.ExcessContributionDefinitionClasses;
+using RetirementStudio._UIMaps.BenefitElectionsClasses;
+using RetirementStudio._UIMaps.ITAMaximumPensionsClasses;
+using RetirementStudio._UIMaps.TableManagerClasses;
+using RetirementStudio._UIMaps.ServiceSelectionClasses;
+using RetirementStudio._UIMaps.SocialSecurityClasses;
+using RetirementStudio._UIMaps.CustomRateClasses;
+using RetirementStudio._UIMaps.UserDefinedProjectionAClasses;
+
+
+
+namespace RetirementStudio._TestScripts_2019_Apr
+{
+    /// <summary>
+    /// Summary description for _BR003_CN
+    /// </summary>
+    [CodedUITest]
+    public class _BR003_CN
+    {
+        public _BR003_CN()
+        {
+
+            Config.eEnv = _TestingEnv.QA1;
+            Config.eCountry = _Country.BR;
+            Config.sClientName = "QA BR Benchmark 003 Existing DNT";
+            Config.sPlanName = "QA BR Benchmark 003 Existing DNT Plan";
+            Config.sDataCenter = "Franklin";
+            Config.bDownloadReports_PDF = false;
+            Config.bDownloadReports_EXCEL = true;
+            Config.bCompareReports = true;
+
+        }
+
+
+        public string sService_Accounting = "Acc2015_1";
+
+        #region Report Output Directory
+
+        public string sOutput_Accounting2015_Baseline = "";
+
+        public string sOutput_Accounting2015_Baseline_Prod = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BR_Benchmark_003\Production\Accounting\Accounting2015_Baseline\7.4_20190411_Franklin\";
+
+
+        public void GenerateReportOuputDir()
+        {
+
+            pMain._SetLanguageAndRegional();
+
+            if (!Config.bReportsStoreLocal)
+            {
+                _BenchmarkUser sCurrentUser = _gLib._ReturnCurrentUser();
+                if (sCurrentUser.ToString() == "Others")
+                {
+                    _gLib._MsgBox("Warning !!!", "Your are NOT allowed to create folders in \\mercer.com\\US_Data\\Shared\\Dfl\\Data1\\RSS\\SQA drive, Please contact Cindy or Webber if you have to!");
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    string sMainDir = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BR_Benchmark_003\CreateNew\";
+                    string sPostFix = _gLib._ReturnDateStampYYYYMMDD() + "_" + Config.eEnv.ToString();
+
+                    ////////_gLib._MsgBoxYesNo("Are you sure to create folders under below directory ?", sMainDir);
+
+                    sOutput_Accounting2015_Baseline = _gLib._CreateDirectory(sMainDir + "Accounting\\Accounting2015_Baseline\\" + sPostFix + "\\");
+
+                }
+
+            }
+            else
+            {
+                // get the main reports directory
+                string sDir = Directory.GetCurrentDirectory();
+                for (int i = 0; i < 3; i++)
+                {
+                    DirectoryInfo info = Directory.GetParent(sDir);
+                    sDir = info.FullName;
+                }
+
+                /// this is for VS2012 folder structure
+                sDir = sDir + "\\" + Config._ReturnProjectName() + "\\_Reports\\";
+
+                //////sDir = sDir + "\\_TestLog\\";
+
+                string sMainDir = sDir + "BR003_" + _gLib._ReturnDateStampYYYYMMDD();
+
+                //////_gLib._MsgBoxYesNo("Are you sure to create folders under below directory ?", sMainDir);
+
+                _gLib._CreateDirectory(sMainDir);
+                sOutput_Accounting2015_Baseline = _gLib._CreateDirectory(sMainDir + "Accounting\\Accounting2015_Baseline\\");
+
+            }
+
+            string sContent = "";
+
+            sContent = sContent + "sOutput_Accounting2015_Baseline = @\"" + sOutput_Accounting2015_Baseline + "\";" + Environment.NewLine;
+
+            _gLib._PrintReportDirectory(sContent);
+
+
+        }
+
+
+        #endregion
+
+
+        #region Fields
+        ////private Dictionary<string, string> dic = new Dictionary<string, string>();
+
+        public UserDefinedProjectionA pUserDefinedProjectionA = new UserDefinedProjectionA();
+        public CustomRate pCustomRate = new CustomRate();
+        public SocialSecurity pSocialSecurity = new SocialSecurity();
+        public ServiceSelection pServiceSelection = new ServiceSelection();
+        public TableManager pTableManager = new TableManager();
+        public ITAMaximumPensions pITAMaximumPensions = new ITAMaximumPensions();
+        public BenefitElections pBenefitElections = new BenefitElections();
+        public ExcessContributionDefinition pExcessContributionDefinition = new ExcessContributionDefinition();
+        public MaxPensionDefinition pMaxPensionDefinition = new MaxPensionDefinition();
+        public Adjustments pAdjustments = new Adjustments();
+        public EarlyRetirementFactor pEarlyRetirementFactor = new EarlyRetirementFactor();
+        public CostOfLivingAdjustments pCostOfLivingAdjustments = new CostOfLivingAdjustments();
+        public EmployeeContributionsFormula pEmployeeContributionsFormula = new EmployeeContributionsFormula();
+        public FAEFormula pFAEFormula = new FAEFormula();
+        public AverageYMPE pAverageYMPE = new AverageYMPE();
+        public FromToAge pFromToAge = new FromToAge();
+        public DefinedBenefitLimitIncrease pDefinedBenefitLimitIncrease = new DefinedBenefitLimitIncrease();
+        public MyDictionary dic = new MyDictionary();
+        public FarPoint _fp = new FarPoint();
+        public GenericLib_Win _gLib = new GenericLib_Win();
+        public Main pMain = new Main();
+        public Data pData = new Data();
+        public ParticipantDataSet pParticipantDataSet = new ParticipantDataSet();
+        public Assumptions pAssumptions = new Assumptions();
+        public InterestRate pInterestRate = new InterestRate();
+        public PayIncrease pPayIncrease = new PayIncrease();
+        public OtherDemographicAssumptions pOtherDemographicAssumptions = new OtherDemographicAssumptions();
+        public MortalityDecrement pMortalityDecrement = new MortalityDecrement();
+        public Service pService = new Service();
+        public Eligibilities pEligibilities = new Eligibilities();
+        public PayoutProjection pPayoutProjection = new PayoutProjection();
+        public PayAverage pPayAverage = new PayAverage();
+        public Vesting pVesting = new Vesting();
+        public ActuarialEquivalence pActuarialEquivalence = new ActuarialEquivalence();
+        public ConversionFactors pConversionFactors = new ConversionFactors();
+        public FormOfPayment pFormOfPayment = new FormOfPayment();
+        public Item415Limits p415Limits = new Item415Limits();
+        public PlanDefinition pPlanDefinition = new PlanDefinition();
+        public Methods pMethods = new Methods();
+        public TestCaseLibrary pTestCaseLibrary = new TestCaseLibrary();
+        public OutputManager pOutputManager = new OutputManager();
+        public Assets pAssets = new Assets();
+        public FundingInformation pFundingInformation = new FundingInformation();
+        public FundingInformation_PYR_PreliminaryResults pFundingInformation_PYR_PreliminaryResults = new FundingInformation_PYR_PreliminaryResults();
+        public FundingInformation_FTAPs pFundingInformation_FTAPs = new FundingInformation_FTAPs();
+        public FundingInformation_Shortfall pFundingInformation_Shortfall = new FundingInformation_Shortfall();
+        public FundingInformation_ContributionSummary pFundingInformation_ContributionSummary = new FundingInformation_ContributionSummary();
+        public OtherEconomicAssumption pOtherEconomicAssumption = new OtherEconomicAssumption();
+
+        #endregion
+
+
+        [TestMethod]
+        public void Test_BR003_CN()
+        {
+            this.GenerateReportOuputDir();
+
+
+            #region Accounting - Baseline - ParticipantData
+
+            pMain._SelectTab("Home");
+
+            dic.Clear();
+            dic.Add("Country", Config.eCountry.ToString());
+            dic.Add("Level_1", Config.sClientName);
+            dic.Add("Level_2", Config.sPlanName);
+            dic.Add("Level_3", "AccountingValuations");
+            pMain._HomeTreeViewSelect(0, dic);
+
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AddServiceInstance", "Click");
+            dic.Add("ServiceToOpen", "");
+            pMain._PopVerify_Home_RightPane(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("ConversionService", "True");
+            dic.Add("Name", sService_Accounting);
+            dic.Add("Parent", "");
+            dic.Add("PlanYearBeginningIn", "");
+            dic.Add("ParentFinalValuationSet", "");
+            dic.Add("FirstYearPlanUnderPPA", "");
+            dic.Add("FiscalYearEndingIn_Accounting", "2015");
+            dic.Add("PlanYearEndingIn_DE", "");
+            dic.Add("RSC", "True");
+            dic.Add("LocalMarket", "");
+            dic.Add("Shared", "");
+            dic.Add("SelectAllVO", "");
+            dic.Add("OK", "Click");
+            dic.Add("Cancel", "");
+            pMain._PopVerify_Home_ServicePropeties(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AddServiceInstance", "");
+            dic.Add("ServiceToOpen", sService_Accounting);
+            pMain._PopVerify_Home_RightPane(dic);
+
+
+            pMain._SelectTab(sService_Accounting);
+
+            dic.Clear();
+            dic.Add("iMaxRowNum", "");
+            dic.Add("iMaxColNum", "");
+            dic.Add("iSelectRowNum", "1");
+            dic.Add("iSelectColNum", "1");
+            dic.Add("MenuItem_1", "Data");
+            dic.Add("MenuItem_2", "Edit Parameters");
+            pMain._FlowTreeRightSelect(dic);
+
+            pMain._SelectTab("Participant DataSet");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("DataEffectiveDate", "");
+            dic.Add("Snapshot", "true");
+            dic.Add("GRSUnload", "");
+            dic.Add("GotoDataSystem", "Click");
+            dic.Add("AddField", "");
+            dic.Add("GRSInformation", "");
+            dic.Add("ImportDataandApplyMapping", "");
+            pParticipantDataSet._PopVerify_ParticipantDataSet(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SnapshotName", "Valuation Data");
+            dic.Add("OK", "Click");
+            pParticipantDataSet._PopVerify_SelectSnapshotDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("DataEffectiveDate", "");
+            dic.Add("Snapshot", "");
+            dic.Add("GRSUnload", "");
+            dic.Add("GotoDataSystem", "");
+            dic.Add("AddField", "");
+            dic.Add("GRSInformation", "");
+            dic.Add("ImportDataandApplyMapping", "Click");
+            pParticipantDataSet._PopVerify_ParticipantDataSet(dic);
+
+            pMain._Home_ToolbarClick_Top(true);
+            pMain._Home_ToolbarClick_Top(false);
+
+            #endregion
+
+
+            #region Accounting - Baseline - Assumptions & Provisions
+
+
+            pMain._SelectTab(sService_Accounting);
+
+            dic.Clear();
+            dic.Add("iMaxRowNum", "");
+            dic.Add("iMaxColNum", "");
+            dic.Add("iSelectRowNum", "1");
+            dic.Add("iSelectColNum", "1");
+            dic.Add("MenuItem_1", "Provisions");
+            dic.Add("MenuItem_2", "Edit Parameters");
+            pMain._FlowTreeRightSelect(dic);
+
+
+            pMain._SelectTab("Provisions");
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Age");
+            dic.Add("MenuItem", "Add Age");
+            pAssumptions._TreeViewRightSelect(dic, "AGSpouseAge");
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Age");
+            dic.Add("Level_3", "AGSpouseAge");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "1");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$Age+4");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Age");
+            dic.Add("Level_3", "AGSpouseAge");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Male");
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Age");
+            dic.Add("Level_3", "AGSpouseAge");
+            dic.Add("Level_4", "Male");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "1");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$Age-4");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.Gender=\"M\"");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Age");
+            dic.Add("MenuItem", "Add Age");
+            pAssumptions._TreeViewRightSelect(dic, "AGChildAge");
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Age");
+            dic.Add("Level_3", "AGChildAge");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "1");
+            dic.Add("Name", "");
+            dic.Add("Expression", "($ValAge-20)*0.5+$Age-$ValAge");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Age");
+            pAssumptions._Collapse(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Service");
+            dic.Add("MenuItem", "Add Service");
+            pAssumptions._TreeViewRightSelect(dic, "SVCPlanService");
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Service");
+            dic.Add("Level_3", "SVCPlanService");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("ServiceStarts_Age_V", "");
+            dic.Add("ServiceStarts_Age_C", "");
+            dic.Add("ServiceStarts_Age_cbo", "");
+            dic.Add("ServiceStarts_Age_txt", "");
+            dic.Add("ServiceStarts_FixedDate", "");
+            dic.Add("Date", "MembershipDate1");
+            dic.Add("RoundingRule", "");
+            dic.Add("ServiceIncreasement_V", "");
+            dic.Add("ServiceIncreasement_C", "");
+            dic.Add("ServiceIncreasement_cbo", "");
+            dic.Add("ServiceIncreasement_txt", "");
+            pService._PopVerify_RulesBasedService(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Service");
+            dic.Add("MenuItem", "Add Service");
+            pAssumptions._TreeViewRightSelect(dic, "SVCCertainPeriodWithdrawal");
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Service");
+            dic.Add("Level_3", "SVCCertainPeriodWithdrawal");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "1");
+            dic.Add("Name", "");
+            dic.Add("Expression", "Min(Max($SVCPlanService/3,0.5),2)");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Service");
+            dic.Add("MenuItem", "Add Service");
+            pAssumptions._TreeViewRightSelect(dic, "SVCRatio");
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Service");
+            dic.Add("Level_3", "SVCRatio");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Service");
+            pAssumptions._Collapse(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "From/To Age");
+            dic.Add("MenuItem", "Add From/To Age");
+            pAssumptions._TreeViewRightSelect(dic, "FTAValAge");
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "From/To Age");
+            dic.Add("Level_3", "FTAValAge");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("iRow", "1");
+            dic.Add("SSNRA_Exists", "False");
+            dic.Add("SSNRA", "");
+            dic.Add("FixedAge", "");
+            dic.Add("YearOfService", "");
+            dic.Add("RuleOf", "");
+            dic.Add("DateConstant", "");
+            dic.Add("DateField", "$ValDate");
+            dic.Add("ServiceBasedOn", "");
+            dic.Add("AgeBasedOn", "");
+            dic.Add("Comparison", "");
+            pFromToAge._StandardTable_NotUS(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Eligibilities");
+            dic.Add("MenuItem", "Add Eligibilities");
+            pAssumptions._TreeViewRightSelect(dic, "ELRetirementEligibility");
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Eligibilities");
+            dic.Add("Level_3", "ELRetirementEligibility");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("FreezeAtValuationAge", "");
+            dic.Add("Formula", "$Age>=55");
+            dic.Add("Validate", "Click");
+            pEligibilities._PopVerify_Eligibilities(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Eligibilities");
+            dic.Add("MenuItem", "Add Eligibilities");
+            pAssumptions._TreeViewRightSelect(dic, "ELServiceLT10");
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Eligibilities");
+            dic.Add("Level_3", "ELServiceLT10");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("FreezeAtValuationAge", "");
+            dic.Add("Formula", "$SVCPlanService<10");
+            dic.Add("Validate", "Click");
+            pEligibilities._PopVerify_Eligibilities(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Eligibilities");
+            dic.Add("MenuItem", "Add Eligibilities");
+            pAssumptions._TreeViewRightSelect(dic, "ELInactives");
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            dic.Add("Level_2", "Eligibilities");
+            dic.Add("Level_3", "ELInactives");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("FreezeAtValuationAge", "");
+            dic.Add("Formula", "$emp.ParticipantStatus=\"IN\"");
+            dic.Add("Validate", "Click");
+            pEligibilities._PopVerify_Eligibilities(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Participant Info");
+            pAssumptions._Collapse(dic);
+
+            pMain._Home_ToolbarClick_Top(true);
+
+
+            pMain._SelectTab(sService_Accounting);
+
+            dic.Clear();
+            dic.Add("iMaxRowNum", "");
+            dic.Add("iMaxColNum", "");
+            dic.Add("iSelectRowNum", "1");
+            dic.Add("iSelectColNum", "1");
+            dic.Add("MenuItem_1", "Assumptions");
+            dic.Add("MenuItem_2", "Edit Parameters");
+            pMain._FlowTreeRightSelect(dic);
+
+            pMain._SelectTab("Assumptions");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Interest Rate");
+            dic.Add("Level_3", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PrescribedRates", "");
+            dic.Add("NonPrescribedRates", "");
+            dic.Add("SameStructureForAllPeriods", "true");
+            dic.Add("TimeBased", "");
+            dic.Add("PercentIcon", "click");
+            dic.Add("TIcon", "");
+            dic.Add("txtRate", "6,17");
+            dic.Add("cboRate", "");
+            pInterestRate._PopVerify_SameStructureForAllPeriods(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRHCCTRRate");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRHCCTRRate");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PrescribedRates", "");
+            dic.Add("NonPrescribedRates", "");
+            dic.Add("SameStructureForAllPeriods", "");
+            dic.Add("TimeBased", "");
+            dic.Add("PercentIcon", "");
+            dic.Add("TIcon", "");
+            dic.Add("txtRate", "3,0");
+            dic.Add("cboRate", "");
+            pInterestRate._PopVerify_SameStructureForAllPeriods(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRAgingContributionRate");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingContributionRate");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PrescribedRates", "");
+            dic.Add("NonPrescribedRates", "");
+            dic.Add("SameStructureForAllPeriods", "");
+            dic.Add("TimeBased", "");
+            dic.Add("PercentIcon", "");
+            dic.Add("TIcon", "");
+            dic.Add("txtRate", "0,21");
+            dic.Add("cboRate", "");
+            pInterestRate._PopVerify_SameStructureForAllPeriods(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRPercentPermCost");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRPercentPermCost");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PrescribedRates", "");
+            dic.Add("NonPrescribedRates", "");
+            dic.Add("SameStructureForAllPeriods", "");
+            dic.Add("TimeBased", "");
+            dic.Add("PercentIcon", "");
+            dic.Add("TIcon", "");
+            dic.Add("txtRate", "10,0");
+            dic.Add("cboRate", "");
+            pInterestRate._PopVerify_SameStructureForAllPeriods(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRPercentPermContribution");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRPercentPermContribution");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "0,0");
+            dic.Add("Rate_cbo_T", "");
+            dic.Add("Adjustment1Operator_cbo", "-");
+            dic.Add("Adjustment1_c", "");
+            dic.Add("Adjustment1_p", "10,0");
+            dic.Add("Adjustment2Operator_cbo", "");
+            dic.Add("Adjustment2_c", "");
+            dic.Add("Adjustment2_p", "");
+            dic.Add("Adjustment3Operator_cbo", "");
+            dic.Add("Adjustment3_c", "");
+            dic.Add("Adjustment3_p", "");
+            pCustomRate._Adjustments_BR(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRPeriodRemissao");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRPeriodRemissao");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRPeriodRemissao");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Operadora3");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRPeriodRemissao");
+            dic.Add("Level_4", "Operadora3");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "");
+            dic.Add("Adjustment1Operator_cbo", "+");
+            dic.Add("Adjustment1_c", "0,5");
+            dic.Add("Adjustment1_p", "");
+            dic.Add("Adjustment2Operator_cbo", "");
+            dic.Add("Adjustment2_c", "");
+            dic.Add("Adjustment2_p", "");
+            dic.Add("Adjustment3Operator_cbo", "");
+            dic.Add("Adjustment3_c", "");
+            dic.Add("Adjustment3_p", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.OperadoraN=3");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRHCCTRFactor");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRHCCTRFactor");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "100,0");
+            dic.Add("Rate_cbo_T", "");
+            dic.Add("Adjustment1Operator_cbo", "+");
+            dic.Add("Adjustment1_v", "AsCRHCCTRRate");
+            dic.Add("Adjustment1_c", "");
+            dic.Add("Adjustment1_p", "");
+            dic.Add("Adjustment2Operator_cbo", "");
+            dic.Add("Adjustment2_v", "");
+            dic.Add("Adjustment2_c", "");
+            dic.Add("Adjustment2_p", "");
+            dic.Add("Adjustment3Operator_cbo", "");
+            dic.Add("Adjustment3_v", "");
+            dic.Add("Adjustment3_c", "");
+            dic.Add("Adjustment3_p", "");
+            pCustomRate._Adjustments_BR(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRAgingContributionFactor");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingContributionFactor");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "100,0");
+            dic.Add("Rate_cbo_T", "");
+            dic.Add("Adjustment1Operator_cbo", "+");
+            dic.Add("Adjustment1_v", "AsCRAgingContributionRate");
+            dic.Add("Adjustment1_c", "");
+            dic.Add("Adjustment1_p", "");
+            dic.Add("Adjustment2Operator_cbo", "");
+            dic.Add("Adjustment2_v", "");
+            dic.Add("Adjustment2_c", "");
+            dic.Add("Adjustment2_p", "");
+            dic.Add("Adjustment3Operator_cbo", "");
+            dic.Add("Adjustment3_v", "");
+            dic.Add("Adjustment3_c", "");
+            dic.Add("Adjustment3_p", "");
+            pCustomRate._Adjustments_BR(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRParticipantAging");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRParticipantAging");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "AFTNEW_ERRADA");
+            pCustomRate._Adjustments_BR(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRSpouseAging");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRSpouseAging");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "AFTNEW_ERRADA");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRChildAging");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRChildAging");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "AFTNEW_ERRADA");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRAgingHCCTRForCost");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRForCost");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "100,0");
+            dic.Add("Rate_cbo_T", "");
+            dic.Add("Rate_T_Age", "");
+            dic.Add("Adjustment1Operator_cbo", "+");
+            dic.Add("Adjustment1_v", "");
+            dic.Add("Adjustment1_c", "");
+            dic.Add("Adjustment1_p", "0,5");
+            dic.Add("Adjustment2Operator_cbo", "*");
+            dic.Add("Adjustment2_v", "AsCRHCCTRFactor");
+            dic.Add("Adjustment2_c", "");
+            dic.Add("Adjustment2_p", "");
+            dic.Add("Adjustment3Operator_cbo", "-");
+            dic.Add("Adjustment3_v", "");
+            dic.Add("Adjustment3_c", "1,0");
+            dic.Add("Adjustment3_p", "");
+            pCustomRate._Adjustments_BR(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRForCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "AgeGE25LT55");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRForCost");
+            dic.Add("Level_4", "AgeGE25LT55");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "100,0");
+            dic.Add("Rate_cbo_T", "");
+            dic.Add("Rate_T_Age", "");
+            dic.Add("Adjustment1Operator_cbo", "+");
+            dic.Add("Adjustment1_v", "");
+            dic.Add("Adjustment1_c", "");
+            dic.Add("Adjustment1_p", "2,0");
+            dic.Add("Adjustment2Operator_cbo", "*");
+            dic.Add("Adjustment2_v", "AsCRHCCTRFactor");
+            dic.Add("Adjustment2_c", "");
+            dic.Add("Adjustment2_p", "");
+            dic.Add("Adjustment3Operator_cbo", "-");
+            dic.Add("Adjustment3_v", "");
+            dic.Add("Adjustment3_c", "1,0");
+            dic.Add("Adjustment3_p", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$Age>=25 and $Age<55");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRForCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "AgeGE55LT80");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRForCost");
+            dic.Add("Level_4", "AgeGE55LT80");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "100,0");
+            dic.Add("Rate_cbo_T", "");
+            dic.Add("Rate_T_Age", "");
+            dic.Add("Adjustment1Operator_cbo", "+");
+            dic.Add("Adjustment1_v", "");
+            dic.Add("Adjustment1_c", "");
+            dic.Add("Adjustment1_p", "4,5");
+            dic.Add("Adjustment2Operator_cbo", "*");
+            dic.Add("Adjustment2_v", "AsCRHCCTRFactor");
+            dic.Add("Adjustment2_c", "");
+            dic.Add("Adjustment2_p", "");
+            dic.Add("Adjustment3Operator_cbo", "-");
+            dic.Add("Adjustment3_v", "");
+            dic.Add("Adjustment3_c", "1,0");
+            dic.Add("Adjustment3_p", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$Age>=55 and $Age<80");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRForCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "AgeGE80");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRForCost");
+            dic.Add("Level_4", "AgeGE80");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "100,0");
+            dic.Add("Rate_cbo_T", "");
+            dic.Add("Rate_T_Age", "");
+            dic.Add("Adjustment1Operator_cbo", "+");
+            dic.Add("Adjustment1_v", "");
+            dic.Add("Adjustment1_c", "");
+            dic.Add("Adjustment1_p", "3,0");
+            dic.Add("Adjustment2Operator_cbo", "*");
+            dic.Add("Adjustment2_v", "AsCRHCCTRFactor");
+            dic.Add("Adjustment2_c", "");
+            dic.Add("Adjustment2_p", "");
+            dic.Add("Adjustment3Operator_cbo", "-");
+            dic.Add("Adjustment3_v", "");
+            dic.Add("Adjustment3_c", "1,0");
+            dic.Add("Adjustment3_p", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$Age>=80");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRForCost");
+            pAssumptions._Collapse(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRAgingHCCTRSpouseForCost");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRSpouseForCost");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "100,0");
+            dic.Add("Rate_cbo_T", "");
+            dic.Add("Rate_T_Age", "");
+            dic.Add("Adjustment1Operator_cbo", "+");
+            dic.Add("Adjustment1_v", "");
+            dic.Add("Adjustment1_c", "");
+            dic.Add("Adjustment1_p", "0,5");
+            dic.Add("Adjustment2Operator_cbo", "*");
+            dic.Add("Adjustment2_v", "AsCRHCCTRFactor");
+            dic.Add("Adjustment2_c", "");
+            dic.Add("Adjustment2_p", "");
+            dic.Add("Adjustment3Operator_cbo", "-");
+            dic.Add("Adjustment3_v", "");
+            dic.Add("Adjustment3_c", "1,0");
+            dic.Add("Adjustment3_p", "");
+            pCustomRate._Adjustments_BR(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRSpouseForCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "AgeGE25LT55");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRSpouseForCost");
+            dic.Add("Level_4", "AgeGE25LT55");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "100,0");
+            dic.Add("Rate_cbo_T", "");
+            dic.Add("Rate_T_Age", "");
+            dic.Add("Adjustment1Operator_cbo", "+");
+            dic.Add("Adjustment1_v", "");
+            dic.Add("Adjustment1_c", "");
+            dic.Add("Adjustment1_p", "2,0");
+            dic.Add("Adjustment2Operator_cbo", "*");
+            dic.Add("Adjustment2_v", "AsCRHCCTRFactor");
+            dic.Add("Adjustment2_c", "");
+            dic.Add("Adjustment2_p", "");
+            dic.Add("Adjustment3Operator_cbo", "-");
+            dic.Add("Adjustment3_v", "");
+            dic.Add("Adjustment3_c", "1,0");
+            dic.Add("Adjustment3_p", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$AGSpouseAge>=25 and $AGSpouseAge<55");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRSpouseForCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "AgeGE55LT80");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRSpouseForCost");
+            dic.Add("Level_4", "AgeGE55LT80");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "100,0");
+            dic.Add("Rate_cbo_T", "");
+            dic.Add("Rate_T_Age", "");
+            dic.Add("Adjustment1Operator_cbo", "+");
+            dic.Add("Adjustment1_v", "");
+            dic.Add("Adjustment1_c", "");
+            dic.Add("Adjustment1_p", "4,5");
+            dic.Add("Adjustment2Operator_cbo", "*");
+            dic.Add("Adjustment2_v", "AsCRHCCTRFactor");
+            dic.Add("Adjustment2_c", "");
+            dic.Add("Adjustment2_p", "");
+            dic.Add("Adjustment3Operator_cbo", "-");
+            dic.Add("Adjustment3_v", "");
+            dic.Add("Adjustment3_c", "1,0");
+            dic.Add("Adjustment3_p", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$AGSpouseAge>=55 and $AGSpouseAge <80");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRSpouseForCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "AgeGE80");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRSpouseForCost");
+            dic.Add("Level_4", "AgeGE80");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "100,0");
+            dic.Add("Rate_cbo_T", "");
+            dic.Add("Rate_T_Age", "");
+            dic.Add("Adjustment1Operator_cbo", "+");
+            dic.Add("Adjustment1_v", "");
+            dic.Add("Adjustment1_c", "");
+            dic.Add("Adjustment1_p", "3,0");
+            dic.Add("Adjustment2Operator_cbo", "*");
+            dic.Add("Adjustment2_v", "AsCRHCCTRFactor");
+            dic.Add("Adjustment2_c", "");
+            dic.Add("Adjustment2_p", "");
+            dic.Add("Adjustment3Operator_cbo", "-");
+            dic.Add("Adjustment3_v", "");
+            dic.Add("Adjustment3_c", "1,0");
+            dic.Add("Adjustment3_p", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$AGSpouseAge>=80");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRSpouseForCost");
+            pAssumptions._Collapse(dic);
+
+            pMain._Home_ToolbarClick_Top(true);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PrescribedRates", "");
+            dic.Add("NonPrescribedRates", "");
+            dic.Add("SameStructureForAllPeriods", "");
+            dic.Add("TimeBased", "");
+            dic.Add("PercentIcon", "");
+            dic.Add("TIcon", "");
+            dic.Add("txtRate", "");
+            dic.Add("cboRate", "");
+            pInterestRate._PopVerify_SameStructureForAllPeriods(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRAgingHCCTRChildForCost");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRChildForCost");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRChildForCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "AgeLT25");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRChildForCost");
+            dic.Add("Level_4", "AgeLT25");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "100,0");
+            dic.Add("Rate_cbo_T", "");
+            dic.Add("Rate_T_Age", "");
+            dic.Add("Adjustment1Operator_cbo", "+");
+            dic.Add("Adjustment1_v", "");
+            dic.Add("Adjustment1_c", "");
+            dic.Add("Adjustment1_p", "0,5");
+            dic.Add("Adjustment2Operator_cbo", "*");
+            dic.Add("Adjustment2_v", "AsCRHCCTRFactor");
+            dic.Add("Adjustment2_c", "");
+            dic.Add("Adjustment2_p", "");
+            dic.Add("Adjustment3Operator_cbo", "-");
+            dic.Add("Adjustment3_v", "");
+            dic.Add("Adjustment3_c", "1,0");
+            dic.Add("Adjustment3_p", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$AGChildAge<25");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRAgingHCCTRForContribution");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRAgingHCCTRForContribution");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "100,0");
+            dic.Add("Rate_cbo_T", "");
+            dic.Add("Rate_T_Age", "");
+            dic.Add("Adjustment1Operator_cbo", "*");
+            dic.Add("Adjustment1_v", "AsCRHCCTRFactor");
+            dic.Add("Adjustment1_c", "");
+            dic.Add("Adjustment1_p", "");
+            dic.Add("Adjustment2Operator_cbo", "*");
+            dic.Add("Adjustment2_v", "AsCRAgingContributionFactor");
+            dic.Add("Adjustment2_c", "");
+            dic.Add("Adjustment2_p", "");
+            dic.Add("Adjustment3Operator_cbo", "-");
+            dic.Add("Adjustment3_v", "");
+            dic.Add("Adjustment3_c", "1,0");
+            dic.Add("Adjustment3_p", "");
+            pCustomRate._Adjustments_BR(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRContributionFaixaEtaria");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table16");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Table16");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2014_Table16");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=16");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table15");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Table15");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2014_Table15");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=15");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table14");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Table14");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2014_Table14");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=14");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table13");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Table13");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2014_Table13");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=13");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table12");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Table12");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table12");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=12");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table11");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Table11");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table11");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=11");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table10");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Table10");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table10");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=10");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table9");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Table9");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table09");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=9");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table8");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Table8");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table08");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=8");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table7");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Table7");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table07");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=7");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table6");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Table6");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table06");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=6");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table5");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Table5");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table05");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=5");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table4");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Table4");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table04");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=4");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table3");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Table3");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table03");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=3");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table2");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Table2");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table02");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=2");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            dic.Add("Level_4", "Table1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table01");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=1");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtaria");
+            pAssumptions._Collapse(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRContributionFaixaEtariaSpous");
+
+            pMain._Home_ToolbarClick_Top(true);
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpous");
+            dic.Add("MenuItem", "Delete");
+            pAssumptions._TreeViewRightSelect(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRContributionFaixaEtariaSpse");
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table16");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("Level_4", "Table16");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2014_Table16");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=16");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table15");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("Level_4", "Table15");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2014_Table15");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=15");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table14");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("Level_4", "Table14");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2014_Table14");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=14");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table13");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("Level_4", "Table13");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2014_Table13");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=13");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table12");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("Level_4", "Table12");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table12");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=12");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table11");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("Level_4", "Table11");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table11");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=11");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table10");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("Level_4", "Table10");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table10");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=10");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table9");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("Level_4", "Table9");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table09");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=9");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table8");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("Level_4", "Table8");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table08");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=8");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table7");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("Level_4", "Table7");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table07");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=7");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table6");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("Level_4", "Table6");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table06");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=6");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table5");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("Level_4", "Table5");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table05");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=5");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table4");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("Level_4", "Table4");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table04");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=4");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table3");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("Level_4", "Table3");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table03");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=3");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table2");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("Level_4", "Table2");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table02");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=2");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            dic.Add("Level_4", "Table1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table01");
+            dic.Add("Rate_T_Age", "AGSpouseAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=1");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaSpse");
+            pAssumptions._Collapse(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRContributionFaixaEtariaChild");
+
+            pMain._Home_ToolbarClick_Top(true);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChild");
+            dic.Add("MenuItem", "Delete");
+            pAssumptions._TreeViewRightSelect(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("MenuItem", "Add Custom Rates");
+            pAssumptions._TreeViewRightSelect(dic, "AsCRContributionFaixaEtariaChld");
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table16");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("Level_4", "Table16");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2014_Table16");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=16");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table15");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("Level_4", "Table15");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2014_Table15");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=15");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table14");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("Level_4", "Table14");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2014_Table14");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=14");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table13");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("Level_4", "Table13");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2014_Table13");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=13");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table12");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("Level_4", "Table12");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table12");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=12");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table11");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("Level_4", "Table11");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table11");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=11");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table10");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("Level_4", "Table10");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table10");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=10");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table9");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("Level_4", "Table9");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table09");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=9");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table8");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("Level_4", "Table8");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table08");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=8");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table7");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("Level_4", "Table7");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table07");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=7");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table6");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("Level_4", "Table6");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table06");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=6");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table5");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("Level_4", "Table5");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table05");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=5");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table4");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("Level_4", "Table4");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table04");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=4");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table3");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("Level_4", "Table3");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table03");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=3");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table2");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("Level_4", "Table2");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table02");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=2");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Table1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            dic.Add("Level_4", "Table1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "Contribution2015_Table01");
+            dic.Add("Rate_T_Age", "AGChildAge");
+            pCustomRate._Adjustments_BR(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria=1");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            dic.Add("Level_3", "AsCRContributionFaixaEtariaChld");
+            pAssumptions._Collapse(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Custom Rates");
+            pAssumptions._Collapse(dic);
+
+            pMain._Home_ToolbarClick_Top(true);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Cost of Living Increase");
+            dic.Add("Level_3", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("Rate_cbo", "AsCRHCCTRRate");
+            dic.Add("Rate_txt", "");
+            dic.Add("Rate_cbo_T", "");
+            dic.Add("Rate_T_Age", "");
+            pCustomRate._Adjustments_BR(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Other Economic Assumption");
+            dic.Add("Level_3", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("BenefitCapacityFactor", "1,234");
+            dic.Add("PICO", "2,46");
+            dic.Add("BenefitPICO", "3,69");
+            dic.Add("MinimumSalaryPICO", "4,32");
+            dic.Add("SSContributionCeilingPICO", "5,79");
+            dic.Add("NumberOfBenefitPayments", "12");
+            dic.Add("NumberofSalaryPeriod", "");
+            dic.Add("NumberofContributions", "");
+            dic.Add("MinmumSalary", "234,56");
+            dic.Add("SocialSecurityContributionCeiling", "34567,89");
+            dic.Add("SocialSecurityMaximumBenefit", "98765,43");
+            pOtherEconomicAssumption._PopVerify_Main_BR(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Other Demographic Assumptions");
+            dic.Add("Level_3", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("ApplyPercentMarriedAt", "");
+            dic.Add("btnPercentMarried_Percent", "click");
+            dic.Add("btnPercentMarried_T", "");
+            dic.Add("txtPercentMarried_M", "90,0");
+            dic.Add("txtPercentMarried_F", "90,0");
+            dic.Add("cboPercentMarried", "");
+            dic.Add("btnDifferenceInSpouseAge_CIcon", "click");
+            dic.Add("btnDifferenceInSpouseAge_TIcon", "");
+            dic.Add("txtDifferenceInSpouseAge_M", "-4");
+            dic.Add("txtDifferenceInSpouseAge_F", "4");
+            dic.Add("cboDifferenceInSpouseAge", "");
+            dic.Add("DifferenceInOrphanAge", "24");
+            dic.Add("NumberOfChildren", "2");
+            pOtherDemographicAssumptions._PopVerify_OtherDemographicAssumptions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Mortality Decrement");
+            dic.Add("Level_3", "_Death");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PrescribedRates", "");
+            dic.Add("SameStructureForAllPeriods", "");
+            dic.Add("PrePostCommencement", "");
+            dic.Add("PreDecrementPostCommencement", "");
+            dic.Add("UnisexMortality", "");
+            dic.Add("ProjectedStaticMortalit", "");
+            dic.Add("GenerationalMortality", "");
+            dic.Add("DisabledVsHealthy", "true");
+            dic.Add("MemberVsSpouse", "");
+            pMortalityDecrement._PopVerify_Main(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Mortality", "AT83");
+            dic.Add("Disabled", "IAPB57Mort");
+            pMortalityDecrement._PopVerify_SameStructureForAll(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Retirement Decrement");
+            dic.Add("Level_3", "_Retirement");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Retirement Decrement");
+            dic.Add("Level_3", "_Retirement");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "NewSubGroup1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Retirement Decrement");
+            dic.Add("Level_3", "_Retirement");
+            dic.Add("Level_4", "NewSubGroup1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("RetWithdrawDis", "FIXRET");
+            pAssumptions._PopVerify_Assmp_Decrement_Parameters(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "true");
+            dic.Add("cboPreDefinedEligibility", "ELRetirementEligibility");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "");
+            dic.Add("Validate", "");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Withdrawal Decrement");
+            dic.Add("Level_3", "_Withdrawal");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Withdrawal Decrement");
+            dic.Add("Level_3", "_Withdrawal");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "SalGT10");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Withdrawal Decrement");
+            dic.Add("Level_3", "_Withdrawal");
+            dic.Add("Level_4", "SalGT10");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("RetWithdrawDis", "");
+            dic.Add("AdjustmentOperator", "+");
+            dic.Add("Adjustment_C", "");
+            dic.Add("Adjustment_P", "click");
+            dic.Add("Adjustment_txt", "11,5");
+            pAssumptions._PopVerify_Assmp_Decrement_Parameters(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.SalaryCurrentYear>10*$_MinSalary");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Withdrawal Decrement");
+            dic.Add("Level_3", "_Withdrawal");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "SalGE5LE10");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Withdrawal Decrement");
+            dic.Add("Level_3", "_Withdrawal");
+            dic.Add("Level_4", "SalGE5LE10");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("RetWithdrawDis", "");
+            dic.Add("AdjustmentOperator", "+");
+            dic.Add("Adjustment_C", "");
+            dic.Add("Adjustment_P", "click");
+            dic.Add("Adjustment_txt", "14,3");
+            pAssumptions._PopVerify_Assmp_Decrement_Parameters(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "($emp.SalaryCurrentYear>=5*$_MinSalary) and ($emp.SalaryCurrentYear<=10*$_MinSalary)");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Withdrawal Decrement");
+            dic.Add("Level_3", "_Withdrawal");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "SalLT5");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Withdrawal Decrement");
+            dic.Add("Level_3", "_Withdrawal");
+            dic.Add("Level_4", "SalLT5");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "true");
+            dic.Add("RetWithdrawDis", "");
+            dic.Add("AdjustmentOperator", "+");
+            dic.Add("Adjustment_C", "");
+            dic.Add("Adjustment_P", "click");
+            dic.Add("Adjustment_txt", "17,0");
+            pAssumptions._PopVerify_Assmp_Decrement_Parameters(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.SalaryCurrentYear<5*$_MinSalary");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Withdrawal Decrement");
+            dic.Add("Level_3", "_Withdrawal");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "NewSubGroup1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Withdrawal Decrement");
+            dic.Add("Level_3", "_Withdrawal");
+            dic.Add("Level_4", "NewSubGroup1");
+            pAssumptions._TreeViewSelect(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "true");
+            dic.Add("cboPreDefinedEligibility", "ELRetirementEligibility");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "");
+            dic.Add("Validate", "");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Assumptions");
+            dic.Add("Level_2", "Disability Decrement");
+            dic.Add("Level_3", "_Disability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Adjustments", "");
+            dic.Add("RetWithdrawDis", "Mercer_DIS");
+            pAssumptions._PopVerify_Assmp_Decrement_Parameters(dic);
+
+            pMain._Home_ToolbarClick_Top(true);
+
+
+
+            pMain._SelectTab("Provisions");
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("MenuItem", "Add Custom Formula A");
+            pAssumptions._TreeViewRightSelect(dic, "CFAMonthlyCost");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "0");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+            //////////////////////////////////////////
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "OperadoraN1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("Level_5", "OperadoraN1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "191.46*1.03*1.05");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.OperadoraN = 1");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "OperadoraN2");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("Level_5", "OperadoraN2");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "179.55*1.03*1.05");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.OperadoraN = 2");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "OperadoraN3");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("Level_5", "OperadoraN3");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "167.56*1.03*1.05");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.OperadoraN = 3");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "OperadoraN4");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("Level_5", "OperadoraN4");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "148.17*1.03*1.05");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.OperadoraN = 4");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "OperadoraN5");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("Level_5", "OperadoraN5");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "64.64*1.03*1.05");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.OperadoraN = 5");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "OperadoraN6");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("Level_5", "OperadoraN6");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "65.51*1.03*1.05");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.OperadoraN = 6");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "OperadoraN7");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("Level_5", "OperadoraN7");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "134.29*1.03*1.05");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.OperadoraN = 7");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "OperadoraN8");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("Level_5", "OperadoraN8");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "218.90*1.03*1.05");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.OperadoraN = 8");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "OperadoraN9");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("Level_5", "OperadoraN9");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "104.68*1.03*1.05");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.OperadoraN = 9");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "OperadoraN10");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("Level_5", "OperadoraN10");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "267.13*1.03*1.05");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.OperadoraN = 10");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "OperadoraN11");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyCost");
+            dic.Add("Level_5", "OperadoraN11");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "232.42*1.03*1.05");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.OperadoraN = 11");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            ////////////////////////////////////
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            pAssumptions._Collapse(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("MenuItem", "Add Custom Formula A");
+            pAssumptions._TreeViewRightSelect(dic, "CFASpouseCostAdjustedForAging");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFASpouseCostAdjustedForAging");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$CFAMonthlyCost*$_NumBenefit*$AsCRSpouseAging[$ExitAge]");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("MenuItem", "Add Custom Formula A");
+            pAssumptions._TreeViewRightSelect(dic, "CFAChildCostAdjustedForAging");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAChildCostAdjustedForAging");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$CFAMonthlyCost*$_NumBenefit*$AsCRChildAging[$ExitAge]");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("MenuItem", "Add Custom Formula A");
+            pAssumptions._TreeViewRightSelect(dic, "CFAPartCostAdjustedForAging");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAPartCostAdjustedForAging");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$CFAMonthlyCost*$_NumBenefit*$AsCRParticipantAging[$ExitAge]");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("MenuItem", "Add Custom Formula A");
+            pAssumptions._TreeViewRightSelect(dic, "CFAMonthlyContribution");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyContribution");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$AsCRContributionFaixaEtaria*1.03*1.05*1.0021");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyContribution");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Diretores");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyContribution");
+            dic.Add("Level_5", "Diretores");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "0");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagDiretores = 1");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyContribution");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "ContributionAverage");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyContribution");
+            dic.Add("Level_5", "ContributionAverage");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$emp.PlanContribution*1.03*1.05*1.0021");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria = 0");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("MenuItem", "Add Custom Formula A");
+            pAssumptions._TreeViewRightSelect(dic, "CFAMonthlyContributionSpouse");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyContributionSpouse");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$AsCRContributionFaixaEtariaSpse *1.03*1.05*1.0021");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyContributionSpouse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Diretores");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyContributionSpouse");
+            dic.Add("Level_5", "Diretores");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "0");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagDiretores = 1");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyContributionSpouse");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "ContributionAverage");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyContributionSpouse");
+            dic.Add("Level_5", "ContributionAverage");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$emp.PlanContribution*1.03*1.05*1.0021");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria = 0");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("MenuItem", "Add Custom Formula A");
+            pAssumptions._TreeViewRightSelect(dic, "CFAMonthlyContributtionChild");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyContributtionChild");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$AsCRContributionFaixaEtariaChld *1.03*1.05*1.0021");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyContributtionChild");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Diretores");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyContributtionChild");
+            dic.Add("Level_5", "Diretores");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "0");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagDiretores = 1");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyContributtionChild");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "ContributionAverage");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAMonthlyContributtionChild");
+            dic.Add("Level_5", "ContributionAverage");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$emp.PlanContribution*1.03*1.05*1.0021");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagFaixaEtaria = 0");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("MenuItem", "Add Custom Formula A");
+            pAssumptions._TreeViewRightSelect(dic, "CFAAnnualContribution");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAAnnualContribution");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$CFAMonthlyContribution*$_NumContrib");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("MenuItem", "Add Custom Formula A");
+            pAssumptions._TreeViewRightSelect(dic, "CFAAnnualContributionSpouse");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAAnnualContributionSpouse");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$CFAMonthlyContributionSpouse*$_NumContrib");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("MenuItem", "Add Custom Formula A");
+            pAssumptions._TreeViewRightSelect(dic, "CFAAnnualContributionChild");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAAnnualContributionChild");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$CFAMonthlyContributtionChild*$_NumContrib");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("MenuItem", "Add Custom Formula A");
+            pAssumptions._TreeViewRightSelect(dic, "CFACertainPeriodForServiceLT10");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFACertainPeriodForServiceLT10");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$SVCPlanService[$ValAge]");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("MenuItem", "Add Custom Formula A");
+            pAssumptions._TreeViewRightSelect(dic, "CFAPeriodRemissao");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            dic.Add("Level_4", "CFAPeriodRemissao");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$AsCRPeriodRemissao");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula A");
+            pAssumptions._Collapse(dic);
+
+            pMain._Home_ToolbarClick_Top(true);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            dic.Add("MenuItem", "Add User Defined Projection");
+            pAssumptions._TreeViewRightSelect(dic, "UDPHCCTRMultiplierForCost");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            dic.Add("Level_4", "UDPHCCTRMultiplierForCost");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Standard", "True");
+            dic.Add("CustomCode", "");
+            dic.Add("Amount_V", "");
+            dic.Add("Amount_C", "click");
+            dic.Add("Amount_cbo", "");
+            dic.Add("Amount_txt", "1,0");
+            dic.Add("Rate_V", "click");
+            dic.Add("Rate_P", "");
+            dic.Add("Rate_cbo", "AsCRHCCTRRate");
+            dic.Add("Rate_txt", "");
+            dic.Add("ProjectValuesForPastAges", "true");
+            pUserDefinedProjectionA._PopVerify_Standard(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            dic.Add("MenuItem", "Add User Defined Projection");
+            pAssumptions._TreeViewRightSelect(dic, "UDPHCCTRMultiplierForCont");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            dic.Add("Level_4", "UDPHCCTRMultiplierForCont");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("Standard", "True");
+            dic.Add("CustomCode", "");
+            dic.Add("Amount_V", "");
+            dic.Add("Amount_C", "click");
+            dic.Add("Amount_cbo", "");
+            dic.Add("Amount_txt", "1,0");
+            dic.Add("Rate_V", "click");
+            dic.Add("Rate_P", "");
+            dic.Add("Rate_cbo", "AsCRAgingHCCTRForContribution");
+            dic.Add("Rate_txt", "");
+            dic.Add("ProjectValuesForPastAges", "true");
+            pUserDefinedProjectionA._PopVerify_Standard(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            dic.Add("MenuItem", "Add User Defined Projection");
+            pAssumptions._TreeViewRightSelect(dic, "UDPProjectedParticipantCost");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            dic.Add("Level_4", "UDPProjectedParticipantCost");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "1");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$CFAPartCostAdjustedForAging*$UDPHCCTRMultiplierForCost");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            dic.Add("MenuItem", "Add User Defined Projection");
+            pAssumptions._TreeViewRightSelect(dic, "UDPProjectedSpouseCost");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            dic.Add("Level_4", "UDPProjectedSpouseCost");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "1");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$CFASpouseCostAdjustedForAging*$UDPHCCTRMultiplierForCost");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            dic.Add("MenuItem", "Add User Defined Projection");
+            pAssumptions._TreeViewRightSelect(dic, "UDPProjectedChildCost");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            dic.Add("Level_4", "UDPProjectedChildCost");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "1");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$CFAChildCostAdjustedForAging*$UDPHCCTRMultiplierForCost");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            dic.Add("MenuItem", "Add User Defined Projection");
+            pAssumptions._TreeViewRightSelect(dic, "UDPProjectedContribution");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            dic.Add("Level_4", "UDPProjectedContribution");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "1");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$CFAAnnualContribution*$UDPHCCTRMultiplierForCont");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            dic.Add("MenuItem", "Add User Defined Projection");
+            pAssumptions._TreeViewRightSelect(dic, "UDPProjectedSpouseContribution");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            dic.Add("Level_4", "UDPProjectedSpouseContribution");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "1");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$CFAAnnualContributionSpouse*$UDPHCCTRMultiplierForCont");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            dic.Add("MenuItem", "Add User Defined Projection");
+            pAssumptions._TreeViewRightSelect(dic, "UDPProjectedChildContribution");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            dic.Add("Level_4", "UDPProjectedChildContribution");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "1");
+            dic.Add("Name", "");
+            dic.Add("Expression", "$CFAAnnualContributionChild*$UDPHCCTRMultiplierForCont");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "User Defined Projection");
+            pAssumptions._Collapse(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula B");
+            dic.Add("MenuItem", "Add Custom Formula B");
+            pAssumptions._TreeViewRightSelect(dic, "CFBChildCertainPeriod");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula B");
+            dic.Add("Level_4", "CFBChildCertainPeriod");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "1");
+            dic.Add("Name", "");
+            dic.Add("Expression", "Max($_Orphanagedif-$AGChildAge,0)");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula B");
+            dic.Add("MenuItem", "Add Custom Formula B");
+            pAssumptions._TreeViewRightSelect(dic, "CFBChildCertainPeriodForRet");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula B");
+            dic.Add("Level_4", "CFBChildCertainPeriodForRet");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "1");
+            dic.Add("Name", "");
+            dic.Add("Expression", "Min($SVCPlanService,$CFBChildCertainPeriod)");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula B");
+            dic.Add("MenuItem", "Add Custom Formula B");
+            pAssumptions._TreeViewRightSelect(dic, "CFBChildCertainPeriodForWth");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula B");
+            dic.Add("Level_4", "CFBChildCertainPeriodForWth");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "1");
+            dic.Add("Name", "");
+            dic.Add("Expression", "Min($CFBChildCertainPeriod,Max($SVCPlanService/3,0.5),2)");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula B");
+            dic.Add("MenuItem", "Add Custom Formula B");
+            pAssumptions._TreeViewRightSelect(dic, "CFBChildCertainPeriodForDeath");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula B");
+            dic.Add("Level_4", "CFBChildCertainPeriodForDeath");
+            dic.Add("Level_5", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("iRow", "1");
+            dic.Add("Name", "");
+            dic.Add("Expression", "Min($CFAPeriodRemissao,$CFBChildCertainPeriod)");
+            dic.Add("Validate", "Click");
+            pAssumptions._PopVerify_Provision_CustomCode(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            dic.Add("Level_3", "Custom Formula B");
+            pAssumptions._Collapse(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Formulae");
+            pAssumptions._Collapse(dic);
+
+            pMain._Home_ToolbarClick_Top(true);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Vesting");
+            dic.Add("MenuItem", "Add Vesting");
+            pAssumptions._TreeViewRightSelect(dic, "VSTAWLVesting");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Vesting");
+            dic.Add("Level_3", "VSTAWLVesting");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("iRow", "1");
+            dic.Add("YearsOfService", "0");
+            dic.Add("VestingPercentage", "100");
+            pVesting._ServiceTable(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Cost of Living Adjustments");
+            dic.Add("MenuItem", "Add Cost of Living Adjustments");
+            pAssumptions._TreeViewRightSelect(dic, "COLAAgingAndHCCTRForCost");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Cost of Living Adjustments");
+            dic.Add("Level_3", "COLAAgingAndHCCTRForCost");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("MinandMaxCOLAPerAnnum", "");
+            dic.Add("COLA_After_V", "click");
+            dic.Add("COLA_After_Percent", "");
+            dic.Add("COLA_After_T", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_cbo_V", "AsCRAgingHCCTRForCost");
+            pCostOfLivingAdjustments._PopVerify_Main(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Cost of Living Adjustments");
+            dic.Add("MenuItem", "Add Cost of Living Adjustments");
+            pAssumptions._TreeViewRightSelect(dic, "COLAAgingAndHCCTRForContr");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Cost of Living Adjustments");
+            dic.Add("Level_3", "COLAAgingAndHCCTRForContr");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("MinandMaxCOLAPerAnnum", "");
+            dic.Add("COLA_After_V", "click");
+            dic.Add("COLA_After_Percent", "");
+            dic.Add("COLA_After_T", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_cbo_V", "AsCRAgingHCCTRForContribution");
+            pCostOfLivingAdjustments._PopVerify_Main(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Cost of Living Adjustments");
+            dic.Add("MenuItem", "Add Cost of Living Adjustments");
+            pAssumptions._TreeViewRightSelect(dic, "COLASpouseAgingAndHCCTRForCost");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Cost of Living Adjustments");
+            dic.Add("Level_3", "COLASpouseAgingAndHCCTRForCost");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("MinandMaxCOLAPerAnnum", "");
+            dic.Add("COLA_After_V", "click");
+            dic.Add("COLA_After_Percent", "");
+            dic.Add("COLA_After_T", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_cbo_V", "AsCRAgingHCCTRSpouseForCost");
+            pCostOfLivingAdjustments._PopVerify_Main(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Cost of Living Adjustments");
+            dic.Add("MenuItem", "Add Cost of Living Adjustments");
+            pAssumptions._TreeViewRightSelect(dic, "COLASpouseAgingAndHCCTRForContr");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Cost of Living Adjustments");
+            dic.Add("Level_3", "COLASpouseAgingAndHCCTRForContr");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("MinandMaxCOLAPerAnnum", "");
+            dic.Add("COLA_After_V", "click");
+            dic.Add("COLA_After_Percent", "");
+            dic.Add("COLA_After_T", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_cbo_V", "AsCRAgingHCCTRForContribution");
+            pCostOfLivingAdjustments._PopVerify_Main(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Cost of Living Adjustments");
+            dic.Add("MenuItem", "Add Cost of Living Adjustments");
+            pAssumptions._TreeViewRightSelect(dic, "COLAChildAgeAndHCCTRForCost");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Cost of Living Adjustments");
+            dic.Add("Level_3", "COLAChildAgeAndHCCTRForCost");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("MinandMaxCOLAPerAnnum", "");
+            dic.Add("COLA_After_V", "click");
+            dic.Add("COLA_After_Percent", "");
+            dic.Add("COLA_After_T", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_cbo_V", "AsCRAgingHCCTRChildForCost");
+            pCostOfLivingAdjustments._PopVerify_Main(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Cost of Living Adjustments");
+            dic.Add("MenuItem", "Add Cost of Living Adjustments");
+            pAssumptions._TreeViewRightSelect(dic, "COLAChildAgeAndHCCTRForContr");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Cost of Living Adjustments");
+            dic.Add("Level_3", "COLAChildAgeAndHCCTRForContr");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("MinandMaxCOLAPerAnnum", "");
+            dic.Add("COLA_After_V", "click");
+            dic.Add("COLA_After_Percent", "");
+            dic.Add("COLA_After_T", "");
+            dic.Add("Rate_cbo", "");
+            dic.Add("Rate_cbo_V", "AsCRAgingHCCTRForContribution");
+            pCostOfLivingAdjustments._PopVerify_Main(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Cost of Living Adjustments");
+            pAssumptions._Collapse(dic);
+
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("MenuItem", "Add Form of Payment");
+            pAssumptions._TreeViewRightSelect(dic, "FOPLifeAnnuityFOP");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("Level_3", "FOPLifeAnnuityFOP");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("FormOfPaymentType", "");
+            dic.Add("MortalityInReferralPeriod", "");
+            dic.Add("btnGuaranteePeriod_V", "");
+            dic.Add("GuaranteePeriod_cbo", "");
+            dic.Add("btnGuaranteePeriod_C", "click");
+            dic.Add("GuaranteePeriod_txt", "");
+            dic.Add("cboGuaranteePeriod_YearMonth", "");
+            dic.Add("btnSurvivorPercentOrAmount_V", "");
+            dic.Add("SurvivorPercentOrAmount_cbo", "");
+            dic.Add("btnSurvivorPercentOrAmount_Percent", "");
+            dic.Add("SurvivorPercentOrAmount_txt", "");
+            dic.Add("cboSurvivorPercentOrAmount_PercentOrAmount", "");
+            dic.Add("btnPopupAmount_V", "");
+            dic.Add("PopupAmount_cbo", "");
+            dic.Add("btnPopupAmount_C", "");
+            dic.Add("PopupAmount_txt", "");
+            dic.Add("btnNumberOfPaymentsPerYear_V", "");
+            dic.Add("NumberOfPaymentsPerYear_cbo", "");
+            dic.Add("btnNumberOfPaymentsPerYear_C", "click");
+            dic.Add("NumberOfPaymentsPerYear_txt", "1");
+            pFormOfPayment._PopVerify_FormOfPayment(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("MenuItem", "Add Form of Payment");
+            pAssumptions._TreeViewRightSelect(dic, "FOPCertainOnlyFOP");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("Level_3", "FOPCertainOnlyFOP");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("FormOfPaymentType", "Certain only");
+            dic.Add("MortalityInReferralPeriod", "");
+            dic.Add("btnGuaranteePeriod_V", "click");
+            dic.Add("GuaranteePeriod_cbo", "SVCPlanService");
+            dic.Add("btnGuaranteePeriod_C", "");
+            dic.Add("GuaranteePeriod_txt", "");
+            dic.Add("cboGuaranteePeriod_YearMonth", "");
+            dic.Add("btnSurvivorPercentOrAmount_V", "");
+            dic.Add("SurvivorPercentOrAmount_cbo", "");
+            dic.Add("btnSurvivorPercentOrAmount_Percent", "");
+            dic.Add("SurvivorPercentOrAmount_txt", "");
+            dic.Add("cboSurvivorPercentOrAmount_PercentOrAmount", "");
+            dic.Add("btnPopupAmount_V", "");
+            dic.Add("PopupAmount_cbo", "");
+            dic.Add("btnPopupAmount_C", "");
+            dic.Add("PopupAmount_txt", "");
+            dic.Add("btnNumberOfPaymentsPerYear_V", "");
+            dic.Add("NumberOfPaymentsPerYear_cbo", "");
+            dic.Add("btnNumberOfPaymentsPerYear_C", "click");
+            dic.Add("NumberOfPaymentsPerYear_txt", "1");
+            pFormOfPayment._PopVerify_FormOfPayment(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("Level_3", "FOPCertainOnlyFOP");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "NewSubGroup1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("Level_3", "FOPCertainOnlyFOP");
+            dic.Add("Level_4", "NewSubGroup1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("FormOfPaymentType", "Certain only");
+            dic.Add("MortalityInReferralPeriod", "");
+            dic.Add("btnGuaranteePeriod_V", "click");
+            dic.Add("GuaranteePeriod_cbo", "CertainPeriodFractional");
+            dic.Add("btnGuaranteePeriod_C", "");
+            dic.Add("GuaranteePeriod_txt", "");
+            dic.Add("cboGuaranteePeriod_YearMonth", "");
+            dic.Add("btnSurvivorPercentOrAmount_V", "");
+            dic.Add("SurvivorPercentOrAmount_cbo", "");
+            dic.Add("btnSurvivorPercentOrAmount_Percent", "");
+            dic.Add("SurvivorPercentOrAmount_txt", "");
+            dic.Add("cboSurvivorPercentOrAmount_PercentOrAmount", "");
+            dic.Add("btnPopupAmount_V", "");
+            dic.Add("PopupAmount_cbo", "");
+            dic.Add("btnPopupAmount_C", "");
+            dic.Add("PopupAmount_txt", "");
+            dic.Add("btnNumberOfPaymentsPerYear_V", "");
+            dic.Add("NumberOfPaymentsPerYear_cbo", "");
+            dic.Add("btnNumberOfPaymentsPerYear_C", "click");
+            dic.Add("NumberOfPaymentsPerYear_txt", "1");
+            pFormOfPayment._PopVerify_FormOfPayment(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "true");
+            dic.Add("cboPreDefinedEligibility", "ELInactives");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "");
+            dic.Add("Validate", "");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("MenuItem", "Add Form of Payment");
+            pAssumptions._TreeViewRightSelect(dic, "FOPSpouseAnnuityFOP");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("Level_3", "FOPSpouseAnnuityFOP");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("FormOfPaymentType", "Spouse's");
+            dic.Add("MortalityInReferralPeriod", "");
+            dic.Add("btnGuaranteePeriod_V", "");
+            dic.Add("GuaranteePeriod_cbo", "");
+            dic.Add("btnGuaranteePeriod_C", "click");
+            dic.Add("GuaranteePeriod_txt", "");
+            dic.Add("cboGuaranteePeriod_YearMonth", "");
+            dic.Add("btnSurvivorPercentOrAmount_V", "");
+            dic.Add("SurvivorPercentOrAmount_cbo", "");
+            dic.Add("btnSurvivorPercentOrAmount_Percent", "click");
+            dic.Add("SurvivorPercentOrAmount_txt", "100,0");
+            dic.Add("cboSurvivorPercentOrAmount_PercentOrAmount", "");
+            dic.Add("btnPopupAmount_V", "");
+            dic.Add("PopupAmount_cbo", "");
+            dic.Add("btnPopupAmount_C", "");
+            dic.Add("PopupAmount_txt", "");
+            dic.Add("btnNumberOfPaymentsPerYear_V", "");
+            dic.Add("NumberOfPaymentsPerYear_cbo", "");
+            dic.Add("btnNumberOfPaymentsPerYear_C", "click");
+            dic.Add("NumberOfPaymentsPerYear_txt", "1");
+            pFormOfPayment._PopVerify_FormOfPayment(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("MenuItem", "Add Form of Payment");
+            pAssumptions._TreeViewRightSelect(dic, "FOPCertainOnlyWithdrawalFOP");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("Level_3", "FOPCertainOnlyWithdrawalFOP");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("FormOfPaymentType", "Certain only");
+            dic.Add("MortalityInReferralPeriod", "");
+            dic.Add("btnGuaranteePeriod_V", "click");
+            dic.Add("GuaranteePeriod_cbo", "SVCCertainPeriodWithdrawal");
+            dic.Add("btnGuaranteePeriod_C", "");
+            dic.Add("GuaranteePeriod_txt", "");
+            dic.Add("cboGuaranteePeriod_YearMonth", "");
+            dic.Add("btnSurvivorPercentOrAmount_V", "");
+            dic.Add("SurvivorPercentOrAmount_cbo", "");
+            dic.Add("btnSurvivorPercentOrAmount_Percent", "");
+            dic.Add("SurvivorPercentOrAmount_txt", "");
+            dic.Add("cboSurvivorPercentOrAmount_PercentOrAmount", "");
+            dic.Add("btnPopupAmount_V", "");
+            dic.Add("PopupAmount_cbo", "");
+            dic.Add("btnPopupAmount_C", "");
+            dic.Add("PopupAmount_txt", "");
+            dic.Add("btnNumberOfPaymentsPerYear_V", "");
+            dic.Add("NumberOfPaymentsPerYear_cbo", "");
+            dic.Add("btnNumberOfPaymentsPerYear_C", "click");
+            dic.Add("NumberOfPaymentsPerYear_txt", "1");
+            pFormOfPayment._PopVerify_FormOfPayment(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("MenuItem", "Add Form of Payment");
+            pAssumptions._TreeViewRightSelect(dic, "FOPChildCertainOnly");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("Level_3", "FOPChildCertainOnly");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("FormOfPaymentType", "Certain only");
+            dic.Add("MortalityInReferralPeriod", "");
+            dic.Add("btnGuaranteePeriod_V", "click");
+            dic.Add("GuaranteePeriod_cbo", "CFBChildCertainPeriod");
+            dic.Add("btnGuaranteePeriod_C", "");
+            dic.Add("GuaranteePeriod_txt", "");
+            dic.Add("cboGuaranteePeriod_YearMonth", "");
+            dic.Add("btnSurvivorPercentOrAmount_V", "");
+            dic.Add("SurvivorPercentOrAmount_cbo", "");
+            dic.Add("btnSurvivorPercentOrAmount_Percent", "");
+            dic.Add("SurvivorPercentOrAmount_txt", "");
+            dic.Add("cboSurvivorPercentOrAmount_PercentOrAmount", "");
+            dic.Add("btnPopupAmount_V", "");
+            dic.Add("PopupAmount_cbo", "");
+            dic.Add("btnPopupAmount_C", "");
+            dic.Add("PopupAmount_txt", "");
+            dic.Add("btnNumberOfPaymentsPerYear_V", "");
+            dic.Add("NumberOfPaymentsPerYear_cbo", "");
+            dic.Add("btnNumberOfPaymentsPerYear_C", "click");
+            dic.Add("NumberOfPaymentsPerYear_txt", "1");
+            pFormOfPayment._PopVerify_FormOfPayment(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("MenuItem", "Add Form of Payment");
+            pAssumptions._TreeViewRightSelect(dic, "FOPChildCertainOnlyServiceLT10");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("Level_3", "FOPChildCertainOnlyServiceLT10");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("FormOfPaymentType", "Certain only");
+            dic.Add("MortalityInReferralPeriod", "");
+            dic.Add("btnGuaranteePeriod_V", "click");
+            dic.Add("GuaranteePeriod_cbo", "CFBChildCertainPeriodForRet");
+            dic.Add("btnGuaranteePeriod_C", "");
+            dic.Add("GuaranteePeriod_txt", "");
+            dic.Add("cboGuaranteePeriod_YearMonth", "");
+            dic.Add("btnSurvivorPercentOrAmount_V", "");
+            dic.Add("SurvivorPercentOrAmount_cbo", "");
+            dic.Add("btnSurvivorPercentOrAmount_Percent", "");
+            dic.Add("SurvivorPercentOrAmount_txt", "");
+            dic.Add("cboSurvivorPercentOrAmount_PercentOrAmount", "");
+            dic.Add("btnPopupAmount_V", "");
+            dic.Add("PopupAmount_cbo", "");
+            dic.Add("btnPopupAmount_C", "");
+            dic.Add("PopupAmount_txt", "");
+            dic.Add("btnNumberOfPaymentsPerYear_V", "");
+            dic.Add("NumberOfPaymentsPerYear_cbo", "");
+            dic.Add("btnNumberOfPaymentsPerYear_C", "click");
+            dic.Add("NumberOfPaymentsPerYear_txt", "1");
+            pFormOfPayment._PopVerify_FormOfPayment(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("MenuItem", "Add Form of Payment");
+            pAssumptions._TreeViewRightSelect(dic, "FOPChildCertainOnlyForWithdrawal");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("Level_3", "FOPChildCertainOnlyForWithdrawal");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("FormOfPaymentType", "Certain only");
+            dic.Add("MortalityInReferralPeriod", "");
+            dic.Add("btnGuaranteePeriod_V", "click");
+            dic.Add("GuaranteePeriod_cbo", "CFBChildCertainPeriodForWth");
+            dic.Add("btnGuaranteePeriod_C", "");
+            dic.Add("GuaranteePeriod_txt", "");
+            dic.Add("cboGuaranteePeriod_YearMonth", "");
+            dic.Add("btnSurvivorPercentOrAmount_V", "");
+            dic.Add("SurvivorPercentOrAmount_cbo", "");
+            dic.Add("btnSurvivorPercentOrAmount_Percent", "");
+            dic.Add("SurvivorPercentOrAmount_txt", "");
+            dic.Add("cboSurvivorPercentOrAmount_PercentOrAmount", "");
+            dic.Add("btnPopupAmount_V", "");
+            dic.Add("PopupAmount_cbo", "");
+            dic.Add("btnPopupAmount_C", "");
+            dic.Add("PopupAmount_txt", "");
+            dic.Add("btnNumberOfPaymentsPerYear_V", "");
+            dic.Add("NumberOfPaymentsPerYear_cbo", "");
+            dic.Add("btnNumberOfPaymentsPerYear_C", "click");
+            dic.Add("NumberOfPaymentsPerYear_txt", "1");
+            pFormOfPayment._PopVerify_FormOfPayment(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("MenuItem", "Add Form of Payment");
+            pAssumptions._TreeViewRightSelect(dic, "FOPSpouseCertainOnly");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("Level_3", "FOPSpouseCertainOnly");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("FormOfPaymentType", "Certain only");
+            dic.Add("MortalityInReferralPeriod", "");
+            dic.Add("btnGuaranteePeriod_V", "click");
+            dic.Add("GuaranteePeriod_cbo", "CFAPeriodRemissao");
+            dic.Add("btnGuaranteePeriod_C", "");
+            dic.Add("GuaranteePeriod_txt", "");
+            dic.Add("cboGuaranteePeriod_YearMonth", "");
+            dic.Add("btnSurvivorPercentOrAmount_V", "");
+            dic.Add("SurvivorPercentOrAmount_cbo", "");
+            dic.Add("btnSurvivorPercentOrAmount_Percent", "");
+            dic.Add("SurvivorPercentOrAmount_txt", "");
+            dic.Add("cboSurvivorPercentOrAmount_PercentOrAmount", "");
+            dic.Add("btnPopupAmount_V", "");
+            dic.Add("PopupAmount_cbo", "");
+            dic.Add("btnPopupAmount_C", "");
+            dic.Add("PopupAmount_txt", "");
+            dic.Add("btnNumberOfPaymentsPerYear_V", "");
+            dic.Add("NumberOfPaymentsPerYear_cbo", "");
+            dic.Add("btnNumberOfPaymentsPerYear_C", "click");
+            dic.Add("NumberOfPaymentsPerYear_txt", "1");
+            pFormOfPayment._PopVerify_FormOfPayment(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("MenuItem", "Add Form of Payment");
+            pAssumptions._TreeViewRightSelect(dic, "FOPChildCertainOnlyForDeath");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            dic.Add("Level_3", "FOPChildCertainOnlyForDeath");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("FormOfPaymentType", "Certain only");
+            dic.Add("MortalityInReferralPeriod", "");
+            dic.Add("btnGuaranteePeriod_V", "click");
+            dic.Add("GuaranteePeriod_cbo", "CFBChildCertainPeriodForDeath");
+            dic.Add("btnGuaranteePeriod_C", "");
+            dic.Add("GuaranteePeriod_txt", "");
+            dic.Add("cboGuaranteePeriod_YearMonth", "");
+            dic.Add("btnSurvivorPercentOrAmount_V", "");
+            dic.Add("SurvivorPercentOrAmount_cbo", "");
+            dic.Add("btnSurvivorPercentOrAmount_Percent", "");
+            dic.Add("SurvivorPercentOrAmount_txt", "");
+            dic.Add("cboSurvivorPercentOrAmount_PercentOrAmount", "");
+            dic.Add("btnPopupAmount_V", "");
+            dic.Add("PopupAmount_cbo", "");
+            dic.Add("btnPopupAmount_C", "");
+            dic.Add("PopupAmount_txt", "");
+            dic.Add("btnNumberOfPaymentsPerYear_V", "");
+            dic.Add("NumberOfPaymentsPerYear_cbo", "");
+            dic.Add("btnNumberOfPaymentsPerYear_C", "click");
+            dic.Add("NumberOfPaymentsPerYear_txt", "1");
+            pFormOfPayment._PopVerify_FormOfPayment(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Form of Payment");
+            pAssumptions._Collapse(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Adjustments");
+            dic.Add("MenuItem", "Add Adjustments");
+            pAssumptions._TreeViewRightSelect(dic, "ADJPermanCost");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Adjustments");
+            dic.Add("Level_3", "ADJPermanCost");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("LoadingFactor_V", "Click");
+            dic.Add("LoadingFactor_C", "");
+            dic.Add("LoadingFactor_T", "");
+            dic.Add("LoadingFactor_cboV", "AsCRPercentPermCost");
+            dic.Add("LoadingFactor_txt", "");
+            dic.Add("LoadingFactor_cboT", "");
+            dic.Add("ApplyTo", "Benefit");
+            pAdjustments._PopVerify_Main(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Adjustments");
+            dic.Add("MenuItem", "Add Adjustments");
+            pAssumptions._TreeViewRightSelect(dic, "ADJPermanContr");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Adjustments");
+            dic.Add("Level_3", "ADJPermanContr");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("LoadingFactor_V", "Click");
+            dic.Add("LoadingFactor_C", "");
+            dic.Add("LoadingFactor_T", "");
+            dic.Add("LoadingFactor_cboV", "AsCRPercentPermContribution");
+            dic.Add("LoadingFactor_txt", "");
+            dic.Add("LoadingFactor_cboT", "");
+            dic.Add("ApplyTo", "Benefit");
+            pAdjustments._PopVerify_Main(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Adjustments");
+            dic.Add("MenuItem", "Add Adjustments");
+            pAssumptions._TreeViewRightSelect(dic, "ADJNegativeAdjustment");
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            dic.Add("Level_2", "Adjustments");
+            dic.Add("Level_3", "ADJNegativeAdjustment");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("LoadingFactor_V", "");
+            dic.Add("LoadingFactor_C", "Click");
+            dic.Add("LoadingFactor_T", "");
+            dic.Add("LoadingFactor_cboV", "");
+            dic.Add("LoadingFactor_txt", "-1,0");
+            dic.Add("LoadingFactor_cboT", "");
+            dic.Add("ApplyTo", "Benefit");
+            pAdjustments._PopVerify_Main(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Provisions");
+            pAssumptions._Collapse(dic);
+
+            pMain._Home_ToolbarClick_Top(true);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVRetirementCostPartLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementCostPartLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedParticipantCost");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAAgingAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPLifeAnnuityFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Retirement");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementCostPartLiability");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "NewSubGroup1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementCostPartLiability");
+            dic.Add("Level_4", "NewSubGroup1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedParticipantCost");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAAgingAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPCertainOnlyFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "true");
+            dic.Add("cboPreDefinedEligibility", "ELServiceLT10");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "");
+            dic.Add("Validate", "");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVRetirementContrPartLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementContrPartLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedContribution");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAAgingAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanContr");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPLifeAnnuityFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Retirement");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementContrPartLiability");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "NewSubGroup1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementContrPartLiability");
+            dic.Add("Level_4", "NewSubGroup1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedContribution");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAAgingAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanContr");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPCertainOnlyFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "true");
+            dic.Add("cboPreDefinedEligibility", "ELServiceLT10");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "");
+            dic.Add("Validate", "");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVRetirementCostSpouseLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementCostSpouseLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedSpouseCost");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLASpouseAgingAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPSpouseAnnuityFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Retirement");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementCostSpouseLiability");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "NewSubGroup1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementCostSpouseLiability");
+            dic.Add("Level_4", "NewSubGroup1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedSpouseCost*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLASpouseAgingAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPCertainOnlyFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "true");
+            dic.Add("cboPreDefinedEligibility", "ELServiceLT10");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "");
+            dic.Add("Validate", "");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVRetirementContrSpouseLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementContrSpouseLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedSpouseContribution");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLASpouseAgingAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanContr");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPSpouseAnnuityFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Retirement");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementContrSpouseLiability");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "NewSubGroup1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementContrSpouseLiability");
+            dic.Add("Level_4", "NewSubGroup1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedSpouseContribution*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLASpouseAgingAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanContr");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPCertainOnlyFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "true");
+            dic.Add("cboPreDefinedEligibility", "ELServiceLT10");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "");
+            dic.Add("Validate", "");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVRetirementCostChildLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementCostChildLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedChildCost*$_Orphannumber*$_PctMarr");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAChildAgeAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPChildCertainOnly");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Retirement");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementCostChildLiability");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "NewSubGroup1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementCostChildLiability");
+            dic.Add("Level_4", "NewSubGroup1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedChildCost*$_Orphannumber*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAChildAgeAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPChildCertainOnlyServiceLT10");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "true");
+            dic.Add("cboPreDefinedEligibility", "ELServiceLT10");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "");
+            dic.Add("Validate", "");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVRetirementContrChildLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementContrChildLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedChildContribution*$_Orphannumber*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAChildAgeAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanContr");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPChildCertainOnly");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Retirement");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementContrChildLiability");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "NewSubGroup1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetirementContrChildLiability");
+            dic.Add("Level_4", "NewSubGroup1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedChildContribution*$_Orphannumber*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAChildAgeAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanContr");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPChildCertainOnlyServiceLT10");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "true");
+            dic.Add("cboPreDefinedEligibility", "ELServiceLT10");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "");
+            dic.Add("Validate", "");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVWithdrawalCostPartLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVWithdrawalCostPartLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedParticipantCost");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAAgingAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPCertainOnlyWithdrawalFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Withdrawal");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVWithdrawalContrPartLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVWithdrawalContrPartLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedContribution");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAAgingAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanContr");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPCertainOnlyWithdrawalFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Withdrawal");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVWithdrawalCostSpouseLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVWithdrawalCostSpouseLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedSpouseCost*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLASpouseAgingAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPCertainOnlyWithdrawalFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Withdrawal");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVWithdrawalContrSpouseLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVWithdrawalContrSpouseLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedSpouseContribution*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLASpouseAgingAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanContr");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPCertainOnlyWithdrawalFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Withdrawal");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVWithdrawalCostChildLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVWithdrawalCostChildLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedChildCost*$_Orphannumber*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAChildAgeAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPChildCertainOnlyForWithdrawal");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Withdrawal");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVWithdrawalContrChildLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVWithdrawalContrChildLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedChildContribution*$_Orphannumber*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAChildAgeAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanContr");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPChildCertainOnlyForWithdrawal");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Withdrawal");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVDeathCostSpouseLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDeathCostSpouseLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedSpouseCost*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLASpouseAgingAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPSpouseCertainOnly");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Death");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVDeathCostChildLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDeathCostChildLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedChildCost*$_Orphannumber*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAChildAgeAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPChildCertainOnlyForDeath");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Death");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVRetireeCost");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetireeCost");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "All inactives");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedParticipantCost");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "click");
+            dic.Add("BenefitCommenceAge_cbo", "FTAValAge");
+            dic.Add("btnBenefitCommenceAge_C", "");
+            dic.Add("BenefitCommenceAge_txt", "");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAAgingAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPLifeAnnuityFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Not Decrement-Based");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetireeCost");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Temporary");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetireeCost");
+            dic.Add("Level_4", "Temporary");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedParticipantCost");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "click");
+            dic.Add("BenefitCommenceAge_cbo", "FTAValAge");
+            dic.Add("btnBenefitCommenceAge_C", "");
+            dic.Add("BenefitCommenceAge_txt", "");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "");
+            dic.Add("BenefitStopAge_txt", "");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAAgingAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPCertainOnlyFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagVitalicio = 0");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVRetireeContribution");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetireeContribution");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "All inactives");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedContribution");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "click");
+            dic.Add("BenefitCommenceAge_cbo", "FTAValAge");
+            dic.Add("btnBenefitCommenceAge_C", "");
+            dic.Add("BenefitCommenceAge_txt", "");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAAgingAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJNegativeAdjustment");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPLifeAnnuityFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Not Decrement-Based");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetireeContribution");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "Temporary");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVRetireeContribution");
+            dic.Add("Level_4", "Temporary");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedContribution");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "click");
+            dic.Add("BenefitCommenceAge_cbo", "FTAValAge");
+            dic.Add("btnBenefitCommenceAge_C", "");
+            dic.Add("BenefitCommenceAge_txt", "");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "");
+            dic.Add("BenefitStopAge_txt", "");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAAgingAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJNegativeAdjustment");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPCertainOnlyFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "");
+            dic.Add("cboPreDefinedEligibility", "");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "$emp.FlagVitalicio = 0");
+            dic.Add("Validate", "click");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVDisabilityCostPartLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityCostPartLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedParticipantCost");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAAgingAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPLifeAnnuityFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Disability");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityCostPartLiability");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "NewSubGroup1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityCostPartLiability");
+            dic.Add("Level_4", "NewSubGroup1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedParticipantCost");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAAgingAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPCertainOnlyFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "true");
+            dic.Add("cboPreDefinedEligibility", "ELServiceLT10");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "");
+            dic.Add("Validate", "");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVDisabilityContrPartLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityContrPartLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedContribution");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAAgingAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanContr");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPLifeAnnuityFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Disability");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityContrPartLiability");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "NewSubGroup1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityContrPartLiability");
+            dic.Add("Level_4", "NewSubGroup1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedContribution");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAAgingAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanContr");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPCertainOnlyFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "true");
+            dic.Add("cboPreDefinedEligibility", "ELServiceLT10");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "");
+            dic.Add("Validate", "");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVDisabilityCostSpouseLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityCostSpouseLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedSpouseCost");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLASpouseAgingAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPSpouseAnnuityFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Disability");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityCostSpouseLiability");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "NewSubGroup1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityCostSpouseLiability");
+            dic.Add("Level_4", "NewSubGroup1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedSpouseCost*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLASpouseAgingAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPCertainOnlyFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "true");
+            dic.Add("cboPreDefinedEligibility", "ELServiceLT10");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "");
+            dic.Add("Validate", "");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVDisabilityContrSpouseLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityContrSpouseLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "UDPProjectedSpouseContribution");
+            dic.Add("Function", "");
+            dic.Add("Validate", "");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLASpouseAgingAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanContr");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPSpouseAnnuityFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Disability");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityContrSpouseLiability");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "NewSubGroup1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityContrSpouseLiability");
+            dic.Add("Level_4", "NewSubGroup1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedSpouseContribution*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLASpouseAgingAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanContr");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPCertainOnlyFOP");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "true");
+            dic.Add("cboPreDefinedEligibility", "ELServiceLT10");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "");
+            dic.Add("Validate", "");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVDisabilityCostChildLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityCostChildLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedChildCost*$_Orphannumber*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAChildAgeAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPChildCertainOnly");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Disability");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityCostChildLiability");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "NewSubGroup1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityCostChildLiability");
+            dic.Add("Level_4", "NewSubGroup1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedChildCost*$_Orphannumber*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAChildAgeAndHCCTRForCost");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanCost");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPChildCertainOnlyServiceLT10");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "true");
+            dic.Add("cboPreDefinedEligibility", "ELServiceLT10");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "");
+            dic.Add("Validate", "");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("MenuItem", "Add Plan Definition");
+            pAssumptions._TreeViewRightSelect(dic, "PVDisabilityContrChildLiability");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityContrChildLiability");
+            dic.Add("Level_4", "Default");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "true");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "Actives");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedChildContribution*$_Orphannumber*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAChildAgeAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanContr");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPChildCertainOnly");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "Disability");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityContrChildLiability");
+            dic.Add("MenuItem", "Add Condition");
+            pAssumptions._TreeViewRightSelect(dic, "NewSubGroup1");
+
+            dic.Clear();
+            dic.Add("Level_1", "Benefit Definition");
+            dic.Add("Level_2", "Plan Definition");
+            dic.Add("Level_3", "PVDisabilityContrChildLiability");
+            dic.Add("Level_4", "NewSubGroup1");
+            pAssumptions._TreeViewSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("SingleFormulaOrBenefit", "");
+            dic.Add("FunctionOfOtherFormulasOrBenefitDefinitions", "true");
+            dic.Add("IncludeThisBenefitInPresentValueCalculations", "");
+            dic.Add("FormOfPaymentDiffersByMaritalStatus", "");
+            dic.Add("ParticipantType", "");
+            dic.Add("SingleFormulaBenefit", "");
+            dic.Add("Function", "$UDPProjectedChildContribution*$_Orphannumber*$_PctMarr");
+            dic.Add("Validate", "click");
+            dic.Add("btnBenefitCommenceAge_V", "");
+            dic.Add("BenefitCommenceAge_cbo", "");
+            dic.Add("btnBenefitCommenceAge_C", "click");
+            dic.Add("BenefitCommenceAge_txt", "0");
+            dic.Add("btnBenefitStopAge_V", "");
+            dic.Add("BenefitStopAge_cbo", "");
+            dic.Add("btnBenefitStopAge_C", "click");
+            dic.Add("BenefitStopAge_txt", "120");
+            dic.Add("VestingDefinition", "");
+            dic.Add("CostOfLivingAdjustmentFactor", "COLAChildAgeAndHCCTRForContr");
+            dic.Add("EarlyRetirementFactor", "");
+            dic.Add("LateRetirementFactor", "");
+            dic.Add("AdjustmentFactor", "ADJPermanContr");
+            dic.Add("ConversionFactor", "");
+            dic.Add("ConversionFactor_Married", "");
+            dic.Add("ConversionFactor_Single", "");
+            dic.Add("FormOfPayment", "FOPChildCertainOnlyServiceLT10");
+            dic.Add("FormOfPayment_Married", "");
+            dic.Add("FormOfPayment_Single", "");
+            dic.Add("BenefitElectionPercentage", "");
+            dic.Add("BenefitElectionPercentage_Married", "");
+            dic.Add("BenefitElectionPercentage_Single", "");
+            dic.Add("MaximumBenefitLimitation", "");
+            dic.Add("MaximumBenefitLimitation_Married", "");
+            dic.Add("MaximumBenefitLimitation_Single", "");
+            dic.Add("Decrement", "");
+            dic.Add("ExcludePercentMarried", "");
+            dic.Add("ApplyDifferentStartAge", "");
+            dic.Add("PostDecrementMortality", "");
+            pPlanDefinition._PopVerify_PlanDefinition(dic);
+
+            pAssumptions._SelectTab("Conditions");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("PreDefinedEligibility", "true");
+            dic.Add("cboPreDefinedEligibility", "ELServiceLT10");
+            dic.Add("LocalEligibility", "");
+            dic.Add("txtLocalEligibility", "");
+            dic.Add("AddToEligibilities", "");
+            dic.Add("EligibilityCondition", "");
+            dic.Add("Validate", "");
+            pAssumptions._PopVerify_Assmp_Decrement_Conditions(dic);
+
+            pMain._Home_ToolbarClick_Top(true);
+
+            #endregion
+
+
+            #region Accounting - Baseline - Methods & TestCase
+
+            pMain._SelectTab(sService_Accounting);
+
+            dic.Clear();
+            dic.Add("iMaxRowNum", "");
+            dic.Add("iMaxColNum", "");
+            dic.Add("iSelectRowNum", "1");
+            dic.Add("iSelectColNum", "1");
+            dic.Add("MenuItem_1", "Liability Methods");
+            dic.Add("MenuItem_2", "Edit Parameters");
+            pMain._FlowTreeRightSelect(dic);
+
+
+            pMain._SelectTab("Methods");
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("CostMethod", "Projected Unit Credit Service Prorate");
+            dic.Add("ServiceForServiceProrate", "SVCRatio");
+            dic.Add("CompareToAccrue", "false");
+            dic.Add("AllowNegativeNormalCost", "true");
+            dic.Add("ProjectedpayToUse", "");
+            dic.Add("ProjectedpayToUse_CA", "");
+            dic.Add("AccumulationToUse", "");
+            dic.Add("IncludeExitYearValue", "");
+            dic.Add("CalculatePresentValueOfFuture", "");
+            dic.Add("CalculatePresentValueOfFuture_txt", "");
+            dic.Add("VestingToUseForAgeFirstVested", "VSTAWLVesting");
+            dic.Add("AverageWorkingLifeTime", "true");
+            dic.Add("AverageLifeTime", "true");
+            dic.Add("AverageWorkingLifeTimeToVesting", "true");
+            dic.Add("AverageWorkingLifeTimeForBenefitingEE", "true");
+            pMethods._PopVerify_Methods_Accounting(dic);
+
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AddRow", "");
+            dic.Add("iRow", "1");
+            dic.Add("BenefitDefinition", "PVDeathCostChildLiability");
+            dic.Add("PUCOverrides", "Projected Unit Credit No Prorate");
+            dic.Add("TUCOverrides", "");
+            dic.Add("ServiceForProrate", "");
+            dic.Add("SpecialAttribute", "");
+            pMethods._MethodOverrieds_BenefitDefinition_NL(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AddRow", "click");
+            dic.Add("iRow", "2");
+            dic.Add("BenefitDefinition", "PVDeathCostSpouseLiability");
+            dic.Add("PUCOverrides", "Projected Unit Credit No Prorate");
+            dic.Add("TUCOverrides", "");
+            dic.Add("ServiceForProrate", "");
+            dic.Add("SpecialAttribute", "");
+            pMethods._MethodOverrieds_BenefitDefinition_NL(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AddRow", "click");
+            dic.Add("iRow", "3");
+            dic.Add("BenefitDefinition", "PVDisabilityContrChildLiability");
+            dic.Add("PUCOverrides", "Projected Unit Credit No Prorate");
+            dic.Add("TUCOverrides", "");
+            dic.Add("ServiceForProrate", "");
+            dic.Add("SpecialAttribute", "");
+            pMethods._MethodOverrieds_BenefitDefinition_NL(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AddRow", "click");
+            dic.Add("iRow", "4");
+            dic.Add("BenefitDefinition", "PVDisabilityContrPartLiability");
+            dic.Add("PUCOverrides", "Projected Unit Credit No Prorate");
+            dic.Add("TUCOverrides", "");
+            dic.Add("ServiceForProrate", "");
+            dic.Add("SpecialAttribute", "");
+            pMethods._MethodOverrieds_BenefitDefinition_NL(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AddRow", "click");
+            dic.Add("iRow", "5");
+            dic.Add("BenefitDefinition", "PVDisabilityContrSpouseLiability");
+            dic.Add("PUCOverrides", "Projected Unit Credit No Prorate");
+            dic.Add("TUCOverrides", "");
+            dic.Add("ServiceForProrate", "");
+            dic.Add("SpecialAttribute", "");
+            pMethods._MethodOverrieds_BenefitDefinition_NL(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AddRow", "click");
+            dic.Add("iRow", "6");
+            dic.Add("BenefitDefinition", "PVDisabilityCostChildLiability");
+            dic.Add("PUCOverrides", "Projected Unit Credit No Prorate");
+            dic.Add("TUCOverrides", "");
+            dic.Add("ServiceForProrate", "");
+            dic.Add("SpecialAttribute", "");
+            pMethods._MethodOverrieds_BenefitDefinition_NL(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AddRow", "click");
+            dic.Add("iRow", "7");
+            dic.Add("BenefitDefinition", "PVDisabilityCostSpouseLiability");
+            dic.Add("PUCOverrides", "Projected Unit Credit No Prorate");
+            dic.Add("TUCOverrides", "");
+            dic.Add("ServiceForProrate", "");
+            dic.Add("SpecialAttribute", "");
+            pMethods._MethodOverrieds_BenefitDefinition_NL(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AddRow", "click");
+            dic.Add("iRow", "8");
+            dic.Add("BenefitDefinition", "PVWithdrawalContrChildLiability");
+            dic.Add("PUCOverrides", "Projected Unit Credit No Prorate");
+            dic.Add("TUCOverrides", "");
+            dic.Add("ServiceForProrate", "");
+            dic.Add("SpecialAttribute", "");
+            pMethods._MethodOverrieds_BenefitDefinition_NL(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AddRow", "click");
+            dic.Add("iRow", "9");
+            dic.Add("BenefitDefinition", "PVWithdrawalContrPartLiability");
+            dic.Add("PUCOverrides", "Projected Unit Credit No Prorate");
+            dic.Add("TUCOverrides", "");
+            dic.Add("ServiceForProrate", "");
+            dic.Add("SpecialAttribute", "");
+            pMethods._MethodOverrieds_BenefitDefinition_NL(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AddRow", "click");
+            dic.Add("iRow", "10");
+            dic.Add("BenefitDefinition", "PVWithdrawalContrSpouseLiability");
+            dic.Add("PUCOverrides", "Projected Unit Credit No Prorate");
+            dic.Add("TUCOverrides", "");
+            dic.Add("ServiceForProrate", "");
+            dic.Add("SpecialAttribute", "");
+            pMethods._MethodOverrieds_BenefitDefinition_NL(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AddRow", "click");
+            dic.Add("iRow", "11");
+            dic.Add("BenefitDefinition", "PVWithdrawalCostChildLiability");
+            dic.Add("PUCOverrides", "Projected Unit Credit No Prorate");
+            dic.Add("TUCOverrides", "");
+            dic.Add("ServiceForProrate", "");
+            dic.Add("SpecialAttribute", "");
+            pMethods._MethodOverrieds_BenefitDefinition_NL(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AddRow", "click");
+            dic.Add("iRow", "12");
+            dic.Add("BenefitDefinition", "PVWithdrawalCostPartLiability");
+            dic.Add("PUCOverrides", "Projected Unit Credit No Prorate");
+            dic.Add("TUCOverrides", "");
+            dic.Add("ServiceForProrate", "");
+            dic.Add("SpecialAttribute", "");
+            pMethods._MethodOverrieds_BenefitDefinition_NL(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AddRow", "click");
+            dic.Add("iRow", "13");
+            dic.Add("BenefitDefinition", "PVWithdrawalCostSpouseLiability");
+            dic.Add("PUCOverrides", "Projected Unit Credit No Prorate");
+            dic.Add("TUCOverrides", "");
+            dic.Add("ServiceForProrate", "");
+            dic.Add("SpecialAttribute", "");
+            pMethods._MethodOverrieds_BenefitDefinition_NL(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AddRow", "click");
+            dic.Add("iRow", "14");
+            dic.Add("BenefitDefinition", "PVDisabilityCostPartLiability");
+            dic.Add("PUCOverrides", "Projected Unit Credit No Prorate");
+            dic.Add("TUCOverrides", "");
+            dic.Add("ServiceForProrate", "");
+            dic.Add("SpecialAttribute", "");
+            pMethods._MethodOverrieds_BenefitDefinition_NL(dic);
+
+            pMain._Home_ToolbarClick_Top(true);
+            pMain._Home_ToolbarClick_Top(false);
+
+
+
+            pMain._SelectTab(sService_Accounting);
+
+            dic.Clear();
+            dic.Add("iMaxRowNum", "");
+            dic.Add("iMaxColNum", "");
+            dic.Add("iSelectRowNum", "1");
+            dic.Add("iSelectColNum", "1");
+            dic.Add("MenuItem_1", "Test Case");
+            pMain._FlowTreeRightSelect(dic);
+
+
+            pMain._SelectTab("Test Case Library");
+
+            dic.Clear();
+            dic.Add("SelectionCriteria", "$emp.EmployeeIDNumber=100000022");
+            dic.Add("iResultRow", "1");
+            pTestCaseLibrary._AddTestCase(dic);
+
+            dic.Clear();
+            dic.Add("SelectionCriteria", "$emp.EmployeeIDNumber=100000024");
+            dic.Add("iResultRow", "1");
+            pTestCaseLibrary._AddTestCase(dic);
+
+            pMain._Home_ToolbarClick_Top(true);
+
+            #endregion
+
+
+            #region Accounting - Baseline - Run ER & Report
+
+            pMain._SelectTab(sService_Accounting);
+
+            dic.Clear();
+            dic.Add("iMaxRowNum", "");
+            dic.Add("iMaxColNum", "");
+            dic.Add("iSelectRowNum", "1");
+            dic.Add("iSelectColNum", "1");
+            dic.Add("MenuItem_1", "Run");
+            dic.Add("MenuItem_2", "Liabilities");
+            pMain._FlowTreeRightSelect(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("AllLiabilityTypes", "true");
+            dic.Add("Acc_ProjectedBenefitObligation", "True");
+            dic.Add("Acc_AccumulatedBenefitObligation", "True");
+            dic.Add("PayoutProjection", "true");
+            dic.Add("IncludeIOE", "True");
+            dic.Add("GenerateParameterPrint", "true");
+            dic.Add("GenerateTestCaseOutput", "");
+            dic.Add("IncludeGainLossResult", "");
+            dic.Add("Service", "$Service");
+            dic.Add("Pay", "SalaryCurrentYear");
+            dic.Add("CurrentYear", "");
+            dic.Add("PriorYear", "True");
+            dic.Add("CashBanlance", "CertainPeriodFractional");
+            dic.Add("Pension", "");
+            dic.Add("PayoutProjectionCustomGroup", "");
+            dic.Add("RunValuation", "Click");
+            dic.Add("OK", "");
+            pMain._PopVerify_RunOptions(dic);
+
+            dic.Clear();
+            dic.Add("PopVerify", "Pop");
+            dic.Add("OK", "Click");
+            pMain._PopVerify_EnterpriseRunSubmitted(dic);
+
+
+            pMain._SelectTab(sService_Accounting);
+
+            dic.Clear();
+            dic.Add("iMaxRowNum", "");
+            dic.Add("iMaxColNum", "");
+            dic.Add("iSelectRowNum", "1");
+            dic.Add("iSelectColNum", "1");
+            dic.Add("MenuItem_1", "View Run Status");
+            pMain._FlowTreeRightSelect(dic);
+
+            pMain._EnterpriseRun("Group Job Successfully Complete", true);
+
+
+            pMain._SelectTab(sService_Accounting);
+
+            dic.Clear();
+            dic.Add("iMaxRowNum", "");
+            dic.Add("iMaxColNum", "");
+            dic.Add("iSelectRowNum", "1");
+            dic.Add("iSelectColNum", "1");
+            dic.Add("MenuItem_1", "View Output");
+            pMain._FlowTreeRightSelect(dic);
+
+            pOutputManager._ExportReport_Common_PDF_EXCEL(sOutput_Accounting2015_Baseline, "Valuation Summary", "Conversion", true, false);
+            pOutputManager._ExportReport_Others_PDF_EXCEL(sOutput_Accounting2015_Baseline, "Parameter Print", "Conversion", true, false);
+
+
+            pOutputManager._ExportReport_Others_PDF_EXCEL(sOutput_Accounting2015_Baseline, "Liability Summary", "Conversion", false, false);
+            pOutputManager._ExportReport_DrillDown_PDF_EXCEL(sOutput_Accounting2015_Baseline, "Liability Summary", "Conversion", false, false, 0);
+            pOutputManager._ExportReport_Common_PDF_EXCEL(sOutput_Accounting2015_Baseline, "Member Statistics", "Conversion", false, false);
+            pOutputManager._ExportReport_DrillDown_PDF_EXCEL(sOutput_Accounting2015_Baseline, "Conversion Diagnostic", "Conversion", false, false, 0);
+            pOutputManager._ExportReport_Common_PDF_EXCEL(sOutput_Accounting2015_Baseline, "Test Case List", "Conversion", false, false);
+            pOutputManager._ExportReport_Common_PDF_EXCEL(sOutput_Accounting2015_Baseline, "Detailed Results", "Conversion", false, false);
+            pOutputManager._ExportReport_Common_PDF_EXCEL(sOutput_Accounting2015_Baseline, "Detailed Results by Plan Def", "Conversion", false, false);
+            pOutputManager._ExportReport_Common_PDF_EXCEL(sOutput_Accounting2015_Baseline, "Valuation Summary", "Conversion", false, false);
+            pOutputManager._ExportReport_Others_PDF_EXCEL(sOutput_Accounting2015_Baseline, "Individual Output", "Conversion", false, false);
+            pOutputManager._ExportReport_Others_PDF_EXCEL(sOutput_Accounting2015_Baseline, "IOE", "Conversion", false, false);
+            pOutputManager._ExportReport_Others_PDF_EXCEL(sOutput_Accounting2015_Baseline, "Payout Projection", "Conversion", false, false);
+            pOutputManager._ExportReport_Common_PDF_EXCEL(sOutput_Accounting2015_Baseline, "FAS Expected Benefit Pmts", "Conversion", false, false);
+         
+
+            if (Config.bCompareReports)
+            {
+                CompareReportsLib _compareReportsLib = new CompareReportsLib("_BR003_CN", sOutput_Accounting2015_Baseline_Prod, sOutput_Accounting2015_Baseline);
+                _compareReportsLib._Report(_PassFailStep.Description, "", "sOutput_Accounting2015_Baseline");
+                _compareReportsLib.CompareExcel_Exact("LiabilitySummary.xlsx", 4, 0, 0, 0, true);
+                _compareReportsLib.CompareExcel_Exact("LiabilitySummary_ActiveMembers.xlsx", 4, 0, 0, 0, true);
+                _compareReportsLib.CompareExcel_Exact("LiabilitySummary_DeferredMembers.xlsx", 4, 0, 0, 0, true);
+                _compareReportsLib.CompareExcel_Exact("LiabilitySummary_Pensioners.xlsx", 4, 0, 0, 0, true);
+                _compareReportsLib.CompareExcel_Exact("MemberStatistics.xlsx", 4, 0, 0, 0, true);
+                _compareReportsLib.CompareExcel_Exact("ConversionDiagnostic_GroupByNone.xlsx", 4, 0, 0, 0, true);
+                _compareReportsLib.CompareExcel_Exact("ConversionDiagnostic_GroupByStatusCodes.xlsx", 4, 0, 0, 0, true);
+                _compareReportsLib.CompareExcel_Exact("ConversionDiagnostic_GroupByCustom_Gender.xlsx", 4, 0, 0, 0, true);
+                _compareReportsLib.CompareExcel_Exact("DetailedResults.xlsx", 4, 0, 0, 0, true);
+                _compareReportsLib.CompareExcel_Exact("DetailedResultsbyPlanDef.xlsx", 4, 0, 0, 0, true);
+                _compareReportsLib.CompareExcel_Exact("ValuationSummary.xlsx", 11, 0, 0, 0, true);
+                _compareReportsLib.CompareExcel_Exact("IndividualOutput.xlsx", 4, 0, 0, 0, true);
+                _compareReportsLib.CompareExcel_Exact("PayoutProjection.xlsx", 4, 0, 0, 0, true);
+                _compareReportsLib.CompareExcel_Exact("FASExpectedBenefitPmts.xlsx", 4, 0, 0, 0, true);
+                Config.bThreadFinsihed = true;
+            }
+
+            pMain._SelectTab("Output Manager");
+            pMain._Home_ToolbarClick_Top(true);
+            pMain._Home_ToolbarClick_Top(false);
+
+            pMain._SelectTab(sService_Accounting);
+            pMain._Home_ToolbarClick_Top(true);
+            pMain._Home_ToolbarClick_Top(false);
+
+            #endregion
+
+
+            _gLib._MsgBox("!", "Finished");
+
+        
+        }
+
+        #region Additional test attributes
+
+        // You can use the following additional attributes as you write your tests:
+
+        ////Use TestInitialize to run code before running each test 
+        //[TestInitialize()]
+        //public void MyTestInitialize()
+        //{        
+        //    // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
+        //}
+
+        ////Use TestCleanup to run code after each test has run
+        //[TestCleanup()]
+        //public void MyTestCleanup()
+        //{        
+        //    // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
+        //}
+
+        #endregion
+
+        /// <summary>
+        ///Gets or sets the test context which provides
+        ///information about and functionality for the current test run.
+        ///</summary>
+        public TestContext TestContext
+        {
+            get
+            {
+                return testContextInstance;
+            }
+            set
+            {
+                testContextInstance = value;
+            }
+        }
+        private TestContext testContextInstance;
+    }
+}

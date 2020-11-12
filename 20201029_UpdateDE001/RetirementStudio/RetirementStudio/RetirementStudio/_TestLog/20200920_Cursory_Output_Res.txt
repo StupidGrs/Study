@@ -1,0 +1,26 @@
+----------------->    Cursory_Output_US_Franklin    <-----------------
+
+
+PASS:   SnapshotExtract.xlsx
+\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\Prod_Cursory_Output\Inputs\Baseline_Reports\US_Franklin\SnapshotExtract.xlsx
+\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\Prod_Cursory_Output\Logs\US_Franklin\SnapshotExtract.xlsx
+
+
+PASS:   TestCaseOutput.xlsx
+\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\Prod_Cursory_Output\Inputs\Baseline_Reports\US_Franklin\TestCaseOutput.xlsx
+\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\Prod_Cursory_Output\Logs\US_Franklin\TestCaseOutput.xlsx
+
+
+PASS:   ValuationSummary.xlsx
+\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\Prod_Cursory_Output\Inputs\Baseline_Reports\US_Franklin\ValuationSummary.xlsx
+\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\Prod_Cursory_Output\Logs\US_Franklin\ValuationSummary.xlsx
+
+
+PASS:   IOE.xlsx
+\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\Prod_Cursory_Output\Inputs\Baseline_Reports\US_Franklin\IOE.xlsx
+\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\Prod_Cursory_Output\Logs\US_Franklin\IOE.xlsx
+
+
+----------------->    Cursory_Output_DE_Bedford    <-----------------
+
+

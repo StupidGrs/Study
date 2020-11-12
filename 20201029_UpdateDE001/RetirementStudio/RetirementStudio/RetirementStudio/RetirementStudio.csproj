@@ -1,0 +1,1118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{55291D4E-2763-4B2D-AA42-73BD74DFC146}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RetirementStudio</RootNamespace>
+    <AssemblyName>RetirementStudio</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>True</IsCodedUITest>
+    <TestProjectType>CodedUITest</TestProjectType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.Office.Interop.Excel\15.0.0.0__71e9bce111e9429c\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BatchRun.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UIMap.cs">
+      <DependentUpon>UIMap.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="UIMap.Designer.cs">
+      <DependentUpon>UIMap.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="UnitTest1.cs" />
+    <Compile Include="_Config\Config.cs" />
+    <Compile Include="_Libraries\CompareReportsLib.cs" />
+    <Compile Include="_Libraries\GenericLib.cs" />
+    <Compile Include="_Libraries\GenericLib_Web.cs" />
+    <Compile Include="_Libraries\GenericLib_Win.cs" />
+    <Compile Include="_TestScripts\_Cursory\Cursory_BaselineSetup.cs" />
+    <Compile Include="_TestScripts\_Cursory\Cursory_Test.cs" />
+    <Compile Include="_TestScripts\_Deployment\CheckList_EU.cs" />
+    <Compile Include="_TestScripts\_Deployment\CheckList_US.cs" />
+    <Compile Include="_TestScripts\_TestScripts_ANZ\ANZ001_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_ANZ\ANZ001_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_ANZ\ANZ001_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_ANZ\ANZ002_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_ANZ\ANZ002_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_ANZ\ANZ002_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_BR\BR001_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_BR\BR001_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_BR\BR001_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_BR\BR002_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_BR\BR002_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_BR\BR002_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_BR\BR003_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_BR\BR003_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_BR\BR003_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_BR\BR004_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_BR\BR004_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_BR\BR004_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_CA\CA001_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_CA\CA002_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_CA\CA003_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE006_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE006_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE006_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE007_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE008_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE009_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE010_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE010_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE013_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_IR\IR001_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_NL\NL001_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_NL\NL002_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_NL\NL003_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_SpecialPurpose\MonthlyPatchTesting.cs" />
+    <Compile Include="_TestScripts\_TestScripts_SpecialPurpose\DataAutomationSupport_GetCP.cs" />
+    <Compile Include="_TestScripts\_TestScripts_SpecialPurpose\DataAutomationSupport.cs" />
+    <Compile Include="_TestScripts\_TestScripts_SpecialPurpose\VAL_Load_BV.cs" />
+    <Compile Include="_TestScripts\_TestScripts_SpecialPurpose\US015_CN_CompareRpt.cs" />
+    <Compile Include="_TestScripts\_TestScripts_CA\CA001_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_CA\CA001_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_CA\CA002_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_CA\CA002_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_CA\CA003_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_CA\CA003_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_CA\CA004_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_CA\CA004_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_CA\CA004_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Data\000DataCursory_US.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Data\CA005.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Data\DE012.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Data\US018.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE001_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE001_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE001_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE002_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE002_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE002_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE003_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE003_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE003_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE005_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE005_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE005_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE007_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE007_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE008_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE008_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE009_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE009_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_DE\DE010_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_IR\IR001_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_IR\IR001_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_MDDS\MDDS.cs" />
+    <Compile Include="_TestScripts\_TestScripts_NL\NL001_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_NL\NL001_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_NL\NL002_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_NL\NL002_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_NL\NL003_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_NL\NL003_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_NL\NL004_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_NL\NL004_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_NL\NL004_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_SpecialPurpose\Data_Load_BV.cs" />
+    <Compile Include="_TestScripts\_TestScripts_SpecialPurpose\US_Data_2050100_SQL2016_LoadPush.cs" />
+    <Compile Include="_TestScripts\_TestScripts_SpecialPurpose\US_Data_2050100_SQL2016.cs" />
+    <Compile Include="_TestScripts\_TestScripts_SQL_SP_Load\USPreprod_Nutanix.cs" />
+    <Compile Include="_TestScripts\_TestScripts_SQL_SP_Load\US_Data_2050100_Derivation.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Timing\CA_Timing_Data_VR.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Timing\US_Data_2050100_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Timing\US_Data_2050100_SQL2016.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Timing\DE_Timing_Data_VR.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Timing\UK_Timing_AddValuationNode.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Timing\UK_Timing_COLA_MemoryLeak.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Timing\UK_Timing_Custom.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Timing\UK_Timing_Data.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Timing\UK_Timing_Data_VR.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Timing\UK_Timing_Regular.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Timing\US010_CN_Time.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Timing\US_Data_2050100.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Timing\US_Data_20K.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Timing\US_Timing_Data_VR.cs" />
+    <Compile Include="_TestScripts\_TestScripts_Timing\US_Timing_GainLoss.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\CodedUITest1.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK001_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK001_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK001_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK002_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK002_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK002_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK003_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK003_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK003_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK004_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK004_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK004_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK005_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK005_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK005_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK006_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK006_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK006_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_UK\UK007_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\000Debug.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US009_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US009_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US001_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US001_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US001_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US006_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US006_DNT.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_TestScripts\_TestScripts_US\US006_RB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_TestScripts\_TestScripts_US\US007_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US007_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US007_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US008_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US008_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US008_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US009_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US010_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US010_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US010_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US011_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US011_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US011_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US012_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US012_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US012_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US014_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US014_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US014_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US015_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US015_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US015_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US016_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US016_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US016_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US017_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US017_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US017_RB.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US019_CN.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US019_DNT.cs" />
+    <Compile Include="_TestScripts\_TestScripts_US\US019_RB.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_ANZ001_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_ANZ002_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_BR001_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_BR001_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_BR002_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_BR003_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_BR003_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_BR004_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_BR004_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_CA001_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_ANZ001_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_ANZ002_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_BR002_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_CA001_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_CA002_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_CA002_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_CA003_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_CA003_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_CA004_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_CA004_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE001_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE001_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE003_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE003_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE005_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE006_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE007_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE008_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE008_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE009_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE010_CN_2.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_IR001_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_IR001_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_NL001_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_NL001_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_NL002_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_NL002_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_NL003_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_NL003_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_NL004_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_NL004_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_UK001_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_UK001_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_UK002_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_UK002_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_UK003_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_UK003_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_UK004_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_UK004_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_UK005_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_UK005_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_UK006_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_UK006_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_UK007_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US001_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US001_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US006_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US006_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US007_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US007_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US011_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US011_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US012_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US012_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US014_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US015_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE002_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE002_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE010_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE005_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE006_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE007_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE009_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE010_DNT_2.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US014_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US015_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US010_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US010_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US008_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US008_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_DE010_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US016_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US016_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US017_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US017_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US019_CN.cs" />
+    <Compile Include="_TestScripts_2019_Apr\_US019_DNT.cs" />
+    <Compile Include="_TestScripts_2019_cloud\_TestScripts_Timing\US_Time_Cloud_Custom.cs" />
+    <Compile Include="_TestScripts_2019_cloud\_TestScripts_Timing\US_Time_Cloud.cs" />
+    <Compile Include="_TestScripts_2019_cloud\_TestScripts_US\US_Rollforward.cs" />
+    <Compile Include="_TestScripts_2019_cloud\_TestScripts_US\US_Conversion.cs" />
+    <Compile Include="_TestScripts_2019_cloud\_TestScripts_US\US001_Cloud.cs" />
+    <Compile Include="_TestScripts_2019_cloud\_TestScripts_US\US007_Cloud.cs" />
+    <Compile Include="_TestScripts_2019_cloud\_TestScripts_US\US008_Cloud.cs" />
+    <Compile Include="_TestScripts_2019_cloud\_TestScripts_US\US010_Cloud.cs" />
+    <Compile Include="_TestScripts_2019_cloud\_TestScripts_US\US011_Cloud.cs" />
+    <Compile Include="_TestScripts_2019_cloud\_TestScripts_US\US015_Cloud.cs" />
+    <Compile Include="_TestScripts_2019_cloud\_TestScripts_US\US017_Cloud.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_ANZ\ANZ001_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_ANZ\ANZ001_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_ANZ\ANZ002_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_ANZ\ANZ002_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_BR\BR001_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_BR\BR001_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_BR\BR002_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_BR\BR002_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_BR\BR003_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_BR\BR003_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_BR\BR004_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_BR\BR004_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_CA\CA001_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_CA\CA001_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_CA\CA002_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_CA\CA002_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_CA\CA003_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_CA\CA003_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_CA\CA004_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_CA\CA004_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Data\000DataCursory_US.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Data\CA005.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Data\DE012.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Data\US018.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE001_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE001_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE002_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE002_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE003_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE003_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE005_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE005_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE006_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE006_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE007_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE007_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE008_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE008_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE009_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE009_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE013_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_DE\DE013_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_IR\IR001_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_IR\IR001_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_NL\NL001_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_NL\NL001_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_NL\NL002_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_NL\NL002_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_NL\NL003_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_NL\NL003_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_NL\NL004_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_NL\NL004_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_SpecialPurpose\AddNodes.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_SpecialPurpose\DataAutomationSupport.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_SpecialPurpose\DataAutomationSupport_GetCP.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_SpecialPurpose\Data_Load_BV.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_SpecialPurpose\MonthlyPatchTesting.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_SpecialPurpose\US015_CN_CompareRpt.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_SpecialPurpose\US_Data_2050100_SQL2016.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_SpecialPurpose\US_Data_2050100_SQL2016_LoadPush.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_SpecialPurpose\VAL_Load_BV.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_SQL_SP_Load\USPreprod_Nutanix.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_SQL_SP_Load\US_Data_2050100_Derivation.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Timing\CA_Timing_Data_VR.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Timing\DE_Timing_Data_VR.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Timing\UK_Timing_AddValuationNode.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Timing\UK_Timing_COLA_MemoryLeak.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Timing\UK_Timing_Custom.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Timing\UK_Timing_Data.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Timing\UK_Timing_Data_VR.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Timing\UK_Timing_Regular.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Timing\US010_CN_Time.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Timing\US_Data_2050100.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Timing\US_Data_2050100_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Timing\US_Data_2050100_SQL2016.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Timing\US_Data_20K.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Timing\US_Timing_Data_VR.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_Timing\US_Timing_GainLoss.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_UK\UK001_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_UK\UK001_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_UK\UK002_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_UK\UK002_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_UK\UK003_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_UK\UK003_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_UK\UK004_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_UK\UK004_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_UK\UK005_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_UK\UK005_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_UK\UK006_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_UK\UK006_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_UK\UK007_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US001_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US001_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US006_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US006_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US007_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US007_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US008_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US008_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US009_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US009_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US010_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US010_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US011_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US011_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US012_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US012_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US014_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US014_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US015_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US015_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US016_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US016_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US017_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US017_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US019_CN.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_US\US019_DNT.cs" />
+    <Compile Include="_TestScripts_2019_Oct\_TestScripts_UK\UK007_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE001_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE001_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE002_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE002_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE003_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE003_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE005_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE005_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE006_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE006_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE007_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE007_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE008_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE008_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE009_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE009_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE010_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE010_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE013_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_DE\DE013_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\ANZ001_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\ANZ002_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\BR001_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\BR002_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\BR003_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\BR004_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\CA001_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\CA002_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\CA003_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\CA004_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\IR001_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\NL001_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\NL002_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\NL003_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\NL004_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\US001_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\US006_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\US007_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\US008_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\US009_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\US010_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\US011_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\US012_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\US014_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\US015_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\US016_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\US017_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_Others\US019_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_UK\UK001_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_UK\UK001_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_UK\UK002_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_UK\UK002_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_UK\UK003_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_UK\UK003_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_UK\UK004_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_UK\UK004_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_UK\UK005_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_UK\UK005_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_UK\UK006_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_UK\UK006_DNT.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_UK\UK007_CN.cs" />
+    <Compile Include="_TestScripts_2020_Mar\_TestScripts_UK\UK007_DNT.cs" />
+    <Compile Include="_ThirdParty\MyFarPoint.cs" />
+    <Compile Include="_UIMaps\2DCashFlowOptions.cs">
+      <DependentUpon>2DCashFlowOptions.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\2DCashFlowOptions.Designer.cs">
+      <DependentUpon>2DCashFlowOptions.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\415Limits.cs" />
+    <Compile Include="_UIMaps\415Limits.Designer.cs" />
+    <Compile Include="_UIMaps\ActuarialEquivalence.cs" />
+    <Compile Include="_UIMaps\ActuarialEquivalence.Designer.cs">
+      <DependentUpon>ActuarialEquivalence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\ActuarialReport.cs" />
+    <Compile Include="_UIMaps\ActuarialReport.Designer.cs">
+      <DependentUpon>ActuarialReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Adjustments.cs" />
+    <Compile Include="_UIMaps\Adjustments.Designer.cs" />
+    <Compile Include="_UIMaps\Age.cs" />
+    <Compile Include="_UIMaps\Age.Designer.cs">
+      <DependentUpon>Age.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\AnnualFundingNotice.cs" />
+    <Compile Include="_UIMaps\AnnualFundingNotice.Designer.cs">
+      <DependentUpon>AnnualFundingNotice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\ASC960Reconciliation.cs" />
+    <Compile Include="_UIMaps\ASC960Reconciliation.Designer.cs">
+      <DependentUpon>ASC960Reconciliation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Assets.cs" />
+    <Compile Include="_UIMaps\Assets.Designer.cs">
+      <DependentUpon>Assets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\AssumedRetirementAge.cs" />
+    <Compile Include="_UIMaps\AssumedRetirementAge.Designer.cs">
+      <DependentUpon>AssumedRetirementAge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Assumptions.cs" />
+    <Compile Include="_UIMaps\Assumptions.Designer.cs">
+      <DependentUpon>Assumptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\AverageYMPE.cs">
+      <DependentUpon>AverageYMPE.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\AverageYMPE.Designer.cs">
+      <DependentUpon>AverageYMPE.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\BenefitElections.cs" />
+    <Compile Include="_UIMaps\BenefitElections.Designer.cs">
+      <DependentUpon>BenefitElections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\BreakFieldTextSubstitution.cs">
+      <DependentUpon>BreakFieldTextSubstitution.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\BreakFieldTextSubstitution.Designer.cs">
+      <DependentUpon>BreakFieldTextSubstitution.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\CareerAverageEarmingsFormula.cs" />
+    <Compile Include="_UIMaps\CareerAverageEarmingsFormula.Designer.cs">
+      <DependentUpon>CareerAverageEarmingsFormula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\CashBalance.cs">
+      <DependentUpon>CashBalance.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\CashBalance.Designer.cs">
+      <DependentUpon>CashBalance.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\CommunicationFactors.cs">
+      <DependentUpon>CommunicationFactors.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\CommunicationFactors.Designer.cs">
+      <DependentUpon>CommunicationFactors.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Commutation.cs">
+      <DependentUpon>Commutation.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Commutation.Designer.cs">
+      <DependentUpon>Commutation.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\CommutationFormula.cs" />
+    <Compile Include="_UIMaps\CommutationFormula.Designer.cs">
+      <DependentUpon>CommutationFormula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\ContractualRetirementAge.cs" />
+    <Compile Include="_UIMaps\ContractualRetirementAge.Designer.cs" />
+    <Compile Include="_UIMaps\ContributionsBasedFormula.cs" />
+    <Compile Include="_UIMaps\ContributionsBasedFormula.Designer.cs">
+      <DependentUpon>ContributionsBasedFormula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\ConversionFactors.cs" />
+    <Compile Include="_UIMaps\ConversionFactors.Designer.cs" />
+    <Compile Include="_UIMaps\CostOfLivingAdjustments.cs" />
+    <Compile Include="_UIMaps\CostOfLivingAdjustments.Designer.cs">
+      <DependentUpon>CostOfLivingAdjustments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\CostOfLivingAdjustments_UK.cs">
+      <DependentUpon>CostOfLivingAdjustments_UK.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\CostOfLivingAdjustments_UK.Designer.cs">
+      <DependentUpon>CostOfLivingAdjustments_UK.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\CustomRate.cs" />
+    <Compile Include="_UIMaps\CustomRate.Designer.cs">
+      <DependentUpon>CustomRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Data.cs" />
+    <Compile Include="_UIMaps\Data.Designer.cs">
+      <DependentUpon>Data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\DataSummaryFields.cs" />
+    <Compile Include="_UIMaps\DataSummaryFields.Designer.cs">
+      <DependentUpon>DataSummaryFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\DefinedBenefitLimitIncrease.cs" />
+    <Compile Include="_UIMaps\DefinedBenefitLimitIncrease.Designer.cs" />
+    <Compile Include="_UIMaps\EarlyRetirementFactor.cs" />
+    <Compile Include="_UIMaps\EarlyRetirementFactor.Designer.cs">
+      <DependentUpon>EarlyRetirementFactor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Eligibilities.cs" />
+    <Compile Include="_UIMaps\Eligibilities.Designer.cs">
+      <DependentUpon>Eligibilities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\EmployeeContributionsFormula.cs">
+      <DependentUpon>EmployeeContributionsFormula.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\EmployeeContributionsFormula.Designer.cs">
+      <DependentUpon>EmployeeContributionsFormula.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\ExcessContributionDefinition.cs">
+      <DependentUpon>ExcessContributionDefinition.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\ExcessContributionDefinition.Designer.cs">
+      <DependentUpon>ExcessContributionDefinition.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\FAEFormula.cs" />
+    <Compile Include="_UIMaps\FAEFormula.Designer.cs">
+      <DependentUpon>FAEFormula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\FarPoint.cs" />
+    <Compile Include="_UIMaps\FarPoint.Designer.cs" />
+    <Compile Include="_UIMaps\FlatAmountAccumulation.cs" />
+    <Compile Include="_UIMaps\FlatAmountAccumulation.Designer.cs">
+      <DependentUpon>FlatAmountAccumulation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\FormOfPayment.cs" />
+    <Compile Include="_UIMaps\FormOfPayment.Designer.cs" />
+    <Compile Include="_UIMaps\FormOfPayment_DE.cs">
+      <DependentUpon>FormOfPayment_DE.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\FormOfPayment_DE.Designer.cs">
+      <DependentUpon>FormOfPayment_DE.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\FromToAge.cs" />
+    <Compile Include="_UIMaps\FromToAge.Designer.cs">
+      <DependentUpon>FromToAge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\FundingInformation.cs" />
+    <Compile Include="_UIMaps\FundingInformation.Designer.cs">
+      <DependentUpon>FundingInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\FundingInformation_ASOP51.cs" />
+    <Compile Include="_UIMaps\FundingInformation_ASOP51.Designer.cs">
+      <DependentUpon>FundingInformation_ASOP51.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\FundingInformation_ContributionSummary.cs" />
+    <Compile Include="_UIMaps\FundingInformation_ContributionSummary.Designer.cs" />
+    <Compile Include="_UIMaps\FundingInformation_FTAPs.cs" />
+    <Compile Include="_UIMaps\FundingInformation_FTAPs.Designer.cs" />
+    <Compile Include="_UIMaps\FundingInformation_PYR_PreliminaryResults.cs" />
+    <Compile Include="_UIMaps\FundingInformation_PYR_PreliminaryResults.Designer.cs" />
+    <Compile Include="_UIMaps\FundingInformation_PYR_SummaryView.cs" />
+    <Compile Include="_UIMaps\FundingInformation_PYR_SummaryView.Designer.cs">
+      <DependentUpon>FundingInformation_PYR_SummaryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\FundingInformation_Shortfall.cs" />
+    <Compile Include="_UIMaps\FundingInformation_Shortfall.Designer.cs" />
+    <Compile Include="_UIMaps\FundingInformation_UK.cs" />
+    <Compile Include="_UIMaps\FundingInformation_UK.Designer.cs">
+      <DependentUpon>FundingInformation_UK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\FutureValuationOption.cs" />
+    <Compile Include="_UIMaps\FutureValuationOption.Designer.cs">
+      <DependentUpon>FutureValuationOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\GMPAdjustmentFactors.cs">
+      <DependentUpon>GMPAdjustmentFactors.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\GMPAdjustmentFactors.Designer.cs">
+      <DependentUpon>GMPAdjustmentFactors.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\InactiveBenefitPayment.cs">
+      <DependentUpon>InactiveBenefitPayment.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\InactiveBenefitPayment.Designer.cs">
+      <DependentUpon>InactiveBenefitPayment.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\IndividualOuputFieldDefinition.cs">
+      <DependentUpon>IndividualOuputFieldDefinition.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\IndividualOuputFieldDefinition.Designer.cs">
+      <DependentUpon>IndividualOuputFieldDefinition.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Inflation.cs">
+      <DependentUpon>Inflation.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Inflation.Designer.cs">
+      <DependentUpon>Inflation.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\InterestRate.cs" />
+    <Compile Include="_UIMaps\InterestRate.Designer.cs">
+      <DependentUpon>InterestRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\ITAMaximumPensions.cs">
+      <DependentUpon>ITAMaximumPensions.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\ITAMaximumPensions.Designer.cs">
+      <DependentUpon>ITAMaximumPensions.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\JubileeBenefit.cs" />
+    <Compile Include="_UIMaps\JubileeBenefit.Designer.cs" />
+    <Compile Include="_UIMaps\LateRetirementFactors.cs" />
+    <Compile Include="_UIMaps\LateRetirementFactors.Designer.cs">
+      <DependentUpon>LateRetirementFactors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Main.cs" />
+    <Compile Include="_UIMaps\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\MaxPensionDefinition.cs">
+      <DependentUpon>MaxPensionDefinition.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\MaxPensionDefinition.Designer.cs">
+      <DependentUpon>MaxPensionDefinition.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Methods.cs" />
+    <Compile Include="_UIMaps\Methods.Designer.cs">
+      <DependentUpon>Methods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Methods_DE.cs">
+      <DependentUpon>Methods_DE.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Methods_DE.Designer.cs">
+      <DependentUpon>Methods_DE.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Methods_UK.cs">
+      <DependentUpon>Methods_UK.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Methods_UK.Designer.cs">
+      <DependentUpon>Methods_UK.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\MortalityDecrement.cs" />
+    <Compile Include="_UIMaps\MortalityDecrement.Designer.cs">
+      <DependentUpon>MortalityDecrement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\NonTranchedBenefitPlanDefinition.cs">
+      <DependentUpon>NonTranchedBenefitPlanDefinition.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\NonTranchedBenefitPlanDefinition.Designer.cs">
+      <DependentUpon>NonTranchedBenefitPlanDefinition.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\OneYearProjection.cs" />
+    <Compile Include="_UIMaps\OneYearProjection.Designer.cs">
+      <DependentUpon>OneYearProjection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\OtherDemographicAssumptions.cs" />
+    <Compile Include="_UIMaps\OtherDemographicAssumptions.Designer.cs">
+      <DependentUpon>OtherDemographicAssumptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\OtherEconomicAssumption.cs" />
+    <Compile Include="_UIMaps\OtherEconomicAssumption.Designer.cs">
+      <DependentUpon>OtherEconomicAssumption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\OutputManager.cs" />
+    <Compile Include="_UIMaps\OutputManager.Designer.cs">
+      <DependentUpon>OutputManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\ParticipantDataSet.cs" />
+    <Compile Include="_UIMaps\ParticipantDataSet.Designer.cs">
+      <DependentUpon>ParticipantDataSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\PayAverage.cs" />
+    <Compile Include="_UIMaps\PayAverage.Designer.cs">
+      <DependentUpon>PayAverage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\PayCredit.cs">
+      <DependentUpon>PayCredit.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\PayCredit.Designer.cs">
+      <DependentUpon>PayCredit.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\PayIncrease.cs" />
+    <Compile Include="_UIMaps\PayIncrease.Designer.cs">
+      <DependentUpon>PayIncrease.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\PayoutProjection.cs" />
+    <Compile Include="_UIMaps\PayoutProjection.Designer.cs">
+      <DependentUpon>PayoutProjection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\PayoutProjectionByParticipant.cs">
+      <DependentUpon>PayoutProjectionByParticipant.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\PayoutProjectionByParticipant.Designer.cs">
+      <DependentUpon>PayoutProjectionByParticipant.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\PBGCDollarMax.cs" />
+    <Compile Include="_UIMaps\PBGCDollarMax.Designer.cs">
+      <DependentUpon>PBGCDollarMax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\PBGCPlanTerminationDefinition.cs" />
+    <Compile Include="_UIMaps\PBGCPlanTerminationDefinition.Designer.cs">
+      <DependentUpon>PBGCPlanTerminationDefinition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\PlanDefinition.cs" />
+    <Compile Include="_UIMaps\PlanDefinition.Designer.cs">
+      <DependentUpon>PlanDefinition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\PlanDefinition_DE.cs" />
+    <Compile Include="_UIMaps\PlanDefinition_DE.Designer.cs">
+      <DependentUpon>PlanDefinition_DE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\ProjectAndProrate.cs">
+      <DependentUpon>ProjectAndProrate.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\ProjectAndProrate.Designer.cs">
+      <DependentUpon>ProjectAndProrate.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\ReportBreaks.cs">
+      <DependentUpon>ReportBreaks.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\ReportBreaks.Designer.cs">
+      <DependentUpon>ReportBreaks.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Service.cs" />
+    <Compile Include="_UIMaps\Service.Designer.cs">
+      <DependentUpon>Service.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\ServiceSelection.cs">
+      <DependentUpon>ServiceSelection.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\ServiceSelection.Designer.cs">
+      <DependentUpon>ServiceSelection.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\SocialSecurity.cs" />
+    <Compile Include="_UIMaps\SocialSecurity.Designer.cs">
+      <DependentUpon>SocialSecurity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\SocialSecurityContributionCeilings.cs" />
+    <Compile Include="_UIMaps\SocialSecurityContributionCeilings.Designer.cs">
+      <DependentUpon>SocialSecurityContributionCeilings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\SocialSecurityContributionRates.cs">
+      <DependentUpon>SocialSecurityContributionRates.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\SocialSecurityContributionRates.Designer.cs">
+      <DependentUpon>SocialSecurityContributionRates.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\SocialSecurityCoveredCompFormula.cs">
+      <DependentUpon>SocialSecurityCoveredCompFormula.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\SocialSecurityCoveredCompFormula.Designer.cs">
+      <DependentUpon>SocialSecurityCoveredCompFormula.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\SocialSecurityPIAFormula.cs" />
+    <Compile Include="_UIMaps\SocialSecurityPIAFormula.Designer.cs">
+      <DependentUpon>SocialSecurityPIAFormula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\SpecialEligibilities.cs" />
+    <Compile Include="_UIMaps\SpecialEligibilities.Designer.cs" />
+    <Compile Include="_UIMaps\TableManager.cs" />
+    <Compile Include="_UIMaps\TableManager.Designer.cs">
+      <DependentUpon>TableManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\TestCaseLibrary.cs" />
+    <Compile Include="_UIMaps\TestCaseLibrary.Designer.cs">
+      <DependentUpon>TestCaseLibrary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\TranchedBenefit.cs">
+      <DependentUpon>TranchedBenefit.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\TranchedBenefit.Designer.cs">
+      <DependentUpon>TranchedBenefit.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\TranchedBenefitPlanDefinition.cs">
+      <DependentUpon>TranchedBenefitPlanDefinition.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\TranchedBenefitPlanDefinition.Designer.cs">
+      <DependentUpon>TranchedBenefitPlanDefinition.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\TrancheDefinition.cs">
+      <DependentUpon>TrancheDefinition.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\TrancheDefinition.Designer.cs">
+      <DependentUpon>TrancheDefinition.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\UnitFormula.cs" />
+    <Compile Include="_UIMaps\UnitFormula.Designer.cs">
+      <DependentUpon>UnitFormula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\UserDefinedProjectionA.cs">
+      <DependentUpon>UserDefinedProjectionA.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\UserDefinedProjectionA.Designer.cs">
+      <DependentUpon>UserDefinedProjectionA.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\ValuationProcessControl.cs" />
+    <Compile Include="_UIMaps\ValuationProcessControl.Designer.cs">
+      <DependentUpon>ValuationProcessControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Versorgungsausgleich.cs" />
+    <Compile Include="_UIMaps\Versorgungsausgleich.Designer.cs">
+      <DependentUpon>Versorgungsausgleich.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_UIMaps\Vesting.cs" />
+    <Compile Include="_UIMaps\Vesting.Designer.cs" />
+    <Compile Include="_UIMaps_MDDS\External.cs" />
+    <Compile Include="_UIMaps_MDDS\External.Designer.cs" />
+    <Compile Include="_UIMaps_MDDS\Internal.cs" />
+    <Compile Include="_UIMaps_MDDS\Internal.Designer.cs" />
+    <Compile Include="_UIMaps_MDDS\Internal_Step1.cs" />
+    <Compile Include="_UIMaps_MDDS\Internal_Step1.Designer.cs" />
+    <Compile Include="_UIMaps_MDDS\Internal_Step2.cs" />
+    <Compile Include="_UIMaps_MDDS\Internal_Step2.Designer.cs" />
+    <Compile Include="_UIMaps_MDDS\Login.cs" />
+    <Compile Include="_UIMaps_MDDS\Login.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UIMap.uitest" />
+    <None Include="_UIMaps\2DCashFlowOptions.uitest" />
+    <None Include="_UIMaps\415Limits.uitest" />
+    <None Include="_UIMaps\ActuarialEquivalence.uitest" />
+    <None Include="_UIMaps\ActuarialReport.uitest" />
+    <None Include="_UIMaps\Adjustments.uitest" />
+    <None Include="_UIMaps\Age.uitest" />
+    <None Include="_UIMaps\AnnualFundingNotice.uitest" />
+    <None Include="_UIMaps\ASC960Reconciliation.uitest" />
+    <None Include="_UIMaps\Assets.uitest" />
+    <None Include="_UIMaps\AssumedRetirementAge.uitest" />
+    <None Include="_UIMaps\Assumptions.uitest" />
+    <None Include="_UIMaps\AverageYMPE.uitest" />
+    <None Include="_UIMaps\BenefitElections.uitest" />
+    <None Include="_UIMaps\BreakFieldTextSubstitution.uitest" />
+    <None Include="_UIMaps\CareerAverageEarmingsFormula.uitest" />
+    <None Include="_UIMaps\CashBalance.uitest" />
+    <None Include="_UIMaps\CommunicationFactors.uitest" />
+    <None Include="_UIMaps\Commutation.uitest" />
+    <None Include="_UIMaps\CommutationFormula.uitest" />
+    <None Include="_UIMaps\ContractualRetirementAge.uitest" />
+    <None Include="_UIMaps\ContributionsBasedFormula.uitest" />
+    <None Include="_UIMaps\ConversionFactors.uitest" />
+    <None Include="_UIMaps\CostOfLivingAdjustments.uitest" />
+    <None Include="_UIMaps\CostOfLivingAdjustments_UK.uitest" />
+    <None Include="_UIMaps\CustomRate.uitest" />
+    <None Include="_UIMaps\Data.uitest" />
+    <None Include="_UIMaps\DataSummaryFields.uitest" />
+    <None Include="_UIMaps\DefinedBenefitLimitIncrease.uitest" />
+    <None Include="_UIMaps\EarlyRetirementFactor.uitest" />
+    <None Include="_UIMaps\Eligibilities.uitest" />
+    <None Include="_UIMaps\EmployeeContributionsFormula.uitest" />
+    <None Include="_UIMaps\ExcessContributionDefinition.uitest" />
+    <None Include="_UIMaps\FAEFormula.uitest" />
+    <None Include="_UIMaps\FarPoint.uitest" />
+    <None Include="_UIMaps\FlatAmountAccumulation.uitest" />
+    <None Include="_UIMaps\FormOfPayment.uitest" />
+    <None Include="_UIMaps\FormOfPayment_DE.uitest" />
+    <None Include="_UIMaps\FromToAge.uitest" />
+    <None Include="_UIMaps\FundingInformation.uitest" />
+    <None Include="_UIMaps\FundingInformation_ASOP51.uitest" />
+    <None Include="_UIMaps\FundingInformation_ContributionSummary.uitest" />
+    <None Include="_UIMaps\FundingInformation_FTAPs.uitest" />
+    <None Include="_UIMaps\FundingInformation_PYR_PreliminaryResults.uitest" />
+    <None Include="_UIMaps\FundingInformation_PYR_SummaryView.uitest" />
+    <None Include="_UIMaps\FundingInformation_Shortfall.uitest" />
+    <None Include="_UIMaps\FundingInformation_UK.uitest" />
+    <None Include="_UIMaps\FutureValuationOption.uitest" />
+    <None Include="_UIMaps\GMPAdjustmentFactors.uitest" />
+    <None Include="_UIMaps\InactiveBenefitPayment.uitest" />
+    <None Include="_UIMaps\IndividualOuputFieldDefinition.uitest" />
+    <None Include="_UIMaps\Inflation.uitest" />
+    <None Include="_UIMaps\InterestRate.uitest" />
+    <None Include="_UIMaps\ITAMaximumPensions.uitest" />
+    <None Include="_UIMaps\JubileeBenefit.uitest" />
+    <None Include="_UIMaps\LateRetirementFactors.uitest" />
+    <None Include="_UIMaps\Main.uitest" />
+    <None Include="_UIMaps\MaxPensionDefinition.uitest" />
+    <None Include="_UIMaps\Methods.uitest" />
+    <None Include="_UIMaps\Methods_DE.uitest" />
+    <None Include="_UIMaps\Methods_UK.uitest" />
+    <None Include="_UIMaps\MortalityDecrement.uitest" />
+    <None Include="_UIMaps\NonTranchedBenefitPlanDefinition.uitest" />
+    <None Include="_UIMaps\OneYearProjection.uitest" />
+    <None Include="_UIMaps\OtherDemographicAssumptions.uitest" />
+    <None Include="_UIMaps\OtherEconomicAssumption.uitest" />
+    <None Include="_UIMaps\OutputManager.uitest" />
+    <None Include="_UIMaps\ParticipantDataSet.uitest" />
+    <None Include="_UIMaps\PayAverage.uitest" />
+    <None Include="_UIMaps\PayCredit.uitest" />
+    <None Include="_UIMaps\PayIncrease.uitest" />
+    <None Include="_UIMaps\PayoutProjection.uitest" />
+    <None Include="_UIMaps\PayoutProjectionByParticipant.uitest" />
+    <None Include="_UIMaps\PBGCDollarMax.uitest" />
+    <None Include="_UIMaps\PBGCPlanTerminationDefinition.uitest" />
+    <None Include="_UIMaps\PlanDefinition.uitest" />
+    <None Include="_UIMaps\PlanDefinition_DE.uitest" />
+    <None Include="_UIMaps\ProjectAndProrate.uitest" />
+    <None Include="_UIMaps\ReportBreaks.uitest" />
+    <None Include="_UIMaps\Service.uitest" />
+    <None Include="_UIMaps\ServiceSelection.uitest" />
+    <None Include="_UIMaps\SocialSecurity.uitest" />
+    <None Include="_UIMaps\SocialSecurityContributionCeilings.uitest" />
+    <None Include="_UIMaps\SocialSecurityContributionRates.uitest" />
+    <None Include="_UIMaps\SocialSecurityCoveredCompFormula.uitest" />
+    <None Include="_UIMaps\SocialSecurityPIAFormula.uitest" />
+    <None Include="_UIMaps\SpecialEligibilities.uitest" />
+    <None Include="_UIMaps\TableManager.uitest" />
+    <None Include="_UIMaps\TestCaseLibrary.uitest" />
+    <None Include="_UIMaps\TranchedBenefit.uitest" />
+    <None Include="_UIMaps\TranchedBenefitPlanDefinition.uitest" />
+    <None Include="_UIMaps\TrancheDefinition.uitest" />
+    <None Include="_UIMaps\UnitFormula.uitest" />
+    <None Include="_UIMaps\UserDefinedProjectionA.uitest" />
+    <None Include="_UIMaps\ValuationProcessControl.uitest" />
+    <None Include="_UIMaps\Versorgungsausgleich.uitest" />
+    <None Include="_UIMaps\Vesting.uitest" />
+    <None Include="_UIMaps_MDDS\External.uitest" />
+    <None Include="_UIMaps_MDDS\Internal.uitest" />
+    <None Include="_UIMaps_MDDS\Internal_Step1.uitest" />
+    <None Include="_UIMaps_MDDS\Internal_Step2.uitest" />
+    <None Include="_UIMaps_MDDS\Login.uitest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="_Documents\" />
+    <Folder Include="_Reports\_ScreenCapture\" />
+    <Folder Include="_TestData\" />
+    <Folder Include="_TestLog\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Accessibility">
+      <Guid>{1EA4DBF0-3C3B-11CF-810C-00AA00389B71}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="_Reports\TempReportsDir.txt" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' Or '$(VisualStudioVersion)' == '11.0') And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="UIAutomationTypes" />
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

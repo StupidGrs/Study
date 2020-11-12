@@ -1,0 +1,23 @@
+### This is the temp file to store reports directory, it is under _Reports folder ###
+
+sOutputFunding_Converson2010 = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Funding\Conversion 2010\20200408_DevCurrent\";
+sOutputFunding_Valuation2011_Baseline = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Funding\Valuation 2011\Baseline\20200408_DevCurrent\";
+sOutputFunding_Valuation2011_FVclosedgroup = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Funding\Valuation 2011\FV closed group\20200408_DevCurrent\";
+sOutputFunding_Valuation2011_Countsonlyretirementdec = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Funding\Valuation 2011\Counts only retirement dec\20200408_DevCurrent\";
+sOutputFunding_Valuation2011_Projectwithgroup = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Funding\Valuation 2011\Project with group\20200408_DevCurrent\";
+sOutputFunding_Valuation2011_Groupsforreportsnotpop = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Funding\Valuation 2011\Groups for reports not pop\20200408_DevCurrent\";
+sOutputFunding_Valuation2011_Secondoptiongroups = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Funding\Valuation 2011\Second option groups\20200408_DevCurrent\";
+sOutputFunding_Valuation2011_LevelpopulationandMultipleDx = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Funding\Valuation 2011\Level population and Multiple Dx\20200408_DevCurrent\";
+sOutputFunding_Valuation2011_ClosedGroupregulardecrements = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Funding\Valuation 2011\Closed Group regular decrements\20200408_DevCurrent\";
+sOutputFunding_Valuation2011_Countsregrlardecrements = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Funding\Valuation 2011\Counts regrlar decrements\20200408_DevCurrent\";
+sOutputFunding_Valuation2011_Groupprojections = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Funding\Valuation 2011\Group projections\20200408_DevCurrent\";
+sOutputFunding_Valuation2011_Reportgroupsnotpop = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Funding\Valuation 2011\Report groups not pop\20200408_DevCurrent\";
+sOutputFunding_Valuation2011_SecondOptionforgroups = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Funding\Valuation 2011\Second Option for groups\20200408_DevCurrent\";
+sOutputFunding_Valuation2011_ChangeprovisionsforFV = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Funding\Valuation 2011\Change provisions for FV\20200408_DevCurrent\";
+sOutputAccounting_Conversion2010 = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Accounting\Conversion 2010\20200408_DevCurrent\";
+sOutputAccounting_Accounting2011_Baseline = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Accounting\Accounting 2011\Baseline\20200408_DevCurrent\";
+sOutputAccounting_Accounting2011_FVwithSVCamtCG = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Accounting\Accounting 2011\FV with SVC amt CG\20200408_DevCurrent\";
+sOutputAccounting_Accounting2011_Projandvalassmptsdiff = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Accounting\Accounting 2011\Proj and val assmpts diff\20200408_DevCurrent\";
+sOutputAccounting_Accounting2011_AddNewEntrants = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Accounting\Accounting 2011\Add New Entrants\20200408_DevCurrent\";
+sOutputAccounting_Accounting2011_NEswithtestcriteria = @"\\mercer.com\US_Data\Shared\Dfl\Data1\RSS\SQA\RETIRE_STUDIO_BENCHMARK REPORTS\QA_BM_015_FutVal\CreateNew\Accounting\Accounting 2011\NEs with test criteria\20200408_DevCurrent\";
+

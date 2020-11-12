@@ -1,0 +1,871 @@
+STEP: Function <_SelectTab> Starts:
+STEP: 			Function <_Enabled> is going to check if object <RetirementStudio> is enabled.
+PASS: 			Function <_Enabled>: object <RetirementStudio> is enabled.
+STEP: 			Function <_TabPageSelectWin> is going to select tab page <Home>.
+STEP: 			Function <_Exists> is going to check if object <Home> exists.
+PASS: 			Function <_Exists>: object <Home> exists.
+STEP: 			Function <_Enabled> is going to check if object <Home> is enabled.
+PASS: 			Function <_Enabled>: object <Home> is enabled.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Tab>.
+STEP: 			Function <_Exists> is going to check if object <Tab> exists.
+PASS: 			Function <_Exists>: object <Tab> exists.
+STEP: 			Function <_Enabled> is going to check if object <Tab> is enabled.
+PASS: 			Function <_Enabled>: object <Tab> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Tab>.
+STEP: 			Function <_TabPageSelectWin> successfully select tab page <Home>.
+STEP: Function <_SelectTab> Ends:
+STEP: Function <_HomeTreeViewSelect> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <QA US Benchmark 007 Existing DNT> to object <ClientName>.
+STEP: 			Function <_Exists> is going to check if object <ClientName> exists.
+PASS: 			Function <_Exists>: object <ClientName> exists.
+STEP: 			Function <_Enabled> is going to check if object <ClientName> is enabled.
+PASS: 			Function <_Enabled>: object <ClientName> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <QA US Benchmark 007 Existing DNT> to object <ClientName>.
+STEP: 			Function <_Exists> is going to check if object <PMTools> exists.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Left}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Left}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Left}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Left}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Left}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Left}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Left}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Left}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Left}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Left}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Right}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Right}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Right}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Right}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Right}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Right}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Right}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Right}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Right}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Right}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Down}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Down}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Down}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Down}> to object <Window: Services>.
+STEP: Function <_HomeTreeViewSelect> Ends:
+STEP: Function <_PopVerify_Home_RightPane> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <AddServiceInstance>.
+STEP: 			Function <_Exists> is going to check if object <AddServiceInstance> exists.
+PASS: 			Function <_Exists>: object <AddServiceInstance> exists.
+STEP: 			Function <_Enabled> is going to check if object <AddServiceInstance> is enabled.
+PASS: 			Function <_Enabled>: object <AddServiceInstance> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <AddServiceInstance>.
+STEP: Function <_PopVerify_Home_RightPane> Ends:
+STEP: Function <_PopVerify_Home_ServicePropeties> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <Funding 2006-20200518> to object <Name>.
+STEP: 			Function <_Exists> is going to check if object <Name> exists.
+PASS: 			Function <_Exists>: object <Name> exists.
+STEP: 			Function <_Enabled> is going to check if object <Name> is enabled.
+PASS: 			Function <_Enabled>: object <Name> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Funding 2006-20200518> to object <Name>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Funding 2005> to object <Parent>.
+STEP: 			Function <_Exists> is going to check if object <Parent> exists.
+PASS: 			Function <_Exists>: object <Parent> exists.
+STEP: 			Function <_Enabled> is going to check if object <Parent> is enabled.
+PASS: 			Function <_Enabled>: object <Parent> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Funding 2005> to object <Parent>.
+STEP: 		Function <_SetSyncUDWin> is going to set <2006> to object <PlanYearBeginningIn>.
+STEP: 			Function <_Exists> is going to check if object <PlanYearBeginningIn> exists.
+PASS: 			Function <_Exists>: object <PlanYearBeginningIn> exists.
+STEP: 			Function <_Enabled> is going to check if object <PlanYearBeginningIn> is enabled.
+PASS: 			Function <_Enabled>: object <PlanYearBeginningIn> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <2006> to object <PlanYearBeginningIn>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <OK>.
+STEP: 			Function <_Exists> is going to check if object <OK> exists.
+PASS: 			Function <_Exists>: object <OK> exists.
+STEP: 			Function <_Enabled> is going to check if object <OK> is enabled.
+PASS: 			Function <_Enabled>: object <OK> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <OK>.
+STEP: 			Function <_Enabled> is going to check if object <FundingCalculatorNotRunComplete_OK> is enabled.
+STEP: Function <_SelectTab> Starts:
+STEP: 			Function <_Enabled> is going to check if object <RetirementStudio> is enabled.
+PASS: 			Function <_Enabled>: object <RetirementStudio> is enabled.
+STEP: 			Function <_TabPageSelectWin> is going to select tab page <Home>.
+STEP: 			Function <_Exists> is going to check if object <Home> exists.
+PASS: 			Function <_Exists>: object <Home> exists.
+STEP: 			Function <_Enabled> is going to check if object <Home> is enabled.
+PASS: 			Function <_Enabled>: object <Home> is enabled.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Tab>.
+STEP: 			Function <_Exists> is going to check if object <Tab> exists.
+PASS: 			Function <_Exists>: object <Tab> exists.
+STEP: 			Function <_Enabled> is going to check if object <Tab> is enabled.
+PASS: 			Function <_Enabled>: object <Tab> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Tab>.
+STEP: 			Function <_TabPageSelectWin> successfully select tab page <Home>.
+STEP: Function <_SelectTab> Ends:
+STEP: Function <_HomeTreeViewSelect> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <QA US Benchmark 007 Existing DNT> to object <ClientName>.
+STEP: 			Function <_Exists> is going to check if object <ClientName> exists.
+PASS: 			Function <_Exists>: object <ClientName> exists.
+STEP: 			Function <_Enabled> is going to check if object <ClientName> is enabled.
+PASS: 			Function <_Enabled>: object <ClientName> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <QA US Benchmark 007 Existing DNT> to object <ClientName>.
+STEP: 			Function <_Exists> is going to check if object <PMTools> exists.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Left}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Left}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Left}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Left}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Left}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Left}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Left}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Left}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Left}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Left}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Right}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Right}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Right}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Right}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Right}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Right}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Right}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Right}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Right}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Right}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Down}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Down}> to object <Window: Services>.
+STEP: 		Function <_SendKeysUDWin> is going to send Keys <{Down}> to object <Window: Services>.
+STEP: 			Function <_Exists> is going to check if object <Services> exists.
+PASS: 			Function <_Exists>: object <Services> exists.
+STEP: 			Function <_Enabled> is going to check if object <Services> is enabled.
+PASS: 			Function <_Enabled>: object <Services> is enabled.
+STEP: 		Function <_SendKeysUDWin> finish send Keys <{Down}> to object <Window: Services>.
+STEP: Function <_HomeTreeViewSelect> Ends:
+STEP: Function <_PopVerify_Home_RightPane> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <AddServiceInstance>.
+STEP: 			Function <_Exists> is going to check if object <AddServiceInstance> exists.
+PASS: 			Function <_Exists>: object <AddServiceInstance> exists.
+STEP: 			Function <_Enabled> is going to check if object <AddServiceInstance> is enabled.
+PASS: 			Function <_Enabled>: object <AddServiceInstance> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <AddServiceInstance>.
+STEP: Function <_PopVerify_Home_RightPane> Ends:
+STEP: Function <_PopVerify_Home_ServicePropeties> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <Funding 2006> to object <Name>.
+STEP: 			Function <_Exists> is going to check if object <Name> exists.
+PASS: 			Function <_Exists>: object <Name> exists.
+STEP: 			Function <_Enabled> is going to check if object <Name> is enabled.
+PASS: 			Function <_Enabled>: object <Name> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Funding 2006> to object <Name>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Funding 2005> to object <Parent>.
+STEP: 			Function <_Exists> is going to check if object <Parent> exists.
+PASS: 			Function <_Exists>: object <Parent> exists.
+STEP: 			Function <_Enabled> is going to check if object <Parent> is enabled.
+PASS: 			Function <_Enabled>: object <Parent> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Funding 2005> to object <Parent>.
+STEP: 		Function <_SetSyncUDWin> is going to set <2006> to object <PlanYearBeginningIn>.
+STEP: 			Function <_Exists> is going to check if object <PlanYearBeginningIn> exists.
+PASS: 			Function <_Exists>: object <PlanYearBeginningIn> exists.
+STEP: 			Function <_Enabled> is going to check if object <PlanYearBeginningIn> is enabled.
+PASS: 			Function <_Enabled>: object <PlanYearBeginningIn> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <2006> to object <PlanYearBeginningIn>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <OK>.
+STEP: 			Function <_Exists> is going to check if object <OK> exists.
+PASS: 			Function <_Exists>: object <OK> exists.
+STEP: 			Function <_Enabled> is going to check if object <OK> is enabled.
+PASS: 			Function <_Enabled>: object <OK> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <OK>.
+STEP: 			Function <_Enabled> is going to check if object <FundingCalculatorNotRunComplete_OK> is enabled.
+STEP: Function <_SelectTab> Starts:
+STEP: 			Function <_Enabled> is going to check if object <RetirementStudio> is enabled.
+PASS: 			Function <_Enabled>: object <RetirementStudio> is enabled.
+STEP: 			Function <_TabPageSelectWin> is going to select tab page <Home>.
+STEP: 			Function <_Exists> is going to check if object <Home> exists.
+PASS: 			Function <_Exists>: object <Home> exists.
+STEP: 			Function <_Enabled> is going to check if object <Home> is enabled.
+PASS: 			Function <_Enabled>: object <Home> is enabled.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Tab>.
+STEP: 			Function <_Exists> is going to check if object <Tab> exists.
+PASS: 			Function <_Exists>: object <Tab> exists.
+STEP: 			Function <_Enabled> is going to check if object <Tab> is enabled.
+PASS: 			Function <_Enabled>: object <Tab> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Tab>.
+STEP: 			Function <_TabPageSelectWin> successfully select tab page <Home>.
+STEP: Function <_SelectTab> Ends:
+STEP: Function <_PopVerify_Home_RightPane> Starts:
+STEP: Function <_SelectTab> Starts:
+STEP: 			Function <_Enabled> is going to check if object <RetirementStudio> is enabled.
+PASS: 			Function <_Enabled>: object <RetirementStudio> is enabled.
+STEP: 			Function <_TabPageSelectWin> is going to select tab page <Home>.
+STEP: 			Function <_Exists> is going to check if object <Home> exists.
+PASS: 			Function <_Exists>: object <Home> exists.
+STEP: 			Function <_Enabled> is going to check if object <Home> is enabled.
+PASS: 			Function <_Enabled>: object <Home> is enabled.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Tab>.
+STEP: 			Function <_Exists> is going to check if object <Tab> exists.
+PASS: 			Function <_Exists>: object <Tab> exists.
+STEP: 			Function <_Enabled> is going to check if object <Tab> is enabled.
+PASS: 			Function <_Enabled>: object <Tab> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Tab>.
+STEP: 			Function <_TabPageSelectWin> successfully select tab page <Home>.
+STEP: Function <_SelectTab> Ends:
+STEP: 			Function <_Exists> is going to check if object <DropDown Menu Parent Win> exists.
+PASS: 			Function <_Exists>: object <DropDown Menu Parent Win> exists.
+STEP: 			Function <_MenuSelectWin> is going to select tree item <Service Notes->>.
+STEP: 			Function <_Exists> is going to check if object <Menu Parent> exists.
+PASS: 			Function <_Exists>: object <Menu Parent> exists.
+STEP: 			Function <_Exists> is going to check if object <Service Notes> exists.
+PASS: 			Function <_Exists>: object <Service Notes> exists.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Service Notes>.
+STEP: 			Function <_Exists> is going to check if object <Service Notes> exists.
+PASS: 			Function <_Exists>: object <Service Notes> exists.
+STEP: 			Function <_Enabled> is going to check if object <Service Notes> is enabled.
+PASS: 			Function <_Enabled>: object <Service Notes> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Service Notes>.
+STEP: 			Function <_MenuSelectWin> successfully select Menu item <Service Notes->>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <ServiceNotes>.
+STEP: 			Function <_Exists> is going to check if object <ServiceNotes> exists.
+PASS: 			Function <_Exists>: object <ServiceNotes> exists.
+STEP: 			Function <_Enabled> is going to check if object <ServiceNotes> is enabled.
+PASS: 			Function <_Enabled>: object <ServiceNotes> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <ServiceNotes>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Home - Right Pane>.
+STEP: 			Function <_Exists> is going to check if object <Home - Right Pane> exists.
+PASS: 			Function <_Exists>: object <Home - Right Pane> exists.
+STEP: 			Function <_Enabled> is going to check if object <Home - Right Pane> is enabled.
+PASS: 			Function <_Enabled>: object <Home - Right Pane> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Home - Right Pane>.
+STEP: 			Function <_Exists> is going to check if object <Parent Node PFVS Modified> exists.
+STEP: 			Function <_Exists> is going to check if object <Confirm> exists.
+STEP: 			Function <_Exists> is going to check if object <Snapshot Republished> exists.
+STEP: Function <_SelectTab> Starts:
+STEP: 			Function <_Enabled> is going to check if object <RetirementStudio> is enabled.
+PASS: 			Function <_Enabled>: object <RetirementStudio> is enabled.
+STEP: 			Function <_TabPageSelectWin> is going to select tab page <Home>.
+STEP: 			Function <_Exists> is going to check if object <Home> exists.
+PASS: 			Function <_Exists>: object <Home> exists.
+STEP: 			Function <_Enabled> is going to check if object <Home> is enabled.
+PASS: 			Function <_Enabled>: object <Home> is enabled.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Tab>.
+STEP: 			Function <_Exists> is going to check if object <Tab> exists.
+PASS: 			Function <_Exists>: object <Tab> exists.
+STEP: 			Function <_Enabled> is going to check if object <Tab> is enabled.
+PASS: 			Function <_Enabled>: object <Tab> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Tab>.
+STEP: 			Function <_TabPageSelectWin> successfully select tab page <Home>.
+STEP: Function <_SelectTab> Ends:
+STEP: 			Function <_Exists> is going to check if object <Funding 2006> exists.
+PASS: 			Function <_Exists>: object <Funding 2006> exists.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Tab>.
+STEP: 			Function <_Exists> is going to check if object <Tab> exists.
+PASS: 			Function <_Exists>: object <Tab> exists.
+STEP: 			Function <_Enabled> is going to check if object <Tab> is enabled.
+PASS: 			Function <_Enabled>: object <Tab> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Tab>.
+STEP: Function <_PopVerify_Home_RightPane> Ends:
+STEP: Function <_SelectTab> Starts:
+STEP: 			Function <_Enabled> is going to check if object <RetirementStudio> is enabled.
+PASS: 			Function <_Enabled>: object <RetirementStudio> is enabled.
+STEP: 			Function <_TabPageSelectWin> is going to select tab page <Funding 2006>.
+STEP: 			Function <_Exists> is going to check if object <Funding 2006> exists.
+PASS: 			Function <_Exists>: object <Funding 2006> exists.
+STEP: 			Function <_Enabled> is going to check if object <Funding 2006> is enabled.
+PASS: 			Function <_Enabled>: object <Funding 2006> is enabled.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Tab>.
+STEP: 			Function <_Exists> is going to check if object <Tab> exists.
+PASS: 			Function <_Exists>: object <Tab> exists.
+STEP: 			Function <_Enabled> is going to check if object <Tab> is enabled.
+PASS: 			Function <_Enabled>: object <Tab> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Tab>.
+STEP: 			Function <_TabPageSelectWin> successfully select tab page <Funding 2006>.
+STEP: Function <_SelectTab> Ends:
+STEP: Function <_Home_FlowTreeRightSelect> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Flow Tree>.
+STEP: 			Function <_Exists> is going to check if object <Flow Tree> exists.
+PASS: 			Function <_Exists>: object <Flow Tree> exists.
+STEP: 			Function <_Enabled> is going to check if object <Flow Tree> is enabled.
+PASS: 			Function <_Enabled>: object <Flow Tree> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Flow Tree>.
+STEP: 			Function <_MenuSelectWin> is going to select tree item <Roll Forward->>.
+STEP: 			Function <_Exists> is going to check if object <Menu Parent> exists.
+PASS: 			Function <_Exists>: object <Menu Parent> exists.
+STEP: 			Function <_Exists> is going to check if object <Roll Forward> exists.
+PASS: 			Function <_Exists>: object <Roll Forward> exists.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Roll Forward>.
+STEP: 			Function <_Exists> is going to check if object <Roll Forward> exists.
+PASS: 			Function <_Exists>: object <Roll Forward> exists.
+STEP: 			Function <_Enabled> is going to check if object <Roll Forward> is enabled.
+PASS: 			Function <_Enabled>: object <Roll Forward> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Roll Forward>.
+STEP: 			Function <_MenuSelectWin> successfully select Menu item <Roll Forward->>.
+STEP: Function <_Home_FlowTreeRightSelect> Ends:
+STEP: Function <_PopVerify_ValuationNodeProperties> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <True> to object <Data_AddNew>.
+STEP: 			Function <_Exists> is going to check if object <Data_AddNew> exists.
+PASS: 			Function <_Exists>: object <Data_AddNew> exists.
+STEP: 			Function <_Enabled> is going to check if object <Data_AddNew> is enabled.
+PASS: 			Function <_Enabled>: object <Data_AddNew> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <True> to object <Data_AddNew>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Data2006> to object <Data_Name>.
+STEP: 			Function <_Exists> is going to check if object <Data_Name> exists.
+PASS: 			Function <_Exists>: object <Data_Name> exists.
+STEP: 			Function <_Enabled> is going to check if object <Data_Name> is enabled.
+PASS: 			Function <_Enabled>: object <Data_Name> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Data2006> to object <Data_Name>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <OK>.
+STEP: 			Function <_Exists> is going to check if object <OK> exists.
+PASS: 			Function <_Exists>: object <OK> exists.
+STEP: 			Function <_Enabled> is going to check if object <OK> is enabled.
+PASS: 			Function <_Enabled>: object <OK> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <OK>.
+STEP: Function <_PopVerify_ValuationNodeProperties> Ends:
+STEP: Function <_SelectTab> Starts:
+STEP: 			Function <_Enabled> is going to check if object <RetirementStudio> is enabled.
+PASS: 			Function <_Enabled>: object <RetirementStudio> is enabled.
+STEP: 			Function <_TabPageSelectWin> is going to select tab page <Funding 2006>.
+STEP: 			Function <_Exists> is going to check if object <Funding 2006> exists.
+PASS: 			Function <_Exists>: object <Funding 2006> exists.
+STEP: 			Function <_Enabled> is going to check if object <Funding 2006> is enabled.
+PASS: 			Function <_Enabled>: object <Funding 2006> is enabled.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Tab>.
+STEP: 			Function <_Exists> is going to check if object <Tab> exists.
+PASS: 			Function <_Exists>: object <Tab> exists.
+STEP: 			Function <_Enabled> is going to check if object <Tab> is enabled.
+PASS: 			Function <_Enabled>: object <Tab> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Tab>.
+STEP: 			Function <_TabPageSelectWin> successfully select tab page <Funding 2006>.
+STEP: Function <_SelectTab> Ends:
+STEP: Function <_Home_FlowTreeRightSelect> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Flow Tree>.
+STEP: 			Function <_Exists> is going to check if object <Flow Tree> exists.
+PASS: 			Function <_Exists>: object <Flow Tree> exists.
+STEP: 			Function <_Enabled> is going to check if object <Flow Tree> is enabled.
+PASS: 			Function <_Enabled>: object <Flow Tree> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Flow Tree>.
+STEP: 			Function <_MenuSelectWin> is going to select tree item <Data->Edit Parameters->>.
+STEP: 			Function <_Exists> is going to check if object <Menu Parent> exists.
+PASS: 			Function <_Exists>: object <Menu Parent> exists.
+STEP: 			Function <_Exists> is going to check if object <Data> exists.
+PASS: 			Function <_Exists>: object <Data> exists.
+STEP: 			Function <_Exists> is going to check if object <Edit Parameters> exists.
+PASS: 			Function <_Exists>: object <Edit Parameters> exists.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Edit Parameters>.
+STEP: 			Function <_Exists> is going to check if object <Edit Parameters> exists.
+PASS: 			Function <_Exists>: object <Edit Parameters> exists.
+STEP: 			Function <_Enabled> is going to check if object <Edit Parameters> is enabled.
+PASS: 			Function <_Enabled>: object <Edit Parameters> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Edit Parameters>.
+STEP: 			Function <_MenuSelectWin> successfully select Menu item <Data->Edit Parameters->>.
+STEP: Function <_Home_FlowTreeRightSelect> Ends:
+STEP: Function <_SelectTab> Starts:
+STEP: 			Function <_Enabled> is going to check if object <RetirementStudio> is enabled.
+PASS: 			Function <_Enabled>: object <RetirementStudio> is enabled.
+STEP: 			Function <_TabPageSelectWin> is going to select tab page <Participant DataSet>.
+STEP: 			Function <_Exists> is going to check if object <Participant DataSet> exists.
+PASS: 			Function <_Exists>: object <Participant DataSet> exists.
+STEP: 			Function <_Enabled> is going to check if object <Participant DataSet> is enabled.
+PASS: 			Function <_Enabled>: object <Participant DataSet> is enabled.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Tab>.
+STEP: 			Function <_Exists> is going to check if object <Tab> exists.
+PASS: 			Function <_Exists>: object <Tab> exists.
+STEP: 			Function <_Enabled> is going to check if object <Tab> is enabled.
+PASS: 			Function <_Enabled>: object <Tab> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Tab>.
+STEP: 			Function <_TabPageSelectWin> successfully select tab page <Participant DataSet>.
+STEP: Function <_SelectTab> Ends:
+STEP: Function <_PopVerify_ParticipantDataSet> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <True> to object <Snapshot>.
+STEP: 			Function <_Exists> is going to check if object <Snapshot> exists.
+PASS: 			Function <_Exists>: object <Snapshot> exists.
+STEP: 			Function <_Enabled> is going to check if object <Snapshot> is enabled.
+PASS: 			Function <_Enabled>: object <Snapshot> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <True> to object <Snapshot>.
+STEP: Function <_PopVerify_ParticipantDataSet> Ends:
+STEP: Function <_PopVerify_ParticipantDataSet> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <GotoDataSystem>.
+STEP: 			Function <_Exists> is going to check if object <GotoDataSystem> exists.
+PASS: 			Function <_Exists>: object <GotoDataSystem> exists.
+STEP: 			Function <_Enabled> is going to check if object <GotoDataSystem> is enabled.
+PASS: 			Function <_Enabled>: object <GotoDataSystem> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <GotoDataSystem>.
+STEP: Function <_PopVerify_ParticipantDataSet> Ends:
+STEP: Function <_PopVerify_SelectSnapshotDefinition> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <Snapshot2006> to object <Snapshot2006>.
+STEP: 			Function <_Exists> is going to check if object <Snapshot2006> exists.
+PASS: 			Function <_Exists>: object <Snapshot2006> exists.
+STEP: 			Function <_Enabled> is going to check if object <Snapshot2006> is enabled.
+PASS: 			Function <_Enabled>: object <Snapshot2006> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Snapshot2006> to object <Snapshot2006>. Because value: <Snapshot2006> is alrady selected in the list
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <OK>.
+STEP: 			Function <_Exists> is going to check if object <OK> exists.
+PASS: 			Function <_Exists>: object <OK> exists.
+STEP: 			Function <_Enabled> is going to check if object <OK> is enabled.
+PASS: 			Function <_Enabled>: object <OK> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <OK>.
+STEP: 		Function <_SetSyncUDWin> is going to set <True> to object <KeepFieldMappings>.
+STEP: 			Function <_Exists> is going to check if object <KeepFieldMappings> exists.
+PASS: 			Function <_Exists>: object <KeepFieldMappings> exists.
+STEP: 			Function <_Enabled> is going to check if object <KeepFieldMappings> is enabled.
+PASS: 			Function <_Enabled>: object <KeepFieldMappings> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <True> to object <KeepFieldMappings>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <ImportSnapshot_OK>.
+STEP: 			Function <_Exists> is going to check if object <ImportSnapshot_OK> exists.
+PASS: 			Function <_Exists>: object <ImportSnapshot_OK> exists.
+STEP: 			Function <_Enabled> is going to check if object <ImportSnapshot_OK> is enabled.
+PASS: 			Function <_Enabled>: object <ImportSnapshot_OK> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <ImportSnapshot_OK>.
+STEP: Function <_PopVerify_SelectSnapshotDefinition> Ends:
+STEP: Function <_PopVerify_ParticipantDataSet> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <False> to object <CompareData>.
+STEP: 			Function <_Exists> is going to check if object <CompareData> exists.
+PASS: 			Function <_Exists>: object <CompareData> exists.
+STEP: 			Function <_Enabled> is going to check if object <CompareData> is enabled.
+PASS: 			Function <_Enabled>: object <CompareData> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <False> to object <CompareData>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <ImportDataandApplyMapping>.
+STEP: 			Function <_Exists> is going to check if object <ImportDataandApplyMapping> exists.
+PASS: 			Function <_Exists>: object <ImportDataandApplyMapping> exists.
+STEP: 			Function <_Enabled> is going to check if object <ImportDataandApplyMapping> is enabled.
+PASS: 			Function <_Enabled>: object <ImportDataandApplyMapping> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <ImportDataandApplyMapping>.
+STEP: 			Function <_Exists> is going to check if object <Data Import> exists.
+STEP: 			Function <_Exists> is going to check if object <Data Import> exists.
+STEP: 			Function <_Exists> is going to check if object <Wait For Studio Exists!> exists.
+PASS: 			Function <_Exists>: object <Wait For Studio Exists!> exists.
+STEP: 			Function <_Enabled> is going to check if object <Wait For Studio Enable!> is enabled.
+PASS: 			Function <_Enabled>: object <Wait For Studio Enable!> is enabled.
+STEP: Function <_PopVerify_ParticipantDataSet> Ends:
+STEP: Function <_SelectTab> Starts:
+STEP: 			Function <_Enabled> is going to check if object <RetirementStudio> is enabled.
+PASS: 			Function <_Enabled>: object <RetirementStudio> is enabled.
+STEP: 			Function <_TabPageSelectWin> is going to select tab page <Participant DataSet>.
+STEP: 			Function <_Exists> is going to check if object <Participant DataSet> exists.
+PASS: 			Function <_Exists>: object <Participant DataSet> exists.
+STEP: 			Function <_Enabled> is going to check if object <Participant DataSet> is enabled.
+PASS: 			Function <_Enabled>: object <Participant DataSet> is enabled.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Tab>.
+STEP: 			Function <_Exists> is going to check if object <Tab> exists.
+PASS: 			Function <_Exists>: object <Tab> exists.
+STEP: 			Function <_Enabled> is going to check if object <Tab> is enabled.
+PASS: 			Function <_Enabled>: object <Tab> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Tab>.
+STEP: 			Function <_TabPageSelectWin> successfully select tab page <Participant DataSet>.
+STEP: Function <_SelectTab> Ends:
+STEP: Function <_Home_ToolbarClick_Top> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Save>.
+STEP: 			Function <_Exists> is going to check if object <Save> exists.
+PASS: 			Function <_Exists>: object <Save> exists.
+STEP: 			Function <_Enabled> is going to check if object <Save> is enabled.
+PASS: 			Function <_Enabled>: object <Save> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Save>.
+STEP: Function <_Home_ToolbarClick_Top> Ends:
+STEP: Function <_Home_ToolbarClick_Top> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Close>.
+STEP: 			Function <_Exists> is going to check if object <Close> exists.
+PASS: 			Function <_Exists>: object <Close> exists.
+STEP: 			Function <_Enabled> is going to check if object <Close> is enabled.
+PASS: 			Function <_Enabled>: object <Close> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Close>.
+STEP: 			Function <_Exists> is going to check if object <Confirm Save> exists.
+STEP: Function <_Home_ToolbarClick_Top> Ends:
+STEP: Function <_SelectTab> Starts:
+STEP: 			Function <_Enabled> is going to check if object <RetirementStudio> is enabled.
+PASS: 			Function <_Enabled>: object <RetirementStudio> is enabled.
+STEP: 			Function <_TabPageSelectWin> is going to select tab page <Funding 2006>.
+STEP: 			Function <_Exists> is going to check if object <Funding 2006> exists.
+PASS: 			Function <_Exists>: object <Funding 2006> exists.
+STEP: 			Function <_Enabled> is going to check if object <Funding 2006> is enabled.
+PASS: 			Function <_Enabled>: object <Funding 2006> is enabled.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Tab>.
+STEP: 			Function <_Exists> is going to check if object <Tab> exists.
+PASS: 			Function <_Exists>: object <Tab> exists.
+STEP: 			Function <_Enabled> is going to check if object <Tab> is enabled.
+PASS: 			Function <_Enabled>: object <Tab> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Tab>.
+STEP: 			Function <_TabPageSelectWin> successfully select tab page <Funding 2006>.
+STEP: Function <_SelectTab> Ends:
+STEP: Function <_Home_FlowTreeRightSelect> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Flow Tree>.
+STEP: 			Function <_Exists> is going to check if object <Flow Tree> exists.
+PASS: 			Function <_Exists>: object <Flow Tree> exists.
+STEP: 			Function <_Enabled> is going to check if object <Flow Tree> is enabled.
+PASS: 			Function <_Enabled>: object <Flow Tree> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Flow Tree>.
+STEP: 			Function <_MenuSelectWin> is going to select tree item <Test Case->>.
+STEP: 			Function <_Exists> is going to check if object <Menu Parent> exists.
+PASS: 			Function <_Exists>: object <Menu Parent> exists.
+STEP: 			Function <_Exists> is going to check if object <Test Case> exists.
+PASS: 			Function <_Exists>: object <Test Case> exists.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Test Case>.
+STEP: 			Function <_Exists> is going to check if object <Test Case> exists.
+PASS: 			Function <_Exists>: object <Test Case> exists.
+STEP: 			Function <_Enabled> is going to check if object <Test Case> is enabled.
+PASS: 			Function <_Enabled>: object <Test Case> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Test Case>.
+STEP: 			Function <_MenuSelectWin> successfully select Menu item <Test Case->>.
+STEP: Function <_Home_FlowTreeRightSelect> Ends:
+STEP: Function <_SelectTab> Starts:
+STEP: 			Function <_Enabled> is going to check if object <RetirementStudio> is enabled.
+PASS: 			Function <_Enabled>: object <RetirementStudio> is enabled.
+STEP: 			Function <_TabPageSelectWin> is going to select tab page <Test Case Library>.
+STEP: 			Function <_Exists> is going to check if object <Test Case Library> exists.
+PASS: 			Function <_Exists>: object <Test Case Library> exists.
+STEP: 			Function <_Enabled> is going to check if object <Test Case Library> is enabled.
+PASS: 			Function <_Enabled>: object <Test Case Library> is enabled.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Tab>.
+STEP: 			Function <_Exists> is going to check if object <Tab> exists.
+PASS: 			Function <_Exists>: object <Tab> exists.
+STEP: 			Function <_Enabled> is going to check if object <Tab> is enabled.
+PASS: 			Function <_Enabled>: object <Tab> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Tab>.
+STEP: 			Function <_TabPageSelectWin> successfully select tab page <Test Case Library>.
+STEP: Function <_SelectTab> Ends:
+STEP: Function <_PopVerify_TestCaseLibrary> Starts:
+STEP: 		Function <_SetSyncUDWin_ByClipboard> is going to set <$emp.BirthDate="3/4/1956"> to object <Selection Criteria>.
+STEP: 			Function <_Exists> is going to check if object <Selection Criteria> exists.
+PASS: 			Function <_Exists>: object <Selection Criteria> exists.
+STEP: 			Function <_Enabled> is going to check if object <Selection Criteria> is enabled.
+PASS: 			Function <_Enabled>: object <Selection Criteria> is enabled.
+PASS: 		Function <_SetSyncUDWin_ByClipboard> successfully set <$emp.BirthDate="3/4/1956"> to object <Selection Criteria>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Apply>.
+STEP: 			Function <_Exists> is going to check if object <Apply> exists.
+PASS: 			Function <_Exists>: object <Apply> exists.
+STEP: 			Function <_Enabled> is going to check if object <Apply> is enabled.
+PASS: 			Function <_Enabled>: object <Apply> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Apply>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <>.
+STEP: 			Function <_Exists> is going to check if object <> exists.
+PASS: 			Function <_Exists>: object <> exists.
+STEP: 			Function <_Enabled> is going to check if object <> is enabled.
+PASS: 			Function <_Enabled>: object <> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Apply>.
+STEP: 			Function <_Exists> is going to check if object <Apply> exists.
+PASS: 			Function <_Exists>: object <Apply> exists.
+STEP: 			Function <_Enabled> is going to check if object <Apply> is enabled.
+PASS: 			Function <_Enabled>: object <Apply> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Apply>.
+STEP: Function <_PopVerify_TestCaseLibrary> Ends:
+STEP: Function <_PopVerify_TestCaseLibrary> Starts:
+STEP: 		Function <_SetSyncUDWin_ByClipboard> is going to set <$emp.BirthDate="7/14/1975"> to object <Selection Criteria>.
+STEP: 			Function <_Exists> is going to check if object <Selection Criteria> exists.
+PASS: 			Function <_Exists>: object <Selection Criteria> exists.
+STEP: 			Function <_Enabled> is going to check if object <Selection Criteria> is enabled.
+PASS: 			Function <_Enabled>: object <Selection Criteria> is enabled.
+PASS: 		Function <_SetSyncUDWin_ByClipboard> successfully set <$emp.BirthDate="7/14/1975"> to object <Selection Criteria>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Apply>.
+STEP: 			Function <_Exists> is going to check if object <Apply> exists.
+PASS: 			Function <_Exists>: object <Apply> exists.
+STEP: 			Function <_Enabled> is going to check if object <Apply> is enabled.
+PASS: 			Function <_Enabled>: object <Apply> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Apply>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <>.
+STEP: 			Function <_Exists> is going to check if object <> exists.
+PASS: 			Function <_Exists>: object <> exists.
+STEP: 			Function <_Enabled> is going to check if object <> is enabled.
+PASS: 			Function <_Enabled>: object <> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Apply>.
+STEP: 			Function <_Exists> is going to check if object <Apply> exists.
+PASS: 			Function <_Exists>: object <Apply> exists.
+STEP: 			Function <_Enabled> is going to check if object <Apply> is enabled.
+PASS: 			Function <_Enabled>: object <Apply> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Apply>.
+STEP: Function <_PopVerify_TestCaseLibrary> Ends:
+STEP: Function <_PopVerify_TestCaseLibrary> Starts:
+STEP: 		Function <_SetSyncUDWin_ByClipboard> is going to set <$emp.BirthDate="3/14/1964"> to object <Selection Criteria>.
+STEP: 			Function <_Exists> is going to check if object <Selection Criteria> exists.
+PASS: 			Function <_Exists>: object <Selection Criteria> exists.
+STEP: 			Function <_Enabled> is going to check if object <Selection Criteria> is enabled.
+PASS: 			Function <_Enabled>: object <Selection Criteria> is enabled.
+PASS: 		Function <_SetSyncUDWin_ByClipboard> successfully set <$emp.BirthDate="3/14/1964"> to object <Selection Criteria>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Apply>.
+STEP: 			Function <_Exists> is going to check if object <Apply> exists.
+PASS: 			Function <_Exists>: object <Apply> exists.
+STEP: 			Function <_Enabled> is going to check if object <Apply> is enabled.
+PASS: 			Function <_Enabled>: object <Apply> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Apply>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <>.
+STEP: 			Function <_Exists> is going to check if object <> exists.
+PASS: 			Function <_Exists>: object <> exists.
+STEP: 			Function <_Enabled> is going to check if object <> is enabled.
+PASS: 			Function <_Enabled>: object <> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Apply>.
+STEP: 			Function <_Exists> is going to check if object <Apply> exists.
+PASS: 			Function <_Exists>: object <Apply> exists.
+STEP: 			Function <_Enabled> is going to check if object <Apply> is enabled.
+PASS: 			Function <_Enabled>: object <Apply> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Apply>.
+STEP: Function <_PopVerify_TestCaseLibrary> Ends:
+STEP: Function <_SelectTab> Starts:
+STEP: 			Function <_Enabled> is going to check if object <RetirementStudio> is enabled.
+PASS: 			Function <_Enabled>: object <RetirementStudio> is enabled.
+STEP: 			Function <_TabPageSelectWin> is going to select tab page <Funding 2006>.
+STEP: 			Function <_Exists> is going to check if object <Funding 2006> exists.
+PASS: 			Function <_Exists>: object <Funding 2006> exists.
+STEP: 			Function <_Enabled> is going to check if object <Funding 2006> is enabled.
+PASS: 			Function <_Enabled>: object <Funding 2006> is enabled.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Tab>.
+STEP: 			Function <_Exists> is going to check if object <Tab> exists.
+PASS: 			Function <_Exists>: object <Tab> exists.
+STEP: 			Function <_Enabled> is going to check if object <Tab> is enabled.
+PASS: 			Function <_Enabled>: object <Tab> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Tab>.
+STEP: 			Function <_TabPageSelectWin> successfully select tab page <Funding 2006>.
+STEP: Function <_SelectTab> Ends:
+STEP: Function <_Home_FlowTreeRightSelect> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Flow Tree>.
+STEP: 			Function <_Exists> is going to check if object <Flow Tree> exists.
+PASS: 			Function <_Exists>: object <Flow Tree> exists.
+STEP: 			Function <_Enabled> is going to check if object <Flow Tree> is enabled.
+PASS: 			Function <_Enabled>: object <Flow Tree> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Flow Tree>.
+STEP: 			Function <_MenuSelectWin> is going to select tree item <Run->Liabilities->>.
+STEP: 			Function <_Exists> is going to check if object <Menu Parent> exists.
+PASS: 			Function <_Exists>: object <Menu Parent> exists.
+STEP: 			Function <_Exists> is going to check if object <Run> exists.
+PASS: 			Function <_Exists>: object <Run> exists.
+STEP: 			Function <_Exists> is going to check if object <Liabilities> exists.
+PASS: 			Function <_Exists>: object <Liabilities> exists.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Liabilities>.
+STEP: 			Function <_Exists> is going to check if object <Liabilities> exists.
+PASS: 			Function <_Exists>: object <Liabilities> exists.
+STEP: 			Function <_Enabled> is going to check if object <Liabilities> is enabled.
+PASS: 			Function <_Enabled>: object <Liabilities> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Liabilities>.
+STEP: 			Function <_MenuSelectWin> successfully select Menu item <Run->Liabilities->>.
+STEP: Function <_Home_FlowTreeRightSelect> Ends:
+STEP: Function <_PopVerify_RunOptions> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <True> to object <PPANotAtRiskLiabilityForMinimum>.
+STEP: 			Function <_Exists> is going to check if object <PPANotAtRiskLiabilityForMinimum> exists.
+PASS: 			Function <_Exists>: object <PPANotAtRiskLiabilityForMinimum> exists.
+STEP: 			Function <_Enabled> is going to check if object <PPANotAtRiskLiabilityForMinimum> is enabled.
+PASS: 			Function <_Enabled>: object <PPANotAtRiskLiabilityForMinimum> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <True> to object <PPANotAtRiskLiabilityForMinimum>.
+STEP: 		Function <_SetSyncUDWin> is going to set <True> to object <PPANotAtRiskLiabilityForMaximum>.
+STEP: 			Function <_Exists> is going to check if object <PPANotAtRiskLiabilityForMaximum> exists.
+PASS: 			Function <_Exists>: object <PPANotAtRiskLiabilityForMaximum> exists.
+STEP: 			Function <_Enabled> is going to check if object <PPANotAtRiskLiabilityForMaximum> is enabled.
+PASS: 			Function <_Enabled>: object <PPANotAtRiskLiabilityForMaximum> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <True> to object <PPANotAtRiskLiabilityForMaximum>.
+STEP: 		Function <_SetSyncUDWin> is going to set <True> to object <PPANotAtRishPresentValueOfVestedBenefits>.
+STEP: 			Function <_Exists> is going to check if object <PPANotAtRishPresentValueOfVestedBenefits> exists.
+PASS: 			Function <_Exists>: object <PPANotAtRishPresentValueOfVestedBenefits> exists.
+STEP: 			Function <_Enabled> is going to check if object <PPANotAtRishPresentValueOfVestedBenefits> is enabled.
+PASS: 			Function <_Enabled>: object <PPANotAtRishPresentValueOfVestedBenefits> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <True> to object <PPANotAtRishPresentValueOfVestedBenefits>.
+STEP: 		Function <_SetSyncUDWin> is going to set <True> to object <PBGCNotAtRiskPresentValueOfVestedBenefits>.
+STEP: 			Function <_Exists> is going to check if object <PBGCNotAtRiskPresentValueOfVestedBenefits> exists.
+PASS: 			Function <_Exists>: object <PBGCNotAtRiskPresentValueOfVestedBenefits> exists.
+STEP: 			Function <_Enabled> is going to check if object <PBGCNotAtRiskPresentValueOfVestedBenefits> is enabled.
+PASS: 			Function <_Enabled>: object <PBGCNotAtRiskPresentValueOfVestedBenefits> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <True> to object <PBGCNotAtRiskPresentValueOfVestedBenefits>.
+STEP: 		Function <_SetSyncUDWin> is going to set <True> to object <FAS35PresentValueOfAccumulatedBenefits>.
+STEP: 			Function <_Exists> is going to check if object <FAS35PresentValueOfAccumulatedBenefits> exists.
+PASS: 			Function <_Exists>: object <FAS35PresentValueOfAccumulatedBenefits> exists.
+STEP: 			Function <_Enabled> is going to check if object <FAS35PresentValueOfAccumulatedBenefits> is enabled.
+PASS: 			Function <_Enabled>: object <FAS35PresentValueOfAccumulatedBenefits> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <True> to object <FAS35PresentValueOfAccumulatedBenefits>.
+STEP: 		Function <_SetSyncUDWin> is going to set <True> to object <FAS35PresentValueOfVestedBenefits>.
+STEP: 			Function <_Exists> is going to check if object <FAS35PresentValueOfVestedBenefits> exists.
+PASS: 			Function <_Exists>: object <FAS35PresentValueOfVestedBenefits> exists.
+STEP: 			Function <_Enabled> is going to check if object <FAS35PresentValueOfVestedBenefits> is enabled.
+PASS: 			Function <_Enabled>: object <FAS35PresentValueOfVestedBenefits> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <True> to object <FAS35PresentValueOfVestedBenefits>.
+STEP: 		Function <_SetSyncUDWin> is going to set <True> to object <GL_PPANAR_Min>.
+STEP: 			Function <_Exists> is going to check if object <GL_PPANAR_Min> exists.
+PASS: 			Function <_Exists>: object <GL_PPANAR_Min> exists.
+STEP: 			Function <_Enabled> is going to check if object <GL_PPANAR_Min> is enabled.
+PASS: 			Function <_Enabled>: object <GL_PPANAR_Min> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <True> to object <GL_PPANAR_Min>.
+STEP: 		Function <_SetSyncUDWin> is going to set <True> to object <PayoutProjection>.
+STEP: 			Function <_Exists> is going to check if object <PayoutProjection> exists.
+PASS: 			Function <_Exists>: object <PayoutProjection> exists.
+STEP: 			Function <_Enabled> is going to check if object <PayoutProjection> is enabled.
+PASS: 			Function <_Enabled>: object <PayoutProjection> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <True> to object <PayoutProjection>.
+STEP: 		Function <_SetSyncUDWin> is going to set <True> to object <IncludeIOE>.
+STEP: 			Function <_Exists> is going to check if object <IncludeIOE> exists.
+PASS: 			Function <_Exists>: object <IncludeIOE> exists.
+STEP: 			Function <_Enabled> is going to check if object <IncludeIOE> is enabled.
+PASS: 			Function <_Enabled>: object <IncludeIOE> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <True> to object <IncludeIOE>.
+STEP: 		Function <_SetSyncUDWin> is going to set <True> to object <GenerateParameterPrint>.
+STEP: 			Function <_Exists> is going to check if object <GenerateParameterPrint> exists.
+PASS: 			Function <_Exists>: object <GenerateParameterPrint> exists.
+STEP: 			Function <_Enabled> is going to check if object <GenerateParameterPrint> is enabled.
+PASS: 			Function <_Enabled>: object <GenerateParameterPrint> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <True> to object <GenerateParameterPrint>.
+STEP: 		Function <_SetSyncUDWin> is going to set <True> to object <GenerateTestCaseOutput>.
+STEP: 			Function <_Exists> is going to check if object <GenerateTestCaseOutput> exists.
+PASS: 			Function <_Exists>: object <GenerateTestCaseOutput> exists.
+STEP: 			Function <_Enabled> is going to check if object <GenerateTestCaseOutput> is enabled.
+PASS: 			Function <_Enabled>: object <GenerateTestCaseOutput> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <True> to object <GenerateTestCaseOutput>.
+STEP: 			Function <_Exists> is going to check if object <CalcIncreCostSolvencyWindup> exists.
+STEP: 		Function <_SetSyncUDWin> is going to set <$Service> to object <Service>.
+STEP: 			Function <_Exists> is going to check if object <Service> exists.
+PASS: 			Function <_Exists>: object <Service> exists.
+STEP: 			Function <_Enabled> is going to check if object <Service> is enabled.
+PASS: 			Function <_Enabled>: object <Service> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <$Service> to object <Service>.
+STEP: 		Function <_SetSyncUDWin> is going to set <NewPayProjection1> to object <Pay>.
+STEP: 			Function <_Exists> is going to check if object <Pay> exists.
+PASS: 			Function <_Exists>: object <Pay> exists.
+STEP: 			Function <_Enabled> is going to check if object <Pay> is enabled.
+PASS: 			Function <_Enabled>: object <Pay> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <NewPayProjection1> to object <Pay>.
+STEP: 		Function <_SetSyncUDWin> is going to set <True> to object <CurrentYear>.
+STEP: 			Function <_Exists> is going to check if object <CurrentYear> exists.
+PASS: 			Function <_Exists>: object <CurrentYear> exists.
+STEP: 			Function <_Enabled> is going to check if object <CurrentYear> is enabled.
+PASS: 			Function <_Enabled>: object <CurrentYear> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <True> to object <CurrentYear>.
+STEP: 		Function <_SetSyncUDWin> is going to set <N/A> to object <CashBanlance>.
+STEP: 			Function <_Exists> is going to check if object <CashBanlance> exists.
+PASS: 			Function <_Exists>: object <CashBanlance> exists.
+STEP: 			Function <_Enabled> is going to check if object <CashBanlance> is enabled.
+PASS: 			Function <_Enabled>: object <CashBanlance> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <N/A> to object <CashBanlance>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Benefit1DB> to object <Pension>.
+STEP: 			Function <_Exists> is going to check if object <Pension> exists.
+PASS: 			Function <_Exists>: object <Pension> exists.
+STEP: 			Function <_Enabled> is going to check if object <Pension> is enabled.
+PASS: 			Function <_Enabled>: object <Pension> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Benefit1DB> to object <Pension>.
+STEP: Function <_PopVerify_RunOptions> Ends:
+STEP: Function <_SelectTab> Starts:
+STEP: 			Function <_Enabled> is going to check if object <RetirementStudio> is enabled.
+PASS: 			Function <_Enabled>: object <RetirementStudio> is enabled.
+STEP: 			Function <_TabPageSelectWin> is going to select tab page <Home>.
+STEP: 			Function <_Exists> is going to check if object <Home> exists.
+PASS: 			Function <_Exists>: object <Home> exists.
+STEP: 			Function <_Enabled> is going to check if object <Home> is enabled.
+PASS: 			Function <_Enabled>: object <Home> is enabled.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <Tab>.
+STEP: 			Function <_Exists> is going to check if object <Tab> exists.
+PASS: 			Function <_Exists>: object <Tab> exists.
+STEP: 			Function <_Enabled> is going to check if object <Tab> is enabled.
+PASS: 			Function <_Enabled>: object <Tab> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <Tab>.
+STEP: 			Function <_TabPageSelectWin> successfully select tab page <Home>.
+STEP: Function <_SelectTab> Ends:
+STEP: Function <_PopVerify_Home_RightPane> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <AddServiceInstance>.
+STEP: 			Function <_Exists> is going to check if object <AddServiceInstance> exists.
+PASS: 			Function <_Exists>: object <AddServiceInstance> exists.
+STEP: 			Function <_Enabled> is going to check if object <AddServiceInstance> is enabled.
+PASS: 			Function <_Enabled>: object <AddServiceInstance> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <AddServiceInstance>.
+STEP: Function <_PopVerify_Home_RightPane> Ends:
+STEP: Function <_PopVerify_Home_ServicePropeties> Starts:
+STEP: 		Function <_SetSyncUDWin> is going to set <Funding 2006> to object <Name>.
+STEP: 			Function <_Exists> is going to check if object <Name> exists.
+PASS: 			Function <_Exists>: object <Name> exists.
+STEP: 			Function <_Enabled> is going to check if object <Name> is enabled.
+PASS: 			Function <_Enabled>: object <Name> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Funding 2006> to object <Name>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Funding 2005> to object <Parent>.
+STEP: 			Function <_Exists> is going to check if object <Parent> exists.
+PASS: 			Function <_Exists>: object <Parent> exists.
+STEP: 			Function <_Enabled> is going to check if object <Parent> is enabled.
+PASS: 			Function <_Enabled>: object <Parent> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Funding 2005> to object <Parent>.
+STEP: 		Function <_SetSyncUDWin> is going to set <2006> to object <PlanYearBeginningIn>.
+STEP: 			Function <_Exists> is going to check if object <PlanYearBeginningIn> exists.
+PASS: 			Function <_Exists>: object <PlanYearBeginningIn> exists.
+STEP: 			Function <_Enabled> is going to check if object <PlanYearBeginningIn> is enabled.
+PASS: 			Function <_Enabled>: object <PlanYearBeginningIn> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <2006> to object <PlanYearBeginningIn>.
+STEP: 		Function <_SetSyncUDWin> is going to set <Click> to object <OK>.
+STEP: 			Function <_Exists> is going to check if object <OK> exists.
+PASS: 			Function <_Exists>: object <OK> exists.
+STEP: 			Function <_Enabled> is going to check if object <OK> is enabled.
+PASS: 			Function <_Enabled>: object <OK> is enabled.
+PASS: 		Function <_SetSyncUDWin> successfully set <Click> to object <OK>.
+STEP: 			Function <_Enabled> is going to check if object <FundingCalculatorNotRunComplete_OK> is enabled.
