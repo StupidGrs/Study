@@ -1,0 +1,590 @@
+<?xml version="1.0"?>
+<UITest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="" Id="3efe829a-76df-439e-af0d-8d5c62727a1e" AssemblyVersion="10.0.21008.0" Version="1.0" xmlns="http://schemas.microsoft.com/VisualStudio/TeamTest/UITest/2010">
+  <Configuration>
+    <Group Name="IE">
+      <Setting Name="Version" Value="8.0.6001.18702" WarningLevel="1" />
+      <Setting Name="InformationBar" WarningLevel="1" />
+      <Setting Name="AutoCompletePassword" WarningLevel="1" />
+      <Setting Name="AutoCompleteForm" WarningLevel="1" />
+      <Setting Name="DefaultBrowser" Value="IEXPLORE.EXE" WarningLevel="1" />
+      <Setting Name="PopupBlocker" Value="yes" WarningLevel="1" />
+      <Setting Name="TabbedBrowsing" WarningLevel="2" />
+      <Setting Name="InternetZoneSecurity" Value="66816" WarningLevel="2" />
+      <Setting Name="IntranetZoneSecurity" Value="69632" WarningLevel="2" />
+      <Setting Name="TrustedZoneSecurity" Value="73728" WarningLevel="2" />
+      <Setting Name="RestrictedZoneSecurity" Value="73728" WarningLevel="2" />
+      <Setting Name="PhishingFilter" WarningLevel="1" />
+      <Setting Name="EnhancedSecurityConfiguration" Value="1" WarningLevel="1" />
+    </Group>
+    <Group Name="OS">
+      <Setting Name="Name" Value="Microsoft(R) Windows(R) Server 2003, Standard Edition" WarningLevel="2" />
+      <Setting Name="Version" Value="Microsoft Windows NT 5.2.3790 Service Pack 2" WarningLevel="2" />
+      <Setting Name="IsUserAdmin" Value="True" WarningLevel="2" />
+      <Setting Name="Is64BitOperatingSystem" Value="False" WarningLevel="2" />
+      <Setting Name="IsTerminalServerSession" Value="True" WarningLevel="2" />
+      <Setting Name="OSLanguage" Value="1033" WarningLevel="1" />
+      <Setting Name="UserLocale" Value="4105" WarningLevel="1" />
+      <Setting Name="DragFullWindows" Value="False" WarningLevel="2" />
+      <Setting Name="ScreenResolutionWidth" Value="1024" WarningLevel="2" />
+      <Setting Name="ScreenResolutionHeight" Value="768" WarningLevel="2" />
+      <Setting Name="SystemDPIX" Value="96" WarningLevel="2" />
+      <Setting Name="SystemDPIY" Value="96" WarningLevel="2" />
+      <Setting Name="Aero" WarningLevel="1" />
+      <Setting Name="UACEnabled" WarningLevel="2" />
+      <Setting Name="UACPromptEnabled" WarningLevel="1" />
+      <Setting Name="WindowsAccessibilityAPIVersion" Value="3.0" WarningLevel="1" />
+    </Group>
+    <Group Name="TechnologyManagers">
+      <Setting Name="Web" WarningLevel="1" />
+      <Setting Name="UIA" WarningLevel="1" />
+      <Setting Name="Web" WarningLevel="1" />
+      <Setting Name="Silverlight" WarningLevel="1" />
+    </Group>
+  </Configuration>
+  <InitializeActions />
+  <ExecuteActions />
+  <CleanupActions />
+  <OnErrorActions />
+  <Maps>
+    <UIMap Id="External">
+      <TopLevelWindows>
+        <TopLevelWindow ControlType="Window" Id="wExternal" FriendlyName="Admin - Users - External - Windows Internet Explor..." SpecialControlType="BrowserWindow" SessionId="66196">
+          <TechnologyName>MSAA</TechnologyName>
+          <WindowTitles>
+            <WindowTitle>Admin - Users - External</WindowTitle>
+          </WindowTitles>
+          <SearchConfigurations>
+            <SearchConfiguration>VisibleOnly</SearchConfiguration>
+          </SearchConfigurations>
+          <AndCondition Id="SearchCondition">
+            <PropertyCondition Name="Name">Admin - Users - External</PropertyCondition>
+            <PropertyCondition Name="ClassName">IEFrame</PropertyCondition>
+            <PropertyCondition Name="ControlType">Window</PropertyCondition>
+          </AndCondition>
+          <SupportLevel>1</SupportLevel>
+          <Descendants>
+            <UIObject ControlType="Document" Id="pExternal" FriendlyName="Admin - Users - External" SpecialControlType="None">
+              <TechnologyName>Web</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>Admin - Users - External</WindowTitle>
+              </WindowTitles>
+              <AndCondition Id="SearchCondition">
+                <AndCondition Id="Primary">
+                  <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  <PropertyCondition Name="Id">Body</PropertyCondition>
+                  <PropertyCondition Name="TagName">BODY</PropertyCondition>
+                  <PropertyCondition Name="RedirectingPage">False</PropertyCondition>
+                  <PropertyCondition Name="FrameDocument">False</PropertyCondition>
+                </AndCondition>
+                <FilterCondition Id="Secondary">
+                  <PropertyCondition Name="Title">Admin - Users - External</PropertyCondition>
+                  <PropertyCondition Name="AbsolutePath">/DDSUS10LB/DDS/Administration/UserInformation/External/tabid/281/Default.aspx</PropertyCondition>
+                  <PropertyCondition Name="PageUrl">http://mddsqa.mercer.com/DDSUS10LB/DDS/Administration/UserInformation/External/tabid/281/Default.aspx</PropertyCondition>
+                </FilterCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Button" Id="btnAddUser" FriendlyName="Add new user" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Admin - Users - External</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="Id">dnn_ctr734_ExternalUser_imgbtnAdd</PropertyCondition>
+                      <PropertyCondition Name="Name">dnn$ctr734$ExternalUser$imgbtnAdd</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="DisplayText" />
+                      <PropertyCondition Name="Type">image</PropertyCondition>
+                      <PropertyCondition Name="Src">http://mddsqa.mercer.com/DDSUS10LB/DDS/DesktopModules/DDS_Users/Images/useradd.GIF</PropertyCondition>
+                      <PropertyCondition Name="Title">Add new user</PropertyCondition>
+                      <PropertyCondition Name="Class">icon_square</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">style="TEXT-ALIGN: center; BORDER-RIGHT-</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">42</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Button" Id="btnRemoveUser" FriendlyName="Remove selected user" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Admin - Users - External</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="Id">dnn_ctr734_ExternalUser_imgbtnRemove</PropertyCondition>
+                      <PropertyCondition Name="Name">dnn$ctr734$ExternalUser$imgbtnRemove</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="DisplayText" />
+                      <PropertyCondition Name="Type">image</PropertyCondition>
+                      <PropertyCondition Name="Src">http://mddsqa.mercer.com/DDSUS10LB/DDS/DesktopModules/DDS_Users/Images/userremove.GIF</PropertyCondition>
+                      <PropertyCondition Name="Title">Remove selected user</PropertyCondition>
+                      <PropertyCondition Name="Class">icon_square</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">style="BORDER-RIGHT-WIDTH: 0px; BORDER-T</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">43</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Button" Id="btnModifyUser" FriendlyName="Modify selected user" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Admin - Users - External</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="Id">dnn_ctr734_ExternalUser_imgbtnModify</PropertyCondition>
+                      <PropertyCondition Name="Name">dnn$ctr734$ExternalUser$imgbtnModify</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="DisplayText" />
+                      <PropertyCondition Name="Type">image</PropertyCondition>
+                      <PropertyCondition Name="Src">http://mddsqa.mercer.com/DDSUS10LB/DDS/DesktopModules/DDS_Users/Images/useredit.GIF</PropertyCondition>
+                      <PropertyCondition Name="Title">Modify selected user</PropertyCondition>
+                      <PropertyCondition Name="Class">icon_square</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">style="BORDER-RIGHT-WIDTH: 0px; BORDER-T</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">44</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Pane" Id="pnPane" FriendlyName="dnn_ctr734_ModuleContent" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Admin - Users - External</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Pane</PropertyCondition>
+                      <PropertyCondition Name="Id">dnn_ctr734_ModuleContent</PropertyCondition>
+                      <PropertyCondition Name="Name" />
+                      <PropertyCondition Name="TagName">DIV</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="InnerText">     
+
+External Web User Details
+Disp</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class" />
+                      <PropertyCondition Name="ControlDefinition">id=dnn_ctr734_ModuleContent</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">20</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants>
+                    <UIObject ControlType="Table" Id="tblUsers" FriendlyName="" SpecialControlType="None">
+                      <TechnologyName>Web</TechnologyName>
+                      <WindowTitles>
+                        <WindowTitle>Admin - Users - External</WindowTitle>
+                      </WindowTitles>
+                      <AndCondition Id="SearchCondition">
+                        <AndCondition Id="Primary">
+                          <PropertyCondition Name="ControlType">Table</PropertyCondition>
+                          <PropertyCondition Name="Id" />
+                          <PropertyCondition Name="Name" />
+                          <PropertyCondition Name="TagName">TABLE</PropertyCondition>
+                        </AndCondition>
+                        <FilterCondition Id="Secondary">
+                          <PropertyCondition Name="InnerText">Augustus (IM) Yeo augustusyeo@gmail.com </PropertyCondition>
+                          <PropertyCondition Name="ControlDefinition">width="100%"</PropertyCondition>
+                          <PropertyCondition Name="RowCount">9</PropertyCondition>
+                          <PropertyCondition Name="ColumnCount">4</PropertyCondition>
+                          <PropertyCondition Name="Class" />
+                          <PropertyCondition Name="TagInstance">17</PropertyCondition>
+                        </FilterCondition>
+                      </AndCondition>
+                      <SupportLevel>0</SupportLevel>
+                      <Descendants>
+                        <UIObject ControlType="Cell" Id="UIHaskinsMichelleCell" FriendlyName="Haskins Michelle" SpecialControlType="None">
+                          <TechnologyName>Web</TechnologyName>
+                          <WindowTitles>
+                            <WindowTitle>Admin - Users - External</WindowTitle>
+                          </WindowTitles>
+                          <AndCondition Id="SearchCondition">
+                            <AndCondition Id="Primary">
+                              <PropertyCondition Name="ControlType">Cell</PropertyCondition>
+                              <PropertyCondition Name="Id" />
+                              <PropertyCondition Name="Name" />
+                              <PropertyCondition Name="TagName">TD</PropertyCondition>
+                              <PropertyCondition Name="MaxDepth">3</PropertyCondition>
+                            </AndCondition>
+                            <FilterCondition Id="Secondary">
+                              <PropertyCondition Name="InnerText">Haskins Michelle </PropertyCondition>
+                              <PropertyCondition Name="ControlDefinition">style="WIDTH: 122px"</PropertyCondition>
+                              <PropertyCondition Name="RowIndex">2</PropertyCondition>
+                              <PropertyCondition Name="ColumnIndex">0</PropertyCondition>
+                              <PropertyCondition Name="Class" />
+                              <PropertyCondition Name="TagInstance">9</PropertyCondition>
+                            </FilterCondition>
+                          </AndCondition>
+                          <SupportLevel>0</SupportLevel>
+                          <Descendants />
+                        </UIObject>
+                      </Descendants>
+                    </UIObject>
+                  </Descendants>
+                </UIObject>
+                <UIObject ControlType="Button" Id="btnConfirmUserRemove_OK" FriendlyName="dnn$ctr734$ExternalUser$cfDelete$imgbtnOK" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Admin - Users - External</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="Id">dnn_ctr734_ExternalUser_cfDelete_imgbtnOK</PropertyCondition>
+                      <PropertyCondition Name="Name">dnn$ctr734$ExternalUser$cfDelete$imgbtnOK</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="DisplayText" />
+                      <PropertyCondition Name="Type">image</PropertyCondition>
+                      <PropertyCondition Name="Src">http://mddsqa.mercer.com/DDSUS10LB/DDS/Images_DDS/OK.gif</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">icon_rectangle_130_25</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">style="BORDER-RIGHT-WIDTH: 0px; BORDER-T</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">47</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Button" Id="btnConfirmUserRemove_Cancel" FriendlyName="dnn$ctr734$ExternalUser$cfDelete$imgbtnCancel" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Admin - Users - External</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="Id">dnn_ctr734_ExternalUser_cfDelete_imgbtnCancel</PropertyCondition>
+                      <PropertyCondition Name="Name">dnn$ctr734$ExternalUser$cfDelete$imgbtnCancel</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="DisplayText" />
+                      <PropertyCondition Name="Type">image</PropertyCondition>
+                      <PropertyCondition Name="Src">http://mddsqa.mercer.com/DDSUS10LB/DDS/Images_DDS/Cancel.gif</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">icon_rectangle_130_25</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">style="BORDER-RIGHT-WIDTH: 0px; BORDER-T</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">46</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+            <UIObject ControlType="Document" Id="pExternalStep2" FriendlyName="Admin - Users - External" SpecialControlType="None">
+              <TechnologyName>Web</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>Admin - Users - External</WindowTitle>
+              </WindowTitles>
+              <AndCondition Id="SearchCondition">
+                <AndCondition Id="Primary">
+                  <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  <PropertyCondition Name="Id">Body</PropertyCondition>
+                  <PropertyCondition Name="TagName">BODY</PropertyCondition>
+                  <PropertyCondition Name="RedirectingPage">False</PropertyCondition>
+                  <PropertyCondition Name="FrameDocument">False</PropertyCondition>
+                </AndCondition>
+                <FilterCondition Id="Secondary">
+                  <PropertyCondition Name="Title">Admin - Users - External</PropertyCondition>
+                  <PropertyCondition Name="AbsolutePath">/DDSUS10LB/DDS/Administration/UserInformation/External/tabid/281/ctl/AddExternalUser/mid/734/Default.aspx</PropertyCondition>
+                  <PropertyCondition Name="PageUrl">http://mddsqa.mercer.com/DDSUS10LB/DDS/Administration/UserInformation/External/tabid/281/ctl/AddExternalUser/mid/734/Default.aspx</PropertyCondition>
+                </FilterCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Edit" Id="txtFirstName" FriendlyName="dnn$ctr734$AddExternalUser$tbxFirstName" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Admin - Users - External</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="Id">dnn_ctr734_AddExternalUser_tbxFirstName</PropertyCondition>
+                      <PropertyCondition Name="Name">dnn$ctr734$AddExternalUser$tbxFirstName</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class" />
+                      <PropertyCondition Name="ControlDefinition">style="POSITION: relative; WIDTH: 96%" i</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">12</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="txtLastName" FriendlyName="dnn$ctr734$AddExternalUser$tbxLastName" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Admin - Users - External</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="Id">dnn_ctr734_AddExternalUser_tbxLastName</PropertyCondition>
+                      <PropertyCondition Name="Name">dnn$ctr734$AddExternalUser$tbxLastName</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class" />
+                      <PropertyCondition Name="ControlDefinition">style="POSITION: relative; WIDTH: 94%; T</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">13</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="txtEmailAddress" FriendlyName="dnn$ctr734$AddExternalUser$tbxEmail" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Admin - Users - External</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="Id">dnn_ctr734_AddExternalUser_tbxEmail</PropertyCondition>
+                      <PropertyCondition Name="Name">dnn$ctr734$AddExternalUser$tbxEmail</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class" />
+                      <PropertyCondition Name="ControlDefinition">style="POSITION: relative; WIDTH: 96%" i</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">14</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Edit" Id="txtCompanyName" FriendlyName="dnn$ctr734$AddExternalUser$tbxCompany" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Admin - Users - External</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                      <PropertyCondition Name="Id">dnn_ctr734_AddExternalUser_tbxCompany</PropertyCondition>
+                      <PropertyCondition Name="Name">dnn$ctr734$AddExternalUser$tbxCompany</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="LabeledBy" />
+                      <PropertyCondition Name="Type">SINGLELINE</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class" />
+                      <PropertyCondition Name="ControlDefinition">style="POSITION: relative; WIDTH: 96%" i</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">15</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="CheckBox" Id="UIIsuzuNorthAmericaCorCheckBox" FriendlyName="Isuzu North America Corporation &gt; Retirement Trust" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Admin - Users - External</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">CheckBox</PropertyCondition>
+                      <PropertyCondition Name="Id">dnn_ctr734_AddExternalUser_cblClientSchemes_0</PropertyCondition>
+                      <PropertyCondition Name="Name">dnn$ctr734$AddExternalUser$cblClientSchemes$0</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="Value">on</PropertyCondition>
+                      <PropertyCondition Name="LabeledBy">Isuzu North America Corporation &gt; Retirement Trust</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class" />
+                      <PropertyCondition Name="ControlDefinition">id=dnn_ctr734_AddExternalUser_cblClientS</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">16</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Button" Id="btnSubmit" FriendlyName="Submit" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Admin - Users - External</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="Id">dnn_ctr734_AddExternalUser_imgbtnSubmit</PropertyCondition>
+                      <PropertyCondition Name="Name">dnn$ctr734$AddExternalUser$imgbtnSubmit</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="DisplayText" />
+                      <PropertyCondition Name="Type">image</PropertyCondition>
+                      <PropertyCondition Name="Src">http://mddsqa.mercer.com/DDSUS10LB/DDS/Images_DDS/Submit.gif</PropertyCondition>
+                      <PropertyCondition Name="Title">Submit</PropertyCondition>
+                      <PropertyCondition Name="Class">icon_rectangle_130_25</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">style="BORDER-RIGHT-WIDTH: 0px; BORDER-T</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">11</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+            <UIObject ControlType="Document" Id="pExternalModify" FriendlyName="Admin - Users - External" SpecialControlType="None">
+              <TechnologyName>Web</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>Admin - Users - External</WindowTitle>
+              </WindowTitles>
+              <AndCondition Id="SearchCondition">
+                <AndCondition Id="Primary">
+                  <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  <PropertyCondition Name="Id">Body</PropertyCondition>
+                  <PropertyCondition Name="TagName">BODY</PropertyCondition>
+                  <PropertyCondition Name="RedirectingPage">False</PropertyCondition>
+                  <PropertyCondition Name="FrameDocument">False</PropertyCondition>
+                </AndCondition>
+                <FilterCondition Id="Secondary">
+                  <PropertyCondition Name="Title">Admin - Users - External</PropertyCondition>
+                  <PropertyCondition Name="AbsolutePath">/DDSUS10LB/DDS/Administration/UserInformation/External/tabid/281/ctl/AddExternalUser/mid/734/UserStagingGUID/5f7bfe6a-b47b-4917-beb9-e2c1d8f2632b/ModifyExternalUser/1/Default.aspx</PropertyCondition>
+                  <PropertyCondition Name="PageUrl">http://mddsqa.mercer.com/DDSUS10LB/DDS/Administration/UserInformation/External/tabid/281/ctl/AddExternalUser/mid/734/UserStagingGUID/5f7bfe6a-b47b-4917-beb9-e2c1d8f2632b/ModifyExternalUser/1/Default.aspx</PropertyCondition>
+                </FilterCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Button" Id="btnApproveReject" FriendlyName="Open Approval Popup" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Admin - Users - External</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="Id">dnn_ctr734_AddExternalUser_imgbtnApprove</PropertyCondition>
+                      <PropertyCondition Name="Name">dnn$ctr734$AddExternalUser$imgbtnApprove</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="DisplayText" />
+                      <PropertyCondition Name="Type">image</PropertyCondition>
+                      <PropertyCondition Name="Src">http://mddsqa.mercer.com/DDSUS10LB/DDS/Images_DDS/Approve.gif</PropertyCondition>
+                      <PropertyCondition Name="Title">Open Approval Popup</PropertyCondition>
+                      <PropertyCondition Name="Class">icon_rectangle_130_25</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">style="BORDER-RIGHT-WIDTH: 0px; BORDER-T</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">10</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Button" Id="btnApproveWin_Approve" FriendlyName="Approve pending items" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Admin - Users - External</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="Id">dnn_ctr734_AddExternalUser_ExternalUserApproval_btnApprove</PropertyCondition>
+                      <PropertyCondition Name="Name">dnn$ctr734$AddExternalUser$ExternalUserApproval$btnApprove</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="DisplayText" />
+                      <PropertyCondition Name="Type">image</PropertyCondition>
+                      <PropertyCondition Name="Src">http://mddsqa.mercer.com/DDSUS10LB/DDS/DesktopModules/DDS_Approval/Images/Approve.gif</PropertyCondition>
+                      <PropertyCondition Name="Title">Approve pending items</PropertyCondition>
+                      <PropertyCondition Name="Class">icon_rectangle_130_25</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">style="BORDER-RIGHT-WIDTH: 0px; BORDER-T</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">116</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Button" Id="btnApproveWin_Reject" FriendlyName="Reject pending items" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Admin - Users - External</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="Id">dnn_ctr734_AddExternalUser_ExternalUserApproval_btnReject</PropertyCondition>
+                      <PropertyCondition Name="Name">dnn$ctr734$AddExternalUser$ExternalUserApproval$btnReject</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="DisplayText" />
+                      <PropertyCondition Name="Type">image</PropertyCondition>
+                      <PropertyCondition Name="Src">http://mddsqa.mercer.com/DDSUS10LB/DDS/Images_DDS/Reject.gif</PropertyCondition>
+                      <PropertyCondition Name="Title">Reject pending items</PropertyCondition>
+                      <PropertyCondition Name="Class">icon_rectangle_130_25</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">style="BORDER-RIGHT-WIDTH: 0px; BORDER-T</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">117</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+                <UIObject ControlType="Button" Id="btnApprovePendingItem_OK" FriendlyName="dnn$ctr734$AddExternalUser$ExternalUserApproval$co..." SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>Admin - Users - External</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                      <PropertyCondition Name="Id">dnn_ctr734_AddExternalUser_ExternalUserApproval_confirmationApprove_imgbtnOK</PropertyCondition>
+                      <PropertyCondition Name="Name">dnn$ctr734$AddExternalUser$ExternalUserApproval$confirmationApprove$imgbtnOK</PropertyCondition>
+                      <PropertyCondition Name="TagName">INPUT</PropertyCondition>
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="DisplayText" />
+                      <PropertyCondition Name="Type">image</PropertyCondition>
+                      <PropertyCondition Name="Src">http://mddsqa.mercer.com/DDSUS10LB/DDS/Images_DDS/OK.gif</PropertyCondition>
+                      <PropertyCondition Name="Title" />
+                      <PropertyCondition Name="Class">icon_rectangle_130_25</PropertyCondition>
+                      <PropertyCondition Name="ControlDefinition">style="BORDER-RIGHT-WIDTH: 0px; BORDER-T</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">121</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+          </Descendants>
+        </TopLevelWindow>
+      </TopLevelWindows>
+    </UIMap>
+  </Maps>
+  <ValueMap>
+    <ParameterList />
+  </ValueMap>
+</UITest>
