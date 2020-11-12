@@ -1,0 +1,10 @@
+.idea/
+node_modules/
+reports/
+*.log
+package-lock.json
+storage.json
+failedScreenshots.json
+.vscode
+src/features/regression/Events/screenshots/
+src/features/screenshotsFeatures/screenshots/

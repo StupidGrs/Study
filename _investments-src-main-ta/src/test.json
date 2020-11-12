@@ -1,0 +1,33 @@
+{
+  "data": {
+    "orgSizeChanged": false,
+    "companies": [
+      {
+        "_id": "5d03e4fc4fb0fb00199b62d3",
+        "active": true,
+        "contractType": null,
+        "name": "autodataexadel Test 2",
+        "publicallyTraded": false,
+        "stockExchange": "",
+        "stockSymbol": "",
+        "stockCountry": "",
+        "website": "",
+        "streetAddress": "",
+        "city": "",
+        "state": "",
+        "postalCode": "",
+        "country": "AU",
+        "industries": [
+          {
+            "superSector": "HT",
+            "sector": "196",
+            "subSector": "2060"
+          }
+        ],
+        "secondIndustry": null,
+        "organizationProfileId": "5a994a869fa67600174cf857",
+        "campaignDataExists": false
+      }
+    ]
+  }
+}
